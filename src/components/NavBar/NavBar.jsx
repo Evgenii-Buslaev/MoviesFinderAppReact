@@ -1,17 +1,14 @@
 import ImageButton from "../../UI/ImageButton/ImageButton";
 import SearchBar from "../SearchBar/SearchBar";
+import LogoItem from "../LogoItem/LogoItem";
 
 import styles from "./NavBar.module.css";
-import logo from "../../icons/logo/logo.png";
 import user from "../../icons/profile/user.png";
 
 function NavBar() {
   return (
     <nav className={styles.navBarCont}>
-      <div className={styles.logoCont}>
-        <img src={logo} alt={logo}></img>
-        <h1>MOVIES</h1>
-      </div>
+      <LogoItem />
       <div className={styles.categories}>
         <button className={styles.navBtn}>Фильмы</button>
         <button className={styles.navBtn}>Сериалы</button>

@@ -1,0 +1,30 @@
+.logoCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+.logoCont img {
+  width: 3rem;
+}
+
+.logoCont h1 {
+  padding: 0.5rem;
+  color: rgb(202, 74, 74);
+}
+
+@media (max-width: 800px) {
+  .logoCont {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .logoCont img {
+    width: 3rem;
+  }
+  .logoCont h1 {
+    font-size: 1.3rem;
+  }
+}

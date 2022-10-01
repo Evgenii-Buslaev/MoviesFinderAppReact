@@ -6,9 +6,10 @@ import "../../css/reset.css";
 
 import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
+import OptionsBar from "../OptionsBar/OptionsBar";
 
 function App() {
-  const [width, setWidth] = useState(null);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -18,7 +19,18 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <div className="App">{width > 800 ? <NavBar /> : <NavBarMob />}</div>;
+  return (
+    <div className="App">
+      {width > 800 ? (
+        <NavBar />
+      ) : (
+        <div>
+          <NavBarMob />
+          <OptionsBar />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default App;

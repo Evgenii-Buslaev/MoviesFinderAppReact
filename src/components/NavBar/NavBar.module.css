@@ -1,21 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Silkscreen:wght@400;700&display=swap");
 
-.logoCont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10%;
-}
-
-.logoCont img {
-  width: 3rem;
-}
-
-.logoCont h1 {
-  padding: 0.5rem;
-  color: rgb(202, 74, 74);
-}
-
 .navBarCont {
   display: flex;
   justify-content: space-evenly;

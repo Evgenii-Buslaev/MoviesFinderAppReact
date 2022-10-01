@@ -1,0 +1,44 @@
+.optionsCont {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 15%;
+  background-color: rgb(66, 52, 100);
+}
+
+.optItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.optItem img {
+  width: 1.5rem;
+}
+
+.optItem h3 {
+  font-size: 1rem;
+}
+
+.optItem h3:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 400px) {
+  .optionsCont {
+    height: 10%;
+  }
+  .optItem img {
+    width: 1.5rem;
+  }
+  .optItem h3 {
+    font-size: 0.8rem;
+  }
+}

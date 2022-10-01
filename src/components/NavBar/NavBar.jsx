@@ -1,4 +1,5 @@
 import ImageButton from "../../UI/ImageButton/ImageButton";
+import SearchBar from "../SearchBar/SearchBar";
 
 import styles from "./NavBar.module.css";
 import logo from "../../icons/logo/logo.png";
@@ -16,7 +17,7 @@ function NavBar() {
         <button className={styles.navBtn}>Сериалы</button>
         <button className={styles.navBtn}>Мультфильмы</button>
       </div>
-      {/*  <Search /> */}
+      <SearchBar />
       <ImageButton path={user} alt="user btn" title="Профиль" />
     </nav>
   );

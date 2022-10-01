@@ -1,0 +1,36 @@
+.navBarMob {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 15%;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  box-shadow: 10px 50px 5px white;
+}
+
+.navItem img {
+  width: 2rem;
+}
+.navItem h3 {
+  font-size: 1rem;
+}
+
+@media (max-width: 400px) {
+  .navItem img {
+    width: 1.5rem;
+  }
+  .navItem h3 {
+    font-size: 0.8rem;
+  }
+}

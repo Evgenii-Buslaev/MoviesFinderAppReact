@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Silkscreen:wght@400;700&display=swap");
+
 .logoCont {
   display: flex;
   justify-content: center;
@@ -32,7 +34,6 @@
   padding: 0 2rem;
   height: 100%;
   font-size: 1.2rem;
-  font-family: "Inter";
   font-weight: 700;
   color: rgb(173, 173, 173);
 }
@@ -40,4 +41,29 @@
 .navBtn:hover {
   color: white;
   opacity: 1;
+}
+
+@media (max-width: 1100px) {
+  .categories button {
+    font-size: 1rem;
+  }
+  .logoCont {
+    width: 20%;
+  }
+  .logoCont img {
+    width: 2.5rem;
+  }
+
+  .logoCont h1 {
+    font-size: 1.3rem;
+  }
+  .navBtn {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .navBtn {
+    padding: 0 0.5rem;
+  }
 }

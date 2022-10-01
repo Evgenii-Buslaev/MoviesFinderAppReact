@@ -1,0 +1,26 @@
+* {
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+button,
+input,
+textarea {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+main {
+  display: flex;
+}
+
+.blur {
+  backdrop-filter: blur(8px);
+}

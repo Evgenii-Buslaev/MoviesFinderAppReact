@@ -18,7 +18,7 @@ function OptionsBar() {
     <div className={styles.optionsCont}>
       <LogoItem />
       {optionsBtns.map((btn) => (
-        <div className={styles.otpItem} key={btn.text}>
+        <div className={styles.optItem} key={btn.text}>
           <ImageButton path={btn.path} alt={btn.alt} title={btn.text} />
           <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
         </div>

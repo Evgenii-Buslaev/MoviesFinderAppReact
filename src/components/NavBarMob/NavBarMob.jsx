@@ -7,7 +7,7 @@ import search from "../../icons/nav-mobile/search.png";
 import profile from "../../icons/nav-mobile/user.png";
 
 const navBtns = [
-  { path: home, alt: "home page", text: "Фильмы", active: true },
+  { path: home, alt: "home page", text: "Домой", active: true },
   { path: saved, alt: "saved films", text: "Коллекция", active: false },
   { path: search, alt: "search", text: "Поиск", active: false },
   { path: profile, alt: "user page", text: "Профиль", active: false },

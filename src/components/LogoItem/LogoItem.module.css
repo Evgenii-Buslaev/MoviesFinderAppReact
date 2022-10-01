@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10%;
+  width: auto;
+  height: auto;
 }
 
 .logoCont img {
@@ -26,5 +27,18 @@
   }
   .logoCont h1 {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .logoCont {
+    flex-direction: column;
+  }
+  .logoCont h1 {
+    font-size: 1.1rem;
+    padding: 0.2rem 0 0;
+  }
+  .logoCont img {
+    width: 2.5rem;
   }
 }

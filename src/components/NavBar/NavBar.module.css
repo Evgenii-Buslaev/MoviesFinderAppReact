@@ -5,6 +5,10 @@
   width: 10%;
 }
 
+.logoCont img {
+  width: 3rem;
+}
+
 .logoCont h1 {
   padding: 0.5rem;
   color: rgb(202, 74, 74);
@@ -14,13 +18,9 @@
   display: flex;
   justify-content: space-evenly;
   width: 100vw;
-  height: 10%;
+  height: 80px;
   padding: 1rem auto;
   background-color: rgb(56, 45, 83);
-}
-
-.navBarCont img {
-  width: 3rem;
 }
 
 .categories {

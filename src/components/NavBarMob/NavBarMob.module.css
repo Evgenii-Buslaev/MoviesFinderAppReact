@@ -6,6 +6,7 @@
   align-items: center;
   width: 100vw;
   height: 15%;
+  background-color: rgb(66, 52, 100);
 }
 
 .navItem {
@@ -13,20 +14,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .active {
-  box-shadow: 10px 50px 5px white;
+  filter: drop-shadow(0 0 0.4rem rgb(39, 138, 141));
 }
 
 .navItem img {
   width: 2rem;
 }
+
 .navItem h3 {
   font-size: 1rem;
 }
 
+.navItem h3:hover {
+  opacity: 0.6;
+}
+
 @media (max-width: 400px) {
+  .navBarMob {
+    height: 10%;
+  }
   .navItem img {
     width: 1.5rem;
   }

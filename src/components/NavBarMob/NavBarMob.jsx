@@ -17,7 +17,7 @@ function NavBarMob() {
   return (
     <div className={styles.navBarMob}>
       {navBtns.map((btn) => (
-        <div className={styles.navItem}>
+        <div className={styles.navItem} key={btn.text}>
           <ImageButton path={btn.path} alt={btn.alt} title={btn.text} />
           <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
         </div>

@@ -1,16 +1,24 @@
+import { useState, useEffect } from "react";
+
 import "./App.css";
 import "../../css/page.css";
 import "../../css/reset.css";
 
-/* import NavBar from "../NavBar/NavBar"; */
+import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
 
 function App() {
-  return (
-    <div className="App">
-      <NavBarMob />
-    </div>
-  );
+  const [width, setWidth] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return <div className="App">{width > 800 ? <NavBar /> : <NavBarMob />}</div>;
 }
 
 export default App;

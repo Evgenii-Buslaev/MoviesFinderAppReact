@@ -1,0 +1,43 @@
+.logoCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+.logoCont h1 {
+  padding: 0.5rem;
+  color: rgb(202, 74, 74);
+}
+
+.navBarCont {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 10%;
+  padding: 1rem auto;
+  background-color: rgb(56, 45, 83);
+}
+
+.navBarCont img {
+  width: 3rem;
+}
+
+.categories {
+  height: 100%;
+}
+
+.navBtn {
+  margin: auto;
+  padding: 0 2rem;
+  height: 100%;
+  font-size: 1.2rem;
+  font-family: "Inter";
+  font-weight: 700;
+  color: rgb(173, 173, 173);
+}
+
+.navBtn:hover {
+  color: white;
+  opacity: 1;
+}

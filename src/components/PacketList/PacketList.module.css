@@ -1,5 +1,6 @@
 .listCont {
-  margin: 1rem auto;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
   width: 100vw;
   height: auto;
 }

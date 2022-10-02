@@ -5,4 +5,11 @@
   padding: 0;
   margin: 0;
   background-color: rgb(43, 34, 63);
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
 }

@@ -30,6 +30,11 @@ function App() {
         </>
       )}
       <TopList />
+      <TopList />
+      <TopList />
+      <TopList />
+      <TopList />
+      <TopList />
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.listCont {
+  margin: auto;
+  width: 100vw;
+  height: 300px;
+}
+
+.listCont h2 {
+  color: white;
+  font-size: 2rem;
+  text-align: start;
+  margin-left: 4rem;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

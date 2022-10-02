@@ -8,6 +8,7 @@ import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
 import OptionsBar from "../OptionsBar/OptionsBar";
 import TopList from "../TopList/TopList";
+import PacketList from "../PacketList/PacketList";
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -30,11 +31,7 @@ function App() {
         </>
       )}
       <TopList />
-      <TopList />
-      <TopList />
-      <TopList />
-      <TopList />
-      <TopList />
+      <PacketList title="Романтические комедии" />
     </div>
   );
 }

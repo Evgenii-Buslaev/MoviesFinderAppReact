@@ -1,18 +1,36 @@
 .listCont {
-  margin: auto;
+  margin: 1rem auto;
   width: 100vw;
-  height: 300px;
+  height: auto;
 }
 
 .listCont h2 {
   color: white;
   font-size: 2rem;
-  text-align: start;
-  margin-left: 4rem;
 }
 
 .list {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem 0;
+}
+
+.items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+@media (max-width: 700px) {
+  .listCont h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .listCont h2 {
+    font-size: 1.2rem;
+  }
 }

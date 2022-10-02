@@ -13,6 +13,16 @@ import PacketList from "../PacketList/PacketList";
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
 
+  const navigation =
+    width > 800 ? (
+      <NavBar />
+    ) : (
+      <>
+        <NavBarMob />
+        <OptionsBar />
+      </>
+    );
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -22,16 +32,10 @@ function App() {
 
   return (
     <div className="App">
-      {width > 800 ? (
-        <NavBar />
-      ) : (
-        <>
-          <NavBarMob />
-          <OptionsBar />
-        </>
-      )}
+      {navigation}
       <TopList />
       <PacketList title="Романтические комедии" />
+      <PacketList title="Советские детективы" />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import "../../css/reset.css";
 import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
 import OptionsBar from "../OptionsBar/OptionsBar";
+import TopMovieCard from "../TopMovieCard/TopMovieCard";
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -28,6 +29,7 @@ function App() {
           <OptionsBar />
         </>
       )}
+      <TopMovieCard />
     </div>
   );
 }

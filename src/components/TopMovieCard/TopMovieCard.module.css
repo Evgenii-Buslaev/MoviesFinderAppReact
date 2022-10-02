@@ -1,0 +1,13 @@
+.movieCardCont {
+  margin: 1rem auto 0;
+  width: 85vw;
+  height: 50vh;
+  border-radius: 2rem;
+  background-color: rgb(179, 130, 130);
+}
+
+@media (max-width: 800px) {
+  .movieCardCont {
+    height: 40vh;
+  }
+}

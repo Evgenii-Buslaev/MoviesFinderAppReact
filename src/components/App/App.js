@@ -13,7 +13,6 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
-
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -24,10 +23,10 @@ function App() {
       {width > 800 ? (
         <NavBar />
       ) : (
-        <div>
+        <>
           <NavBarMob />
           <OptionsBar />
-        </div>
+        </>
       )}
     </div>
   );

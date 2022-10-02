@@ -1,0 +1,14 @@
+.topListCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 0;
+  width: 100vw;
+  height: 400px;
+}
+
+@media (max-width: 800px) {
+  .topListCont {
+    height: 300px;
+  }
+}

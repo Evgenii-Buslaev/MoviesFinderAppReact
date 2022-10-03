@@ -1,4 +1,5 @@
 import ImageButton from "../../UI/ImageButton/ImageButton";
+import RouterLink from "../../UI/RouterLink/RouterLink";
 import styles from "./NavBarMob.module.css";
 
 import home from "../../icons/nav-mobile/home.png";
@@ -7,10 +8,22 @@ import search from "../../icons/nav-mobile/search.png";
 import profile from "../../icons/nav-mobile/user.png";
 
 const navBtns = [
-  { path: home, alt: "home page", text: "Домой", active: true },
-  { path: saved, alt: "saved films", text: "Коллекция", active: false },
-  { path: search, alt: "search", text: "Поиск", active: false },
-  { path: profile, alt: "user page", text: "Профиль", active: false },
+  { path: "/", img: home, alt: "home page", text: "Домой", active: true },
+  {
+    path: "/collection",
+    img: saved,
+    alt: "saved films",
+    text: "Коллекция",
+    active: false,
+  },
+  { path: "/search", img: search, alt: "search", text: "Поиск", active: false },
+  {
+    path: "/profile",
+    img: profile,
+    alt: "user page",
+    text: "Профиль",
+    active: false,
+  },
 ];
 
 function NavBarMob() {
@@ -18,8 +31,10 @@ function NavBarMob() {
     <div className={styles.navBarMob}>
       {navBtns.map((btn) => (
         <div className={styles.navItem} key={btn.text}>
-          <ImageButton path={btn.path} alt={btn.alt} title={btn.text} />
-          <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
+          <RouterLink path={btn.path}>
+            <ImageButton path={btn.img} alt={btn.alt} title={btn.text} />
+            <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
+          </RouterLink>
         </div>
       ))}
     </div>

@@ -12,3 +12,15 @@
 h2 {
   color: white;
 }
+
+@media (max-width: 900px) {
+  .list h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .list h1 {
+    font-size: 1.2rem;
+  }
+}

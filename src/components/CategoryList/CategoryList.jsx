@@ -43,6 +43,24 @@ function CategoryList({ category }) {
           year={1984}
           duration="1 ч. 23 мин."
         />
+        <InlineListItem
+          name="Берегись автомобиля"
+          country="СССР"
+          year={1984}
+          duration="1 ч. 23 мин."
+        />
+        <InlineListItem
+          name="Берегись автомобиля"
+          country="СССР"
+          year={1984}
+          duration="1 ч. 23 мин."
+        />
+        <InlineListItem
+          name="Берегись автомобиля"
+          country="СССР"
+          year={1984}
+          duration="1 ч. 23 мин."
+        />
       </InlineList>
     </div>
   );

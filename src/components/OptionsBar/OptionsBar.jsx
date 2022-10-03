@@ -1,5 +1,6 @@
 import LogoItem from "../LogoItem/LogoItem";
 import ImageButton from "../../UI/ImageButton/ImageButton";
+import RouterLink from "../../UI/RouterLink/RouterLink";
 
 import styles from "./OptionsBar.module.css";
 
@@ -8,9 +9,21 @@ import series from "../../icons/options-bar/series.png";
 import cartoons from "../../icons/options-bar/cartoons.png";
 
 const optionsBtns = [
-  { path: films, alt: "films", text: "Фильмы", active: false },
-  { path: series, alt: "series", text: "Сериалы", active: false },
-  { path: cartoons, alt: "cartoons", text: "Мультфильмы", active: false },
+  { path: "/films", img: films, alt: "films", text: "Фильмы", active: false },
+  {
+    path: "/series",
+    img: series,
+    alt: "series",
+    text: "Сериалы",
+    active: false,
+  },
+  {
+    path: "/cartoons",
+    img: cartoons,
+    alt: "cartoons",
+    text: "Мультфильмы",
+    active: false,
+  },
 ];
 
 function OptionsBar() {
@@ -19,8 +32,10 @@ function OptionsBar() {
       <LogoItem />
       {optionsBtns.map((btn) => (
         <div className={styles.optItem} key={btn.text}>
-          <ImageButton path={btn.path} alt={btn.alt} title={btn.text} />
-          <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
+          <RouterLink path={btn.path}>
+            <ImageButton path={btn.img} alt={btn.alt} title={btn.text} />
+            <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
+          </RouterLink>
         </div>
       ))}
     </div>

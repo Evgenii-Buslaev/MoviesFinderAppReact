@@ -13,3 +13,10 @@
   background-color: rgb(112, 82, 82);
   opacity: 0.3;
 }
+
+@media (max-width: 900px) {
+  .item h2 {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+}

@@ -1,10 +1,9 @@
-import ImageButton from "../../UI/ImageButton/ImageButton";
 import SearchBar from "../SearchBar/SearchBar";
 import LogoItem from "../LogoItem/LogoItem";
+import NavButtons from "../NavButtons/NavButtons";
 import RouterLink from "../../UI/RouterLink/RouterLink";
 
 import styles from "./NavBar.module.css";
-import user from "../../icons/profile/user.png";
 
 function NavBar() {
   return (
@@ -24,9 +23,7 @@ function NavBar() {
         </RouterLink>
       </div>
       <SearchBar />
-      <RouterLink path="/profile">
-        <ImageButton path={user} alt="user btn" title="Профиль" />
-      </RouterLink>
+      <NavButtons />
     </nav>
   );
 }

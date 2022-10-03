@@ -8,6 +8,7 @@ import "../../css/reset.css";
 import Home from "../Home/Home";
 import CategoryList from "../CategoryList/CategoryList";
 import Profile from "../Profile/Profile";
+import Collection from "../Collection/Collection";
 
 import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
@@ -45,6 +46,7 @@ function App() {
           path="/cartoons"
           element={<CategoryList category="Мультфильмы" />}
         />
+        <Route path="/collection" element={<Collection />} />
       </Routes>
     </div>
   );

@@ -11,7 +11,7 @@ function NavButtons() {
       <RouterLink path="/profile">
         <ImageButton path={user} alt="user btn" title="Профиль" />
       </RouterLink>
-      <RouterLink path="/profile">
+      <RouterLink path="/collection">
         <ImageButton path={saved} alt="saved btn" title="Коллекция" />
       </RouterLink>
     </div>

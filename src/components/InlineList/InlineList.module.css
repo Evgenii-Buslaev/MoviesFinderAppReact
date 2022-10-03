@@ -1,0 +1,11 @@
+.list {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  border-top: solid black;
+  border-bottom: solid black;
+}

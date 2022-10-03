@@ -6,6 +6,7 @@ import "../../css/page.css";
 import "../../css/reset.css";
 
 import Home from "../Home/Home";
+import CategoryList from "../CategoryList/CategoryList";
 import Profile from "../Profile/Profile";
 
 import NavBar from "../NavBar/NavBar";
@@ -31,12 +32,19 @@ function App() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <div className="App">
       {navigation}
       <Routes>
         <Route path="/" element={<Home width={width} />} />
         <Route path="/profile" element={<Profile name="Евгений" />} />
+        <Route path="/films" element={<CategoryList category="Фильмы" />} />
+        <Route path="/series" element={<CategoryList category="Сериалы" />} />
+        <Route
+          path="/cartoons"
+          element={<CategoryList category="Мультфильмы" />}
+        />
       </Routes>
     </div>
   );

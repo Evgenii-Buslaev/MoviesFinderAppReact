@@ -13,9 +13,15 @@ function NavBar() {
         <LogoItem />
       </RouterLink>
       <div className={styles.categories}>
-        <button className={styles.navBtn}>Фильмы</button>
-        <button className={styles.navBtn}>Сериалы</button>
-        <button className={styles.navBtn}>Мультфильмы</button>
+        <RouterLink path="/films">
+          <button className={styles.navBtn}>Фильмы</button>
+        </RouterLink>
+        <RouterLink path="/series">
+          <button className={styles.navBtn}>Сериалы</button>
+        </RouterLink>
+        <RouterLink path="/cartoons">
+          <button className={styles.navBtn}>Мультфильмы</button>
+        </RouterLink>
       </div>
       <SearchBar />
       <RouterLink path="/profile">

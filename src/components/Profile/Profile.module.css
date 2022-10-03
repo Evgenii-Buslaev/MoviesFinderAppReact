@@ -2,3 +2,45 @@
   width: 100vw;
   height: 100vh;
 }
+
+.profileCont h1 {
+  margin: 2rem auto;
+  color: white;
+}
+
+.profileCont h2 {
+  color: white;
+}
+
+.logout {
+  position: absolute;
+  bottom: 100px;
+  right: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(150, 51, 51);
+}
+
+@media (max-width: 800px) {
+  .profileCont h1 {
+    font-size: 1.5rem;
+  }
+  .profileCont h2 {
+    font-size: 1.1rem;
+  }
+  .logout {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .profileCont h1 {
+    font-size: 1.2rem;
+  }
+  .logout {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}

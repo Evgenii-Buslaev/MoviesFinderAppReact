@@ -36,7 +36,7 @@ function App() {
       {navigation}
       <Routes>
         <Route path="/" element={<Home width={width} />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile name="Евгений" />} />
       </Routes>
     </div>
   );

@@ -8,11 +8,18 @@ import prev from "../../icons/TopList/prev.png";
 
 function TopList() {
   return (
-    <div className={styles.topListCont}>
-      <ImageButton path={prev} alt="previous movie" title="Предыдущий фильм" />
-      <TopMovieCard />
-      <ImageButton path={next} alt="next movie" title="Следующий фильм" />
-    </div>
+    <>
+      <h1 className={styles.header}>Актуальное на этой неделе</h1>
+      <div className={styles.topListCont}>
+        <ImageButton
+          path={prev}
+          alt="previous movie"
+          title="Предыдущий фильм"
+        />
+        <TopMovieCard />
+        <ImageButton path={next} alt="next movie" title="Следующий фильм" />
+      </div>
+    </>
   );
 }
 

@@ -34,8 +34,8 @@ function App() {
     <div className="App">
       {navigation}
       <TopList />
-      <PacketList title="Романтические комедии" />
-      <PacketList title="Советские детективы" />
+      <PacketList title="Топ-20 романтических комедий" />
+      <PacketList title="Топ-20 советских детективов" />
     </div>
   );
 }

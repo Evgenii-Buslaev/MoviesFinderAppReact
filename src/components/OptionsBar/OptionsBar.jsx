@@ -8,7 +8,7 @@ import series from "../../icons/options-bar/series.png";
 import cartoons from "../../icons/options-bar/cartoons.png";
 
 const optionsBtns = [
-  { path: films, alt: "films", text: "Фильмы", active: true },
+  { path: films, alt: "films", text: "Фильмы", active: false },
   { path: series, alt: "series", text: "Сериалы", active: false },
   { path: cartoons, alt: "cartoons", text: "Мультфильмы", active: false },
 ];

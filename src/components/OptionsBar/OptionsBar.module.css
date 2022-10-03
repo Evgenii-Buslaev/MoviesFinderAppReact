@@ -20,6 +20,14 @@
   cursor: pointer;
 }
 
+.optItem:active {
+  transform: scale(1.2);
+}
+
+.active {
+  filter: drop-shadow(0 0 0.4rem rgb(9, 217, 224));
+}
+
 .optItem h3 {
   font-size: 1rem;
 }

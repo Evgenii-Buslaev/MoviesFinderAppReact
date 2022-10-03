@@ -34,8 +34,10 @@ function App() {
     <div className="App">
       {navigation}
       <TopList />
-      <PacketList title="Топ-20 романтических комедий" />
-      <PacketList title="Топ-20 советских детективов" />
+      <PacketList title="Топ-20 романтических комедий" screen={width} />
+      <PacketList title="Топ-20 российских сериалов" screen={width} />
+      <PacketList title="Топ-20 детских мультфильмов" screen={width} />
+      <PacketList title="Топ-20 советских детективов" screen={width} />
     </div>
   );
 }

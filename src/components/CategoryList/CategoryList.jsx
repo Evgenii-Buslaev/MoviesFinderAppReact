@@ -1,11 +1,13 @@
 import InlineList from "../InlineList/InlineList";
 import InlineListItem from "../InlineListItem/InlineListItem";
+import PacketList from "../PacketList/PacketList";
 import styles from "./CategoryList.module.css";
 
-function CategoryList({ category }) {
+function CategoryList({ category, width }) {
   return (
     <div className={styles.list}>
-      <h1>Лучшее в категории {category}</h1>
+      <PacketList title={`Топ-20 в категории ${category}`} screen={width} />
+      <h1>{category}</h1>
       <InlineList>
         <InlineListItem
           name="Берегись автомобиля"

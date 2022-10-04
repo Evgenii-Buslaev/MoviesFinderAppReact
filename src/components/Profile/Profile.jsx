@@ -1,6 +1,3 @@
-import InlineList from "../InlineList/InlineList";
-import InlineListItem from "../InlineListItem/InlineListItem";
-
 import styles from "./Profile.module.css";
 
 function Profile({ name }) {

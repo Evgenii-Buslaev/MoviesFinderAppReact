@@ -39,12 +39,21 @@ function App() {
       {navigation}
       <Routes>
         <Route path="/" element={<Home width={width} />} />
-        <Route path="/profile" element={<Profile name="Евгений" />} />
-        <Route path="/films" element={<CategoryList category="Фильмы" />} />
-        <Route path="/series" element={<CategoryList category="Сериалы" />} />
+        <Route
+          path="/profile"
+          element={<Profile name="Евгений" width={width} />}
+        />
+        <Route
+          path="/films"
+          element={<CategoryList category="Фильмы" width={width} />}
+        />
+        <Route
+          path="/series"
+          element={<CategoryList category="Сериалы" width={width} />}
+        />
         <Route
           path="/cartoons"
-          element={<CategoryList category="Мультфильмы" />}
+          element={<CategoryList category="Мультфильмы" width={width} />}
         />
         <Route path="/collection" element={<Collection />} />
       </Routes>

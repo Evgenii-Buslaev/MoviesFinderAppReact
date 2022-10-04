@@ -11,6 +11,7 @@ function InlineList({ data }) {
         {data.map((film) => (
           <InlineListItem
             name={film.name}
+            key={Math.random()}
             country={film.country}
             year={film.year}
             duration={film.duration}

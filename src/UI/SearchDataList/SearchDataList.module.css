@@ -17,11 +17,6 @@
 @media (max-width: 800px) {
   .dataInput {
     margin: 0.5rem 0;
-  }
-}
-
-@media (max-width: 350px) {
-  .dataInput {
     font-size: 0.8rem;
     padding: 0.8rem 1rem;
   }

@@ -1,0 +1,20 @@
+.cont {
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont h3 {
+  color: white;
+}
+
+.select {
+  font-size: 1rem;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(25, 102, 112);
+}

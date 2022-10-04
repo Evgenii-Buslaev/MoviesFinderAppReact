@@ -9,3 +9,9 @@
   border-top: solid black;
   border-bottom: solid black;
 }
+
+@media (max-width: 500px) {
+  .list {
+    margin: 0.5rem auto;
+  }
+}

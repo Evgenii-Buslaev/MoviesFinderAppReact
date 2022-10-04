@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import "../../css/page.css";
 import "../../css/reset.css";
 
-import Home from "../Home/Home";
-import CategoryList from "../CategoryList/CategoryList";
-import Profile from "../Profile/Profile";
-import Collection from "../Collection/Collection";
-import Search from "../Search/Search";
+import AppRouter from "../AppRouter/AppRouter";
 
 import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
@@ -38,27 +33,7 @@ function App() {
   return (
     <div className="App">
       {navigation}
-      <Routes>
-        <Route path="/" element={<Home width={width} />} />
-        <Route
-          path="/profile"
-          element={<Profile name="Евгений" width={width} />}
-        />
-        <Route
-          path="/films"
-          element={<CategoryList category="Фильмы" width={width} />}
-        />
-        <Route
-          path="/series"
-          element={<CategoryList category="Сериалы" width={width} />}
-        />
-        <Route
-          path="/cartoons"
-          element={<CategoryList category="Мультфильмы" width={width} />}
-        />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/search" element={<Search />} />
-      </Routes>
+      <AppRouter width={width} />
     </div>
   );
 }

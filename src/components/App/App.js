@@ -4,24 +4,11 @@ import "./App.css";
 import "../../css/page.css";
 import "../../css/reset.css";
 
+import Navigation from "../Navigation/Navigation";
 import AppRouter from "../AppRouter/AppRouter";
-
-import NavBar from "../NavBar/NavBar";
-import NavBarMob from "../NavBarMob/NavBarMob";
-import OptionsBar from "../OptionsBar/OptionsBar";
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
-
-  const navigation =
-    width > 800 ? (
-      <NavBar />
-    ) : (
-      <>
-        <NavBarMob />
-        <OptionsBar />
-      </>
-    );
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -32,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      {navigation}
+      <Navigation screen={width} />
       <AppRouter width={width} />
     </div>
   );

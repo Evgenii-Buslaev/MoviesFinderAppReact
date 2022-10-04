@@ -14,12 +14,14 @@ function SearchForm() {
         placeholder="Введите ключевые слова..."
       />
       <div className={styles.filters}>
+        <div className={styles.lists}>
+          <SearchDataList id="countries" data={countries} text="Страна" />
+          <SearchDataList id="years" data={years} text="Годы" />
+          <SearchDataList id="genre" data={genre} text="Жанр" />
+        </div>
         <button type="submit" className={styles.submit}>
           Найти
         </button>
-        <SearchDataList id="countries" data={countries} text="Страна" />
-        <SearchDataList id="years" data={years} text="Годы" />
-        <SearchDataList id="genre" data={genre} text="Жанр" />
       </div>
     </form>
   );

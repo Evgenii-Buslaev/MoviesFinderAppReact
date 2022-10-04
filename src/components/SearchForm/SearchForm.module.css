@@ -9,12 +9,18 @@
 }
 
 .filters {
-  margin: 2rem auto;
+  margin: 1rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80vw;
   height: auto;
+}
+
+.lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search {
@@ -33,4 +39,39 @@
   color: white;
   padding: 1rem 1.5rem;
   background-color: rgb(25, 102, 112);
+}
+
+@media (max-width: 1200px) {
+  .submit {
+    width: 200px;
+    height: auto;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem 1.5rem;
+    background-color: rgb(25, 102, 112);
+  }
+}
+
+@media (max-width: 1100px) {
+  .filters {
+    flex-direction: column;
+  }
+  .submit {
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .lists {
+    flex-direction: column;
+  }
+  .filters {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .filters {
+    margin: 0.5rem auto;
+  }
 }

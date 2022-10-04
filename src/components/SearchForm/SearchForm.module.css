@@ -1,0 +1,36 @@
+.searchCont {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+}
+
+.filters {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  height: auto;
+}
+
+.search {
+  width: 80vw;
+  height: auto;
+  font-size: 1rem;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: solid thin white;
+}
+
+.submit {
+  width: 300px;
+  height: auto;
+  font-size: 1rem;
+  color: white;
+  padding: 1rem 1.5rem;
+  background-color: rgb(25, 102, 112);
+}

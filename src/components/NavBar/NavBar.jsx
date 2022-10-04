@@ -1,9 +1,10 @@
-import SearchBar from "../SearchBar/SearchBar";
 import LogoItem from "../LogoItem/LogoItem";
 import NavButtons from "../NavButtons/NavButtons";
 import RouterLink from "../../UI/RouterLink/RouterLink";
+import ImageButton from "../../UI/ImageButton/ImageButton";
 
 import styles from "./NavBar.module.css";
+import search from "../../icons/search/search-dir.png";
 
 function NavBar() {
   return (
@@ -22,7 +23,9 @@ function NavBar() {
           <button className={styles.navBtn}>Мультфильмы</button>
         </RouterLink>
       </div>
-      <SearchBar />
+      <RouterLink path="/search">
+        <ImageButton path={search} title="Поиск" alt="search-directory" />
+      </RouterLink>
       <NavButtons />
     </nav>
   );

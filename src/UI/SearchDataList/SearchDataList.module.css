@@ -1,0 +1,8 @@
+.dataInput {
+  width: 200px;
+  height: auto;
+  font-size: 1rem;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: solid thin white;
+}

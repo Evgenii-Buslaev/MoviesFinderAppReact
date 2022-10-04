@@ -9,6 +9,7 @@ import Home from "../Home/Home";
 import CategoryList from "../CategoryList/CategoryList";
 import Profile from "../Profile/Profile";
 import Collection from "../Collection/Collection";
+import SearchForm from "../SearchForm/SearchForm";
 
 import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
@@ -56,6 +57,7 @@ function App() {
           element={<CategoryList category="Мультфильмы" width={width} />}
         />
         <Route path="/collection" element={<Collection />} />
+        <Route path="/search" element={<SearchForm />} />
       </Routes>
     </div>
   );

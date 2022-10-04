@@ -1,5 +1,6 @@
 import PacketMovieCard from "../PacketMovieCard/PacketMovieCard";
 import ImageButton from "../../UI/ImageButton/ImageButton";
+import RouterLink from "../../UI/RouterLink/RouterLink";
 import { getCardsAmount } from "../../utils/getCardsAmount";
 
 import styles from "./PacketList.module.css";
@@ -12,7 +13,11 @@ function PacketList({ title, screen }) {
 
   const cardsList = [];
   while (cardsList.length < amount) {
-    cardsList.push(<PacketMovieCard key={Math.random()} />);
+    cardsList.push(
+      <RouterLink path="/id" key={Math.random()}>
+        <PacketMovieCard />
+      </RouterLink>
+    );
   }
 
   return (

@@ -5,6 +5,7 @@ import CategoryList from "../CategoryList/CategoryList";
 import Profile from "../Profile/Profile";
 import Collection from "../Collection/Collection";
 import Search from "../Search/Search";
+import Movie from "../Movie/Movie";
 
 function AppRouter({ width }) {
   const AppRoutes = [
@@ -15,7 +16,7 @@ function AppRouter({ width }) {
     },
     {
       path: "/series",
-      element: <CategoryList category="Фильмы" width={width} />,
+      element: <CategoryList category="Сериалы" width={width} />,
     },
     {
       path: "/cartoons",
@@ -24,6 +25,7 @@ function AppRouter({ width }) {
     { path: "/search", element: <Search /> },
     { path: "/collection", element: <Collection /> },
     { path: "/profile", element: <Profile name="Евгений" width={width} /> },
+    { path: "/id", element: <Movie /> },
   ];
 
   return (

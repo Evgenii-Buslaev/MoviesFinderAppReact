@@ -4,6 +4,11 @@
   height: 250px;
   border-radius: 1rem;
   background-color: white;
+  cursor: pointer;
+}
+
+.packetMovieCard:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 500px) {

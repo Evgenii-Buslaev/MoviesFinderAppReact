@@ -1,4 +1,5 @@
 import InlineListItem from "../InlineListItem/InlineListItem";
+import RouterLink from "../../UI/RouterLink/RouterLink";
 
 import Select from "../../UI/Select/Select";
 import styles from "./InlineList.module.css";
@@ -9,13 +10,14 @@ function InlineList({ data }) {
       <Select />
       <div className={styles.list}>
         {data.map((film) => (
-          <InlineListItem
-            name={film.name}
-            key={Math.random()}
-            country={film.country}
-            year={film.year}
-            duration={film.duration}
-          />
+          <RouterLink path="/id" key={Math.random()}>
+            <InlineListItem
+              name={film.name}
+              country={film.country}
+              year={film.year}
+              duration={film.duration}
+            />
+          </RouterLink>
         ))}
       </div>
     </>

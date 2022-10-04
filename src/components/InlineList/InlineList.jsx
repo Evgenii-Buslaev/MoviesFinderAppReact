@@ -1,11 +1,22 @@
+import InlineListItem from "../InlineListItem/InlineListItem";
+
 import Select from "../../UI/Select/Select";
 import styles from "./InlineList.module.css";
 
-function InlineList({ data, children }) {
+function InlineList({ data }) {
   return (
     <>
       <Select />
-      <div className={styles.list}>{children}</div>
+      <div className={styles.list}>
+        {data.map((film) => (
+          <InlineListItem
+            name={film.name}
+            country={film.country}
+            year={film.year}
+            duration={film.duration}
+          />
+        ))}
+      </div>
     </>
   );
 }

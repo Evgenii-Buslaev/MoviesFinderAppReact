@@ -1,0 +1,10 @@
+.movieCard {
+  width: 450px;
+  height: auto;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.movieCard:hover {
+  opacity: 0.8;
+}

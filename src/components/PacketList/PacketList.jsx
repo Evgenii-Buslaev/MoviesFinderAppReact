@@ -9,7 +9,7 @@ import more from "../../icons/PacketList/more.png";
 import less from "../../icons/PacketList/less.png";
 
 function PacketList({ title, screen }) {
-  const amount = getCardsAmount(screen);
+  const amount = getCardsAmount(screen, 150);
 
   const cardsList = [];
   while (cardsList.length < amount) {

@@ -1,7 +1,7 @@
 .movieCardCont {
   margin: 0 1rem;
-  width: 1100px;
-  height: 90%;
+  width: 450px;
+  height: 640px;
   border-radius: 2rem;
   background-color: rgb(153, 150, 156);
   cursor: pointer;
@@ -13,12 +13,18 @@
 
 @media (max-width: 1100px) {
   .movieCardCont {
-    width: 85vw;
+    width: 400px;
   }
 }
 
 @media (max-width: 800px) {
   .movieCardCont {
     margin: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .movieCardCont {
+    width: 300px;
   }
 }

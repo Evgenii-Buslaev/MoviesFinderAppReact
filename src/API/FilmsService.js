@@ -1,5 +1,6 @@
 const PREMIERS_URL =
   "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=OCTOBER";
+
 const headers = {
   method: "GET",
   headers: {
@@ -11,8 +12,6 @@ const headers = {
 export default class FilmsService {
   static async getPremiers() {
     const response = await fetch(PREMIERS_URL, headers);
-    const res = await response.json();
-    console.log(res);
-    return res;
+    return response;
   }
 }

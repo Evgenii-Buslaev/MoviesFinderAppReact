@@ -24,7 +24,7 @@ function PacketList({ title, screen }) {
   }
 
   useEffect(() => {
-    /* getItems("premiers", setList, setIsLoading); */
+    getItems("premiers", setList, setIsLoading);
   }, []);
 
   const visibleList = isLoading
@@ -47,14 +47,14 @@ function PacketList({ title, screen }) {
           path={less}
           alt="previous movie"
           title="Предыдущий фильм"
-          click={() => scrollLists(false, list.items, setPart)}
+          click={() => scrollLists(false, list.items, part, setPart, amount)}
         />
         <div className={styles.items}>{visibleList}</div>
         <ImageButton
           path={more}
           alt="next movie"
           title="Следующий фильм"
-          click={() => scrollLists(true, list.items, part, setPart)}
+          click={() => scrollLists(true, list.items, part, setPart, amount)}
         />
       </div>
     </div>

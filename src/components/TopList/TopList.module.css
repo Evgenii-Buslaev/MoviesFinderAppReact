@@ -3,6 +3,13 @@
   color: white;
 }
 
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .topListCont {
   display: flex;
   justify-content: center;

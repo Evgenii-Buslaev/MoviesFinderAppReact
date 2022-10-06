@@ -1,41 +1,56 @@
 import { useState, useEffect } from "react";
 
 import TopMovieCard from "../TopMovieCard/TopMovieCard";
-import TopMovieImage from "../TopMovieImage/TopMovieImage";
-import ImageButton from "../../UI/ImageButton/ImageButton";
 import Loader from "../../UI/Loader/Loader";
+import Swiper from "react-id-swiper";
 
 import { getItems } from "../../handlers/getItems";
-import styles from "./TopList.module.css";
 
-import next from "../../icons/TopList/next.png";
-import prev from "../../icons/TopList/prev.png";
+import styles from "./TopList.module.css";
 
 function TopList() {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const params = {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  };
+
   useEffect(() => {
-    /* getItems("premiers", setList, setIsLoading); */
+    getItems("premiers", setList, setIsLoading);
   }, []);
 
   return (
     <>
       <h1 className={styles.header}>Премьеры месяца</h1>
       <div className={styles.topListCont}>
-        <ImageButton
-          path={prev}
-          alt="previous movie"
-          title="Предыдущий фильм"
-        />
         {isLoading ? (
           <TopMovieCard>
             <Loader />
           </TopMovieCard>
         ) : (
-          <TopMovieImage path={list.items[0].posterUrl} />
+          <Swiper {...params}>
+            {list.items.map((film) => (
+              <div className="swiper-slide">
+                <img
+                  className="swipeMovieCard"
+                  src={film.posterUrl}
+                  alt="movie-card"
+                />
+              </div>
+            ))}
+          </Swiper>
         )}
-        <ImageButton path={next} alt="next movie" title="Следующий фильм" />
       </div>
     </>
   );

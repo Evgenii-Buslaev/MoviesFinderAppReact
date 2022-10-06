@@ -27,3 +27,27 @@ main {
 .blur {
   backdrop-filter: blur(8px);
 }
+
+.swipeMovieCard {
+  width: 450px;
+  height: 640px;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.swipeMovieCard:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+  .swipeMovieCard {
+    width: 300px;
+    height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .movieCardCont {
+    width: 250px;
+  }
+}

@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import PacketMovieCard from "../PacketMovieCard/PacketMovieCard";
 import PacketMovieImage from "../PacketMovieImage/PacketMovieImage";
 import ImageButton from "../../UI/ImageButton/ImageButton";
-import RouterLink from "../../UI/RouterLink/RouterLink";
 import { getCardsAmount } from "../../utils/getCardsAmount";
 import { getItems } from "../../handlers/getItems";
+import { scrollLists } from "../../handlers/scrollLists";
 
 import styles from "./PacketList.module.css";
 
@@ -14,22 +14,30 @@ import less from "../../icons/PacketList/less.png";
 
 function PacketList({ title, screen }) {
   const [list, setList] = useState([]);
+  const [part, setPart] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const amount = getCardsAmount(screen, 150);
-
   const cardsList = [];
   while (cardsList.length < amount) {
-    cardsList.push(
-      <RouterLink path="/id" key={Math.random()}>
-        <PacketMovieCard />
-      </RouterLink>
-    );
+    cardsList.push(<PacketMovieCard key={Math.random()} />);
   }
 
   useEffect(() => {
-    getItems("premiers", setList, setIsLoading);
+    /* getItems("premiers", setList, setIsLoading); */
   }, []);
+
+  const visibleList = isLoading
+    ? cardsList
+    : list.items
+        .slice(part, amount + part)
+        .map((elem) => (
+          <PacketMovieImage
+            id={elem.kinopoiskId}
+            path={elem.posterUrl}
+            key={elem.nameRu}
+          />
+        ));
 
   return (
     <div className={styles.listCont}>
@@ -39,19 +47,15 @@ function PacketList({ title, screen }) {
           path={less}
           alt="previous movie"
           title="Предыдущий фильм"
+          click={() => scrollLists(false, list.items, setPart)}
         />
-        <div className={styles.items}>
-          {isLoading
-            ? cardsList
-            : list.items.map((elem, index) => {
-                if (index < amount) {
-                  return (
-                    <PacketMovieImage path={elem.posterUrl} key={elem.nameRu} />
-                  );
-                }
-              })}
-        </div>
-        <ImageButton path={more} alt="next movie" title="Следующий фильм" />
+        <div className={styles.items}>{visibleList}</div>
+        <ImageButton
+          path={more}
+          alt="next movie"
+          title="Следующий фильм"
+          click={() => scrollLists(true, list.items, part, setPart)}
+        />
       </div>
     </div>
   );

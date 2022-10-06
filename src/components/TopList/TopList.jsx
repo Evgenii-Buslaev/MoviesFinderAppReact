@@ -16,7 +16,7 @@ function TopList() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getItems("premiers", setList, setIsLoading);
+    /* getItems("premiers", setList, setIsLoading); */
   }, []);
 
   return (

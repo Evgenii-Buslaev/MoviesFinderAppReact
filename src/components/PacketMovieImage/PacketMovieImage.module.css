@@ -1,3 +1,24 @@
 .image {
+  margin: 0 1rem;
   width: 150px;
+  height: 215px;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.image:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+  .image {
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .image {
+    width: 125px;
+    height: 180px;
+  }
 }

@@ -22,7 +22,7 @@ function PacketList({ title, screen }) {
 
   return (
     <div className={styles.listCont}>
-      <h2>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <div className={styles.list}>
         <ImageButton
           path={less}

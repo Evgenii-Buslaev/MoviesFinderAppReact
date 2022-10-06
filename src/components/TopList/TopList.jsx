@@ -4,6 +4,7 @@ import TopMovieCard from "../TopMovieCard/TopMovieCard";
 import TopMovieImage from "../TopMovieImage/TopMovieImage";
 import ImageButton from "../../UI/ImageButton/ImageButton";
 import FilmsService from "../../API/FilmsService";
+import Loader from "../../UI/Loader/Loader";
 
 import styles from "./TopList.module.css";
 
@@ -23,7 +24,7 @@ function TopList() {
   };
 
   useEffect(() => {
-    /*     fetchFilms(); */
+    fetchFilms();
   }, []);
 
   return (
@@ -36,7 +37,9 @@ function TopList() {
           title="Предыдущий фильм"
         />
         {isLoading ? (
-          <TopMovieCard />
+          <TopMovieCard>
+            <Loader />
+          </TopMovieCard>
         ) : (
           <TopMovieImage path={list.items[0].posterUrl} />
         )}

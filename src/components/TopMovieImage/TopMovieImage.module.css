@@ -8,3 +8,9 @@
 .movieCard:hover {
   opacity: 0.8;
 }
+
+@media (max-width: 800px) {
+  .movieCard {
+    width: 300px;
+  }
+}

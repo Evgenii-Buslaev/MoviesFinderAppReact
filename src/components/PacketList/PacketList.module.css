@@ -1,3 +1,7 @@
+.title {
+  margin: 2rem auto 0;
+}
+
 .listCont {
   margin: 1rem 0 5rem;
   width: 100vw;
@@ -30,6 +34,9 @@
 }
 
 @media (max-width: 450px) {
+  .title {
+    margin: 1rem auto 0;
+  }
   .listCont h2 {
     font-size: 1.2rem;
   }

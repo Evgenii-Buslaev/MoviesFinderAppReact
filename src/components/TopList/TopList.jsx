@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import TopMovieCard from "../TopMovieCard/TopMovieCard";
 import TopMovieImage from "../TopMovieImage/TopMovieImage";
 import ImageButton from "../../UI/ImageButton/ImageButton";
-import FilmsService from "../../API/FilmsService";
 import Loader from "../../UI/Loader/Loader";
 
+import { getItems } from "../../handlers/getItems";
 import styles from "./TopList.module.css";
 
 import next from "../../icons/TopList/next.png";
@@ -15,16 +15,8 @@ function TopList() {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchFilms = async () => {
-    const data = await FilmsService.getPremiers();
-    const res = await data.json();
-    setList(res);
-    setIsLoading(false);
-    console.log(res);
-  };
-
   useEffect(() => {
-    fetchFilms();
+    getItems("premiers", setList, setIsLoading);
   }, []);
 
   return (

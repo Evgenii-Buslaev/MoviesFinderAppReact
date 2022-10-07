@@ -12,6 +12,28 @@ function TopList() {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const params = {
+    slidesPerView: 3,
+    spaceBetween: 50,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      1600: {
+        slidesPerView: 3,
+      },
+      1100: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      0: {
+        slidesPerView: 1,
+      },
+    },
+  };
+
   useEffect(() => {
     getItems("premiers", setList, setIsLoading);
   }, []);
@@ -25,7 +47,7 @@ function TopList() {
             <Loader />
           </TopMovieCard>
         ) : (
-          <Swiper loop={true} slidesPerView={1}>
+          <Swiper {...params}>
             {list.items.map((film) => (
               <div className="swiper-slide" key={film.nameRu}>
                 <img

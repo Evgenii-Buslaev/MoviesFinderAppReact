@@ -13,7 +13,7 @@ function InlineList({ filter }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getItems(filter, setList, setIsLoading);
+    /* getItems(filter, setList, setIsLoading); */
   }, [filter]);
 
   return (

@@ -1,6 +1,6 @@
 import styles from "./InlineListItem.module.css";
 
-function InlineListItem({ image, name, countryList, year, duration }) {
+function InlineListItem({ image, name, countryList, year }) {
   return (
     <div className={styles.item}>
       <div style={{ width: "auto" }}>
@@ -16,9 +16,6 @@ function InlineListItem({ image, name, countryList, year, duration }) {
       </div>
       <div style={{ width: "auto" }}>
         <h2>{year}</h2>
-      </div>
-      <div style={{ width: "15vw" }}>
-        <h2>{duration}</h2>
       </div>
     </div>
   );

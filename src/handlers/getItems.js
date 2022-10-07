@@ -15,6 +15,9 @@ export async function getItems(packet, setList, setIsLoading) {
     case "tv-shows":
       data = await FilmsService.getShows();
       break;
+    case "comedies":
+      data = await FilmsService.getPacketComedies();
+      break;
     default:
       data = await FilmsService.getFilms();
   }
@@ -23,4 +26,13 @@ export async function getItems(packet, setList, setIsLoading) {
   setList(res);
   setIsLoading(false);
   console.log(res);
+}
+
+export async function getData(setListC, setListG, setIsLoading) {
+  const data = await FilmsService.getCountriesIds();
+  const res = await data.json();
+
+  setListC(res.countries.map((object) => object.country));
+  setListG(res.genres.map((object) => object.genre));
+  setIsLoading(false);
 }

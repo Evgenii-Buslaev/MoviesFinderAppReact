@@ -9,13 +9,19 @@ const URL = {
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
 };
 
-const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c";
-/* const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7"; */
+const PacketURL = {
+  romantic_comedies:
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
+};
+
+const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
+/* const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c"; */
+const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7";
 
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEY,
+    "X-API-KEY": KEY_RESERVE,
     "Content-Type": "application/json",
   },
 };
@@ -38,6 +44,16 @@ export default class FilmsService {
 
   static async getShows() {
     const response = await fetch(URL.shows, headers);
+    return response;
+  }
+
+  static async getPacketComedies() {
+    const response = await fetch(PacketURL.romantic_comedies, headers);
+    return response;
+  }
+
+  static async getCountriesIds() {
+    const response = await fetch(ID_URL, headers);
     return response;
   }
 }

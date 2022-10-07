@@ -30,7 +30,6 @@ function InlineList({ filter }) {
                 name={film.nameRu || film.nameOriginal}
                 countryList={film.countries}
                 year={film.year}
-                duration={`${film.duration || "неопр. кол-во"} минут`}
               />
             </RouterLink>
           ))

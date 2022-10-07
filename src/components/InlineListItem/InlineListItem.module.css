@@ -1,12 +1,16 @@
 .item {
   margin: 0;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 95vw;
   height: auto;
   cursor: pointer;
+}
+
+.element {
+  width: 10vw;
 }
 
 .item:hover {
@@ -14,9 +18,31 @@
   opacity: 0.3;
 }
 
+.preview {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
 @media (max-width: 900px) {
+  .item {
+    padding: 0.2rem 0.5rem;
+  }
   .item h2 {
     font-size: 1rem;
-    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .item {
+    width: 100vw;
+    padding: 0.2rem 0.3rem;
+  }
+  .item h2 {
+    font-size: 0.8rem;
+  }
+  .preview {
+    width: 40px;
+    height: 40px;
   }
 }

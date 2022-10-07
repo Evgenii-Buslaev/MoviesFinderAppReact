@@ -13,7 +13,7 @@ function SearchForm() {
 
   useEffect(() => {
     getData(setCountriesList, setGenresList, setIsLoading);
-  }, [isLoading]);
+  }, []);
 
   const countries = isLoading ? [] : countriesList.map((country) => country);
   const genres = isLoading ? [] : genresList.map((genre) => genre);

@@ -10,11 +10,18 @@ const URL = {
 };
 
 const PacketURL = {
-  romantic_comedies:
-    "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
+  comedies:
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=3",
+  russian_series:
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=34&genres=13&order=RATING&type=TV_SERIES&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=5",
+  soviet_detective:
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=33&genres=5&order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
+  children_cartoons:
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=18&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
 };
 
 const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
+
 /* const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c"; */
 const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7";
 
@@ -48,7 +55,22 @@ export default class FilmsService {
   }
 
   static async getPacketComedies() {
-    const response = await fetch(PacketURL.romantic_comedies, headers);
+    const response = await fetch(PacketURL.comedies, headers);
+    return response;
+  }
+
+  static async getPacketRussianSeries() {
+    const response = await fetch(PacketURL.russian_series, headers);
+    return response;
+  }
+
+  static async getPacketSovietDetective() {
+    const response = await fetch(PacketURL.soviet_detective, headers);
+    return response;
+  }
+
+  static async getPacketChildrensCartoons() {
+    const response = await fetch(PacketURL.children_cartoons, headers);
     return response;
   }
 

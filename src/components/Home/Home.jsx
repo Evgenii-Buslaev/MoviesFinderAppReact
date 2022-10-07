@@ -7,14 +7,22 @@ function Home({ width }) {
   return (
     <div className={styles.home}>
       <TopList />
+      <PacketList title="Топ-20 комедий" screen={width} filter="comedies" />
       <PacketList
-        title="Топ-20 романтических комедий"
+        title="Топ-20 российских сериалов"
         screen={width}
-        filter="comedies"
+        filter="russian series"
       />
-      {/*       <PacketList title="Топ-20 российских сериалов" screen={width} />
-      <PacketList title="Топ-20 детских мультфильмов" screen={width} />
-      <PacketList title="Топ-20 советских детективов" screen={width} /> */}
+      <PacketList
+        title="Топ-20 мультфильмов"
+        screen={width}
+        filter="childrens cartoons"
+      />
+      <PacketList
+        title="Топ-20 советских детективов"
+        screen={width}
+        filter="soviet detective"
+      />
     </div>
   );
 }

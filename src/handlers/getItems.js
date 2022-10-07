@@ -18,6 +18,15 @@ export async function getItems(packet, setList, setIsLoading) {
     case "comedies":
       data = await FilmsService.getPacketComedies();
       break;
+    case "russian series":
+      data = await FilmsService.getPacketRussianSeries();
+      break;
+    case "soviet detective":
+      data = await FilmsService.getPacketSovietDetective();
+      break;
+    case "childrens cartoons":
+      data = await FilmsService.getPacketChildrensCartoons();
+      break;
     default:
       data = await FilmsService.getFilms();
   }
@@ -35,4 +44,5 @@ export async function getData(setListC, setListG, setIsLoading) {
   setListC(res.countries.map((object) => object.country));
   setListG(res.genres.map((object) => object.genre));
   setIsLoading(false);
+  console.log(res);
 }

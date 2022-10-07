@@ -6,11 +6,17 @@ export async function getItems(packet, setList, setIsLoading) {
     case "premiers":
       data = await FilmsService.getPremiers();
       break;
-    case "top":
-      data = await FilmsService.getTop();
+    case "films":
+      data = await FilmsService.getFilms();
+      break;
+    case "series":
+      data = await FilmsService.getSeries();
+      break;
+    case "tv-shows":
+      data = await FilmsService.getShows();
       break;
     default:
-      data = await FilmsService.getTop();
+      data = await FilmsService.getFilms();
   }
 
   const res = await data.json();

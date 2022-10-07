@@ -6,7 +6,7 @@ import styles from "./OptionsBar.module.css";
 
 import films from "../../icons/options-bar/films.png";
 import series from "../../icons/options-bar/series.png";
-import cartoons from "../../icons/options-bar/cartoons.png";
+import shows from "../../icons/options-bar/cartoons.png";
 
 const optionsBtns = [
   { path: "/films", img: films, alt: "films", text: "Фильмы", active: false },
@@ -18,10 +18,10 @@ const optionsBtns = [
     active: false,
   },
   {
-    path: "/cartoons",
-    img: cartoons,
-    alt: "cartoons",
-    text: "Мультфильмы",
+    path: "/tv-shows",
+    img: shows,
+    alt: "shows",
+    text: "ТВ-шоу",
     active: false,
   },
 ];

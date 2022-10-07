@@ -19,8 +19,8 @@ function NavBar() {
         <RouterLink path="/series">
           <button className={styles.navBtn}>Сериалы</button>
         </RouterLink>
-        <RouterLink path="/cartoons">
-          <button className={styles.navBtn}>Мультфильмы</button>
+        <RouterLink path="/tv-shows">
+          <button className={styles.navBtn}>ТВ-шоу</button>
         </RouterLink>
       </div>
       <RouterLink path="/search">

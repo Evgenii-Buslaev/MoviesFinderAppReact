@@ -12,15 +12,19 @@ function AppRouter({ width }) {
     { path: "/", element: <Home width={width} /> },
     {
       path: "/films",
-      element: <CategoryList category="Фильмы" width={width} />,
+      element: <CategoryList category="Фильмы" filter="films" width={width} />,
     },
     {
       path: "/series",
-      element: <CategoryList category="Сериалы" width={width} />,
+      element: (
+        <CategoryList category="Сериалы" filter="series" width={width} />
+      ),
     },
     {
-      path: "/cartoons",
-      element: <CategoryList category="Мультфильмы" width={width} />,
+      path: "/tv-shows",
+      element: (
+        <CategoryList category="ТВ-шоу" filter="tv-shows" width={width} />
+      ),
     },
     { path: "/search", element: <Search /> },
     { path: "/collection", element: <Collection /> },

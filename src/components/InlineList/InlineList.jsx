@@ -8,26 +8,26 @@ import { getItems } from "../../handlers/getItems";
 import Select from "../../UI/Select/Select";
 import styles from "./InlineList.module.css";
 
-function InlineList() {
+function InlineList({ filter }) {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getItems("premiers", setList, setIsLoading);
-  }, []);
+    getItems(filter, setList, setIsLoading);
+  }, [filter]);
 
   return (
     <>
       <Select />
-      <div className={styles.list}>
+      <div className={styles.list} type={filter}>
         {isLoading ? (
           <Loader />
         ) : (
           list.items.map((film) => (
-            <RouterLink path="/id" key={Math.random()}>
+            <RouterLink path="/id" key={film.kinopoiskId}>
               <InlineListItem
                 image={film.posterUrlPreview}
-                name={film.nameRu}
+                name={film.nameRu || film.nameOriginal}
                 countryList={film.countries}
                 year={film.year}
                 duration={`${film.duration || "неопр. кол-во"} минут`}

@@ -6,8 +6,6 @@
   align-items: center;
   width: 100vw;
   height: auto;
-  border-top: solid black;
-  border-bottom: solid black;
 }
 
 @media (max-width: 500px) {

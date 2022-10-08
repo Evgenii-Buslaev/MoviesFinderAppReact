@@ -14,6 +14,7 @@ function InlineList({ filter }) {
 
   useEffect(() => {
     getItems(filter, setList, setIsLoading);
+    return setIsLoading(true);
   }, [filter]);
 
   return (

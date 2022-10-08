@@ -1,7 +1,7 @@
 .packetMovieCard {
   margin: 0 1rem;
   width: 150px;
-  height: 250px;
+  height: 215px;
   border-radius: 1rem;
   background-color: rgb(153, 150, 156);
   cursor: pointer;
@@ -20,5 +20,6 @@
 @media (max-width: 400px) {
   .packetMovieCard {
     width: 125px;
+    height: 180px;
   }
 }

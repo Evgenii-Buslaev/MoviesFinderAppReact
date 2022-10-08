@@ -25,6 +25,7 @@ function PacketList({ filter, title, screen }) {
 
   useEffect(() => {
     getItems(filter, setList, setIsLoading);
+    return setIsLoading(true);
   }, [filter]);
 
   const visibleList = isLoading

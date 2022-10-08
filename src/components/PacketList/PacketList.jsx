@@ -12,7 +12,7 @@ import styles from "./PacketList.module.css";
 import more from "../../icons/PacketList/more.png";
 import less from "../../icons/PacketList/less.png";
 
-function PacketList({ filter, title, screen }) {
+function PacketList({ page, filter, title, screen }) {
   const [list, setList] = useState([]);
   const [part, setPart] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,9 +24,9 @@ function PacketList({ filter, title, screen }) {
   }
 
   useEffect(() => {
-    getItems(filter, setList, setIsLoading);
+    getItems(page, filter, setList, setIsLoading);
     return setIsLoading(true);
-  }, [filter]);
+  }, [page, filter]);
 
   const visibleList = isLoading
     ? cardsList

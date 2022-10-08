@@ -2,7 +2,7 @@ const URL = {
   premiers:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=OCTOBER",
   films:
-    "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
   series:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
   shows:
@@ -39,8 +39,8 @@ export default class FilmsService {
     return response;
   }
 
-  static async getFilms() {
-    const response = await fetch(URL.films, headers);
+  static async getFilms(page) {
+    const response = await fetch(`${URL.films}${page}`, headers);
     return response;
   }
 

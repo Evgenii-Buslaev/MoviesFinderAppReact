@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import "./App.css";
 import "../../css/page.css";
@@ -6,9 +6,11 @@ import "../../css/reset.css";
 
 import Navigation from "../Navigation/Navigation";
 import AppRouter from "../AppRouter/AppRouter";
+import { AppContext } from "../../utils/context";
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
+  const appRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -18,10 +20,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navigation screen={width} />
-      <AppRouter width={width} />
-    </div>
+    <AppContext.Provider value={{ appElem: appRef }}>
+      <div className="App" ref={appRef}>
+        <Navigation screen={width} />
+        <AppRouter width={width} />
+      </div>
+    </AppContext.Provider>
   );
 }
 

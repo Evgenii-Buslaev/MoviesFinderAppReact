@@ -8,14 +8,14 @@ import { getItems } from "../../handlers/getItems";
 import Select from "../../UI/Select/Select";
 import styles from "./InlineList.module.css";
 
-function InlineList({ filter }) {
+function InlineList({ page, filter }) {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getItems(filter, setList, setIsLoading);
+    getItems(page, filter, setList, setIsLoading);
     return setIsLoading(true);
-  }, [filter]);
+  }, [page, filter]);
 
   return (
     <>

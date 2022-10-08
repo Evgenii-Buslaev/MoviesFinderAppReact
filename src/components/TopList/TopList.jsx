@@ -35,7 +35,7 @@ function TopList() {
   };
 
   useEffect(() => {
-    getItems("premiers", setList, setIsLoading);
+    getItems(null, "premiers", setList, setIsLoading);
   }, []);
 
   return (

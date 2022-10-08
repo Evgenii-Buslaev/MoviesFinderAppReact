@@ -1,19 +1,19 @@
 import FilmsService from "../API/FilmsService";
 
-export async function getItems(packet, setList, setIsLoading) {
+export async function getItems(page, packet, setList, setIsLoading) {
   let data;
   switch (packet) {
     case "premiers":
       data = await FilmsService.getPremiers();
       break;
     case "films":
-      data = await FilmsService.getFilms();
+      data = await FilmsService.getFilms(page);
       break;
     case "series":
-      data = await FilmsService.getSeries();
+      data = await FilmsService.getSeries(page);
       break;
     case "tv-shows":
-      data = await FilmsService.getShows();
+      data = await FilmsService.getShows(page);
       break;
     case "comedies":
       data = await FilmsService.getPacketComedies();
@@ -28,7 +28,7 @@ export async function getItems(packet, setList, setIsLoading) {
       data = await FilmsService.getPacketChildrensCartoons();
       break;
     default:
-      data = await FilmsService.getFilms();
+      data = await FilmsService.getFilms(page);
   }
 
   const res = await data.json();

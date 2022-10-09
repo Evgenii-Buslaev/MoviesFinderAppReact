@@ -34,7 +34,6 @@ export async function getItems(page, packet, setList, setIsLoading) {
   const res = await data.json();
   setList(res);
   setIsLoading(false);
-  console.log(res);
 }
 
 export async function getData(setListC, setListG, setIsLoading) {
@@ -44,5 +43,39 @@ export async function getData(setListC, setListG, setIsLoading) {
   setListC(res.countries.map((object) => object.country));
   setListG(res.genres.map((object) => object.genre));
   setIsLoading(false);
-  console.log(res);
+}
+
+export function listFetching(
+  packet,
+  list,
+  setList,
+  page,
+  setPage,
+  setIsLoading
+) {
+  let data;
+  switch (packet) {
+    case "films":
+      data = FilmsService.getFilms(page);
+      break;
+    case "series":
+      data = FilmsService.getSeries(page);
+      break;
+    case "tv-shows":
+      data = FilmsService.getShows(page);
+      break;
+    default:
+      console.log("fetching");
+  }
+
+  data
+    .then((res) => res.json())
+    .catch((error) => console.log(error))
+    .then((result) => {
+      setList([...list, ...result.items]);
+      setPage((prevPage) => prevPage + 1);
+      console.log(list);
+    })
+    .catch((error) => console.log(error))
+    .finally(() => setIsLoading(false));
 }

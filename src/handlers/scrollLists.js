@@ -11,3 +11,9 @@ export function scrollLists(next, list, state, setFunc, amount) {
     setFunc((prevState) => prevState - 1);
   }
 }
+
+export function scrollListFetching(e, setFunc) {
+  if (e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) < 100) {
+    setFunc(true);
+  }
+}

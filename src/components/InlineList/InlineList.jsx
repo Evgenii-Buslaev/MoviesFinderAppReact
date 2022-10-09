@@ -10,18 +10,20 @@ function InlineList({ filter, list }) {
     <>
       <Select />
       <div className={styles.list} type={filter}>
-        {list
-          ? list.map((film) => (
-              <RouterLink path="/id" key={film.kinopoiskId}>
-                <InlineListItem
-                  image={film.posterUrlPreview}
-                  name={film.nameRu || film.nameOriginal}
-                  countryList={film.countries}
-                  year={film.year}
-                />
-              </RouterLink>
-            ))
-          : null}
+        {list ? (
+          list.map((film) => (
+            <RouterLink path="/id" key={film.kinopoiskId}>
+              <InlineListItem
+                image={film.posterUrlPreview}
+                name={film.nameRu || film.nameOriginal}
+                countryList={film.countries}
+                year={film.year}
+              />
+            </RouterLink>
+          ))
+        ) : (
+          <Loader />
+        )}
       </div>
     </>
   );

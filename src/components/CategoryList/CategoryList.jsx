@@ -2,52 +2,35 @@ import { useState, useEffect, useContext } from "react";
 
 import InlineList from "../InlineList/InlineList";
 import PacketList from "../PacketList/PacketList";
-/* import { getItems } from "../../handlers/getItems"; */
+
 import { AppContext } from "../../utils/context";
+import { listFetching } from "../../handlers/getItems";
+import { scrollListFetching } from "../../handlers/scrollLists";
+
 import styles from "./CategoryList.module.css";
 
 function CategoryList({ filter, category, width }) {
   const [list, setList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { appElem } = useContext(AppContext);
 
-  useEffect(() => {
-    if (isLoading) {
-      console.log("fetch...");
-      fetch(
-        `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=${page}`,
-        {
-          method: "GET",
-          headers: {
-            "X-API-KEY": "b0f850d3-735d-4517-84a1-f12798847e34",
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          console.log(result);
-          setList([...list, ...result.items]);
-          setPage((prevPage) => prevPage + 1);
-        })
-        .catch((error) => console.log(error))
-        .finally(() => setIsLoading(false));
+  const getData = () => {
+    if (list.length < 400) {
+      return listFetching(filter, list, setList, page, setPage, setIsLoading);
     }
-  }, [isLoading, page]);
-
-  const scrollHandler = (e) => {
-    if (
-      e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) <
-      100
-    ) {
-      console.log("scroll");
-      setIsLoading(true);
-    }
+    return;
   };
 
   useEffect(() => {
+    if (isLoading) {
+      getData();
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
     const ref = appElem.current;
     ref.addEventListener("scroll", scrollHandler);
     return () => ref.removeEventListener("scroll", scrollHandler);

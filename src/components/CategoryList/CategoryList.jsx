@@ -39,10 +39,10 @@ function CategoryList({ filter, category, width }) {
   return (
     <div className={styles.list}>
       <PacketList
-        page={page}
+        isLoading={isLoading}
+        list={list}
         title={`Топ-20 в категории ${category}`}
         screen={width}
-        filter={filter}
       />
       <h1>{category}</h1>
       <InlineList isLoading={isLoading} list={list} />

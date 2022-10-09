@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import PacketMovieCard from "../PacketMovieCard/PacketMovieCard";
 import PacketMovieImage from "../PacketMovieImage/PacketMovieImage";
 import ImageButton from "../../UI/ImageButton/ImageButton";
 import { getCardsAmount } from "../../utils/getCardsAmount";
-import { getItems } from "../../handlers/getItems";
 import { scrollLists } from "../../handlers/scrollLists";
 
 import styles from "./PacketList.module.css";
@@ -12,10 +11,8 @@ import styles from "./PacketList.module.css";
 import more from "../../icons/PacketList/more.png";
 import less from "../../icons/PacketList/less.png";
 
-function PacketList({ page, filter, title, screen }) {
-  const [list, setList] = useState([]);
+function PacketList({ isLoading, list, title, screen }) {
   const [part, setPart] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
 
   const amount = getCardsAmount(screen, 150);
   const cardsList = [];
@@ -23,14 +20,9 @@ function PacketList({ page, filter, title, screen }) {
     cardsList.push(<PacketMovieCard key={Math.random()} />);
   }
 
-  useEffect(() => {
-    getItems(page, filter, setList, setIsLoading);
-    return setIsLoading(true);
-  }, [page, filter]);
-
   const visibleList = isLoading
     ? cardsList
-    : list.items
+    : list
         .slice(part, amount + part)
         .map((elem) => (
           <PacketMovieImage
@@ -48,14 +40,14 @@ function PacketList({ page, filter, title, screen }) {
           path={less}
           alt="previous movie"
           title="Предыдущий фильм"
-          click={() => scrollLists(false, list.items, part, setPart, amount)}
+          click={() => scrollLists(false, list, part, setPart, amount)}
         />
         <div className={styles.items}>{visibleList}</div>
         <ImageButton
           path={more}
           alt="next movie"
           title="Следующий фильм"
-          click={() => scrollLists(true, list.items, part, setPart, amount)}
+          click={() => scrollLists(true, list, part, setPart, amount)}
         />
       </div>
     </div>

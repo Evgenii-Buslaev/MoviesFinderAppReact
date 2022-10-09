@@ -1,6 +1,6 @@
 import FilmsService from "../API/FilmsService";
 
-export async function getItems(page, packet, setList, setIsLoading) {
+export async function getItems(page, packet, setList, endFetching) {
   let data;
   switch (packet) {
     case "premiers":
@@ -33,7 +33,8 @@ export async function getItems(page, packet, setList, setIsLoading) {
 
   const res = await data.json();
   setList(res);
-  setIsLoading(false);
+  console.log(res);
+  endFetching();
 }
 
 export async function getData(setListC, setListG, setIsLoading) {

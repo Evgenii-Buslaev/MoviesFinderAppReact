@@ -4,9 +4,9 @@ const URL = {
   films:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
   series:
-    "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
   shows:
-    "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1",
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
 };
 
 const PacketURL = {
@@ -23,13 +23,13 @@ const PacketURL = {
 const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
 
 /* const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c"; */
-const KEY_RESERVE =
-  "986eeea7-968e-4022-9877-e84daf01fcc7"; /* const KEY_RESERVE2 = "b0f850d3-735d-4517-84a1-f12798847e34"; */
+/* const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7"; */
+const KEY_RESERVE2 = "b0f850d3-735d-4517-84a1-f12798847e34";
 
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEY_RESERVE,
+    "X-API-KEY": KEY_RESERVE2,
     "Content-Type": "application/json",
   },
 };

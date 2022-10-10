@@ -52,7 +52,8 @@ export function listFetching(
   setList,
   page,
   setPage,
-  setIsLoading
+  setIsLoading,
+  setTotalPages
 ) {
   let data;
   switch (packet) {
@@ -73,11 +74,11 @@ export function listFetching(
     .then((res) => res.json())
     .catch((error) => console.log(error))
     .then((result) => {
+      console.log(result);
+      setTotalPages(result.totalPages);
       setList([...list, ...result.items]);
       setPage((prevPage) => prevPage + 1);
     })
     .catch((error) => console.log(error))
     .finally(() => setIsLoading(false));
-
-  console.log(list);
 }

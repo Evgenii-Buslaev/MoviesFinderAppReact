@@ -35,21 +35,23 @@ function PacketList({ isLoading, list, title, screen }) {
   return (
     <div className={styles.listCont}>
       <h2 className={styles.title}>{title}</h2>
-      <div className={styles.list}>
-        <ImageButton
-          path={less}
-          alt="previous movie"
-          title="Предыдущий фильм"
-          click={() => scrollLists(false, list, part, setPart, amount)}
-        />
-        <div className={styles.items}>{visibleList}</div>
-        <ImageButton
-          path={more}
-          alt="next movie"
-          title="Следующий фильм"
-          click={() => scrollLists(true, list, part, setPart, amount)}
-        />
-      </div>
+      {list.length ? (
+        <div className={styles.list}>
+          <ImageButton
+            path={less}
+            alt="previous movie"
+            title="Предыдущий фильм"
+            click={() => scrollLists(false, list, part, setPart, amount)}
+          />
+          <div className={styles.items}>{visibleList}</div>
+          <ImageButton
+            path={more}
+            alt="next movie"
+            title="Следующий фильм"
+            click={() => scrollLists(true, list, part, setPart, amount)}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

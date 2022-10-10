@@ -12,16 +12,23 @@ import styles from "./CategoryList.module.css";
 function CategoryList({ category, width }) {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const { appElem } = useContext(AppContext);
 
-  const getData = () => {
-    if (list.length < 400) {
-      return listFetching(category, list, setList, page, setPage, setIsLoading);
-    }
-    return;
-  };
+  const fetchArgs = [
+    category,
+    list,
+    setList,
+    page,
+    setPage,
+    setIsLoading,
+    setTotalPages,
+  ];
+
+  const getData = () =>
+    page <= totalPages ? listFetching(...fetchArgs) : setIsLoading(false);
 
   useEffect(() => {
     if (isLoading) {

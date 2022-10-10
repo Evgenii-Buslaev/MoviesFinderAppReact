@@ -11,18 +11,21 @@ import shows from "../../icons/options-bar/cartoons.png";
 const optionsBtns = [
   {
     img: films,
+    category: "films",
     alt: "films",
     text: "Фильмы",
     active: false,
   },
   {
     img: series,
+    category: "series",
     alt: "series",
     text: "Сериалы",
     active: false,
   },
   {
     img: shows,
+    category: "tv-shows",
     alt: "tv-shows",
     text: "ТВ-шоу",
     active: false,
@@ -35,7 +38,7 @@ function OptionsBar({ change }) {
       <LogoItem />
       {optionsBtns.map((btn) => (
         <div className={styles.optItem} key={btn.text}>
-          <RouterLink path="/categories" onClick={() => change(btn.alt)}>
+          <RouterLink path="/categories" onClick={() => change(btn.category)}>
             <ImageButton path={btn.img} alt={btn.alt} title={btn.text} />
             <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
           </RouterLink>

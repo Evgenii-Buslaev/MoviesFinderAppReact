@@ -6,22 +6,30 @@ import ImageButton from "../../UI/ImageButton/ImageButton";
 import styles from "./NavBar.module.css";
 import search from "../../icons/search/search-dir.png";
 
-function NavBar() {
+const categoryBtns = [
+  { category: "films", title: "Фильмы" },
+  { category: "series", title: "Сериалы" },
+  { category: "tv-shows", title: "ТВ-шоу" },
+];
+
+function NavBar({ change }) {
   return (
     <nav className={styles.navBarCont}>
       <RouterLink path="/">
         <LogoItem />
       </RouterLink>
       <div className={styles.categories}>
-        <RouterLink path="/films">
-          <button className={styles.navBtn}>Фильмы</button>
-        </RouterLink>
-        <RouterLink path="/series">
-          <button className={styles.navBtn}>Сериалы</button>
-        </RouterLink>
-        <RouterLink path="/tv-shows">
-          <button className={styles.navBtn}>ТВ-шоу</button>
-        </RouterLink>
+        {categoryBtns.map((elem) => (
+          <RouterLink path="/categories" key={elem.title}>
+            <button
+              className={styles.navBtn}
+              category={elem.category}
+              onClick={() => change(elem.category)}
+            >
+              {elem.title}
+            </button>
+          </RouterLink>
+        ))}
       </div>
       <RouterLink path="/search">
         <ImageButton path={search} title="Поиск" alt="search-directory" />

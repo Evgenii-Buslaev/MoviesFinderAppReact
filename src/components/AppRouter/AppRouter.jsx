@@ -7,24 +7,12 @@ import Collection from "../Collection/Collection";
 import Search from "../Search/Search";
 import Movie from "../Movie/Movie";
 
-function AppRouter({ width }) {
+function AppRouter({ category, width }) {
   const AppRoutes = [
     { path: "/", element: <Home width={width} /> },
     {
-      path: "/films",
-      element: <CategoryList category="Фильмы" filter="films" width={width} />,
-    },
-    {
-      path: "/series",
-      element: (
-        <CategoryList category="Сериалы" filter="series" width={width} />
-      ),
-    },
-    {
-      path: "/tv-shows",
-      element: (
-        <CategoryList category="ТВ-шоу" filter="tv-shows" width={width} />
-      ),
+      path: "/categories",
+      element: <CategoryList category={category} width={width} />,
     },
     { path: "/search", element: <Search /> },
     { path: "/collection", element: <Collection /> },

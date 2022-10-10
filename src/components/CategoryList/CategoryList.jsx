@@ -9,16 +9,17 @@ import { scrollListFetching } from "../../handlers/scrollLists";
 
 import styles from "./CategoryList.module.css";
 
-function CategoryList({ filter, category, width }) {
+function CategoryList({ category, width }) {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const { appElem } = useContext(AppContext);
+  console.log(category);
 
-  const getData = () => {
+  /* const getData = () => {
     if (list.length < 400) {
-      return listFetching(filter, list, setList, page, setPage, setIsLoading);
+      return listFetching(category, list, setList, page, setPage, setIsLoading);
     }
     return;
   };
@@ -30,22 +31,30 @@ function CategoryList({ filter, category, width }) {
   }, [isLoading]);
 
   useEffect(() => {
+    const clearList = () => {
+      setList([]);
+      setIsLoading(true);
+    };
+    clearList();
+  }, [category]);
+
+  useEffect(() => {
     const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
     const ref = appElem.current;
     ref.addEventListener("scroll", scrollHandler);
     return () => ref.removeEventListener("scroll", scrollHandler);
-  }, [appElem]);
+  }, [appElem]); */
 
   return (
     <div className={styles.list}>
-      <PacketList
+      {/* <PacketList
         isLoading={isLoading}
         list={list}
         title={`Топ-20 в категории ${category}`}
         screen={width}
-      />
+      /> */}
       <h1>{category}</h1>
-      <InlineList isLoading={isLoading} list={list} />
+      {/* <InlineList filter={filter} list={list} /> */}
     </div>
   );
 }

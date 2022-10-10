@@ -2,13 +2,13 @@ import NavBar from "../NavBar/NavBar";
 import NavBarMob from "../NavBarMob/NavBarMob";
 import OptionsBar from "../OptionsBar/OptionsBar";
 
-function Navigation({ screen }) {
+function Navigation({ changeCategory, screen }) {
   return screen > 800 ? (
-    <NavBar />
+    <NavBar change={changeCategory} />
   ) : (
     <>
       <NavBarMob />
-      <OptionsBar />
+      <OptionsBar change={changeCategory} />
     </>
   );
 }

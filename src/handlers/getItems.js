@@ -75,8 +75,9 @@ export function listFetching(
     .then((result) => {
       setList([...list, ...result.items]);
       setPage((prevPage) => prevPage + 1);
-      console.log(list);
     })
     .catch((error) => console.log(error))
     .finally(() => setIsLoading(false));
+
+  console.log(list);
 }

@@ -45,13 +45,13 @@ export default class FilmsService {
     return response;
   }
 
-  static async getSeries() {
-    const response = await fetch(URL.series, headers);
+  static async getSeries(page) {
+    const response = await fetch(`${URL.series}${page}`, headers);
     return response;
   }
 
-  static async getShows() {
-    const response = await fetch(URL.shows, headers);
+  static async getShows(page) {
+    const response = await fetch(`${URL.shows}${page}`, headers);
     return response;
   }
 

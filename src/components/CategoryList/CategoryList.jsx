@@ -15,9 +15,8 @@ function CategoryList({ category, width }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const { appElem } = useContext(AppContext);
-  console.log(category);
 
-  /* const getData = () => {
+  const getData = () => {
     if (list.length < 400) {
       return listFetching(category, list, setList, page, setPage, setIsLoading);
     }
@@ -31,11 +30,9 @@ function CategoryList({ category, width }) {
   }, [isLoading]);
 
   useEffect(() => {
-    const clearList = () => {
-      setList([]);
-      setIsLoading(true);
-    };
-    clearList();
+    setList([]);
+    setPage(1);
+    setIsLoading(true);
   }, [category]);
 
   useEffect(() => {
@@ -43,18 +40,34 @@ function CategoryList({ category, width }) {
     const ref = appElem.current;
     ref.addEventListener("scroll", scrollHandler);
     return () => ref.removeEventListener("scroll", scrollHandler);
-  }, [appElem]); */
+  }, [appElem]);
+
+  let header;
+  switch (category) {
+    case "films":
+      header = "Фильмы";
+      break;
+    case "series":
+      header = "Сериалы";
+      break;
+    case "tv-shows":
+      header = "ТВ-шоу";
+      break;
+    default:
+      header = "Фильмы";
+      break;
+  }
 
   return (
     <div className={styles.list}>
-      {/* <PacketList
+      <PacketList
         isLoading={isLoading}
         list={list}
-        title={`Топ-20 в категории ${category}`}
+        title={`Топ-20 в категории ${header}`}
         screen={width}
-      /> */}
-      <h1>{category}</h1>
-      {/* <InlineList filter={filter} list={list} /> */}
+      />
+      <h1>{header}</h1>
+      <InlineList list={list} />
     </div>
   );
 }

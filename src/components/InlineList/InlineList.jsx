@@ -5,11 +5,11 @@ import Loader from "../../UI/Loader/Loader";
 import Select from "../../UI/Select/Select";
 import styles from "./InlineList.module.css";
 
-function InlineList({ filter, list }) {
+function InlineList({ list }) {
   return (
     <>
       <Select />
-      <div className={styles.list} type={filter}>
+      <div className={styles.list}>
         {list ? (
           list.map((film) => (
             <RouterLink path="/id" key={film.kinopoiskId}>

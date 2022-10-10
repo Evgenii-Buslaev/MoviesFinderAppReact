@@ -16,6 +16,7 @@ function CategoryList({ category, width }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const { appElem } = useContext(AppContext);
+  console.log(list);
 
   const fetchArgs = [
     category,
@@ -74,7 +75,7 @@ function CategoryList({ category, width }) {
         screen={width}
       />
       <h1>{header}</h1>
-      <InlineList list={list} />
+      <InlineList list={list} setList={setList} />
     </div>
   );
 }

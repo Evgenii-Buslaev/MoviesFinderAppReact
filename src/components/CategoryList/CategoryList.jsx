@@ -7,14 +7,9 @@ import { AppContext } from "../../utils/context";
 import { listFetching } from "../../handlers/getItems";
 import { scrollListFetching } from "../../handlers/scrollLists";
 import { sortList } from "../../handlers/sortList";
+import { getHeader, selectOptions } from "../../utils/store";
 
 import styles from "./CategoryList.module.css";
-
-const selectOptions = [
-  { value: "ratingKinopoisk", name: "по рейтингу" },
-  { value: "nameRu", name: "по названию" },
-  { value: "year", name: "сначала новое" },
-];
 
 function CategoryList({ category, width }) {
   const [list, setList] = useState([]);
@@ -34,12 +29,10 @@ function CategoryList({ category, width }) {
     setIsLoading,
     setTotalPages,
   ];
-
   const sortArgs = [setSort, list, setList];
 
   const getData = () =>
     page <= totalPages ? listFetching(...fetchArgs) : setIsLoading(false);
-
   const sortData = (sort) => sortList(sort, ...sortArgs);
 
   useEffect(() => {
@@ -62,31 +55,15 @@ function CategoryList({ category, width }) {
     return () => ref.removeEventListener("scroll", scrollHandler);
   }, [appElem]);
 
-  let header;
-  switch (category) {
-    case "films":
-      header = "Фильмы";
-      break;
-    case "series":
-      header = "Сериалы";
-      break;
-    case "tv-shows":
-      header = "ТВ-шоу";
-      break;
-    default:
-      header = "Фильмы";
-      break;
-  }
-
   return (
     <div className={styles.list}>
       <PacketList
         isLoading={isLoading}
         list={list}
-        title={`Топ-20 в категории ${header}`}
+        title={`Топ-20 в категории ${getHeader(category)}`}
         screen={width}
       />
-      <h1>{header}</h1>
+      <h1>{getHeader(category)}</h1>
       <InlineList
         list={list}
         options={selectOptions}

@@ -48,15 +48,15 @@ function SearchForm({
             id="years"
             data={years}
             text="Годы"
-            value={genre}
-            change={chooseGenre}
+            value={period}
+            change={choosePeriod}
           />
           <SearchDataList
             id="genre"
             data={genres}
             text="Жанр"
-            value={period}
-            change={choosePeriod}
+            value={genre}
+            change={chooseGenre}
           />
         </div>
         <button type="submit" className={styles.submit}>

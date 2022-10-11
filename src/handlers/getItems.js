@@ -82,3 +82,7 @@ export function listFetching(
     .catch((error) => console.log(error))
     .finally(() => setIsLoading(false));
 }
+
+export function getSearchedItems(page, country, genre, years) {
+  FilmsService.search(page, country, genre, years);
+}

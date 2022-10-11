@@ -17,4 +17,15 @@ const selectOptions = [
   { value: "year", name: "сначала новое" },
 ];
 
-export { selectOptions };
+const years = [
+  "2010-2023",
+  "2000-2010",
+  "1990-2000",
+  "1980-1990",
+  "1970-1980",
+  "1960-1970",
+  "1950-1960",
+  "1940-1950",
+];
+
+export { selectOptions, years };

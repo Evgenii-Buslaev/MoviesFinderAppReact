@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 
 import SearchDataList from "../../UI/SearchDataList/SearchDataList";
 import { getData } from "../../handlers/getItems";
+import { years } from "../../utils/store";
 import styles from "./SearchForm.module.css";
-
-const years = ["2010-наст.вр", "2000-2010", "1990-2000", "1980-1990"];
 
 function SearchForm() {
   const [countriesList, setCountriesList] = useState([]);

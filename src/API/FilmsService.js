@@ -79,4 +79,41 @@ export default class FilmsService {
     const response = await fetch(ID_URL, headers);
     return response;
   }
+
+  static async search(
+    page = 1,
+    countryID = null,
+    genre_ID = null,
+    years = null
+  ) {
+    let yearsStart;
+    let yearsEnd;
+    if (years) {
+      yearsStart = years.split("-")[0];
+      yearsEnd = years.split("-")[1];
+    } else {
+      yearsStart = 1000;
+      yearsEnd = 3000;
+    }
+
+    const params = {
+      countries: countryID,
+      genres: genre_ID,
+      yearFrom: yearsStart,
+      yearTo: yearsEnd,
+      page: page,
+      order: "RATING",
+      type: "ALL",
+      ratingFrom: 0,
+      ratingTo: 10,
+    };
+    const query = Object.entries(params).map((param) => {
+      if (param[0]) {
+        return `${param[0]}=${param[1]}`;
+      }
+    });
+    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?${query}`;
+    const response = await fetch(search_URL, headers);
+    return response;
+  }
 }

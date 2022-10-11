@@ -18,6 +18,7 @@ function InlineList({ list, options, sort, change }) {
                 name={film.nameRu || film.nameOriginal}
                 countryList={film.countries}
                 year={film.year}
+                rating={film.ratingKinopoisk}
               />
             </RouterLink>
           ))

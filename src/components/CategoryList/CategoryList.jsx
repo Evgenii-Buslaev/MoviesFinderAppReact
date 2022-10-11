@@ -6,17 +6,24 @@ import PacketList from "../PacketList/PacketList";
 import { AppContext } from "../../utils/context";
 import { listFetching } from "../../handlers/getItems";
 import { scrollListFetching } from "../../handlers/scrollLists";
+import { sortList } from "../../handlers/sortList";
 
 import styles from "./CategoryList.module.css";
+
+const selectOptions = [
+  { value: "ratingKinopoisk", name: "по рейтингу" },
+  { value: "nameRu", name: "по названию" },
+  { value: "year", name: "сначала новое" },
+];
 
 function CategoryList({ category, width }) {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
+  const [sort, setSort] = useState("ratingKinopoisk");
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const { appElem } = useContext(AppContext);
-  console.log(list);
 
   const fetchArgs = [
     category,
@@ -28,13 +35,18 @@ function CategoryList({ category, width }) {
     setTotalPages,
   ];
 
+  const sortArgs = [setSort, list, setList];
+
   const getData = () =>
     page <= totalPages ? listFetching(...fetchArgs) : setIsLoading(false);
+
+  const sortData = (sort) => sortList(sort, ...sortArgs);
 
   useEffect(() => {
     if (isLoading) {
       getData();
     }
+    sortData(sort);
   }, [isLoading]);
 
   useEffect(() => {
@@ -75,7 +87,12 @@ function CategoryList({ category, width }) {
         screen={width}
       />
       <h1>{header}</h1>
-      <InlineList list={list} setList={setList} />
+      <InlineList
+        list={list}
+        options={selectOptions}
+        sort={sort}
+        change={sortData}
+      />
     </div>
   );
 }

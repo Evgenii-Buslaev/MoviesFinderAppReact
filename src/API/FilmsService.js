@@ -22,13 +22,13 @@ const PacketURL = {
 
 const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
 
-const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c";
-/* const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7"; */
+/* const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c"; */
+const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7";
 /* const KEY_RESERVE2 = "b0f850d3-735d-4517-84a1-f12798847e34" */
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEY,
+    "X-API-KEY": KEY_RESERVE,
     "Content-Type": "application/json",
   },
 };
@@ -89,17 +89,8 @@ export default class FilmsService {
       yearsStart = 1000;
       yearsEnd = 3000;
     }
-
-    const queryHeaders = {
-      method: "GET",
-      headers: {
-        "X-API-KEY": KEY,
-        "Content-Type": "application/json",
-      },
-    };
-
-    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=${countryID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=${page}`;
-    const response = await fetch(search_URL, queryHeaders);
+    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=${countryID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
+    const response = await fetch(search_URL, headers);
     return response;
   }
 }

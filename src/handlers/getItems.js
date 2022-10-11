@@ -41,9 +41,10 @@ export async function getData(setListC, setListG, setIsLoading) {
   const data = await FilmsService.getCountriesIds();
   const res = await data.json();
 
-  setListC(res.countries.map((object) => object.country));
-  setListG(res.genres.map((object) => object.genre));
+  setListC(res.countries);
+  setListG(res.genres);
   setIsLoading(false);
+  console.log(res);
 }
 
 export function listFetching(
@@ -81,8 +82,4 @@ export function listFetching(
     })
     .catch((error) => console.log(error))
     .finally(() => setIsLoading(false));
-}
-
-export function getSearchedItems(page, country, genre, years) {
-  FilmsService.search(page, country, genre, years);
 }

@@ -12,7 +12,7 @@ function SearchDataList({ value, change, id, data, text }) {
       />
       <datalist id={id}>
         {data.map((item) => (
-          <option value={item} key={item} />
+          <option key={item.id} value={item.id} />
         ))}
       </datalist>
     </>

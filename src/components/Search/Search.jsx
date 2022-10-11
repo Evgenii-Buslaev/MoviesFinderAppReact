@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import InlineList from "../InlineList/InlineList";
 import FilmsService from "../../API/FilmsService";
-import { getSearchedItems } from "../../handlers/getItems";
 import { sortList } from "../../handlers/sortList";
 import { selectOptions } from "../../utils/store";
 
@@ -38,8 +37,9 @@ function Search() {
     };
     if (isLoading) {
       fetching(page, country, genre, period);
+      console.log(genre);
     }
-  }, [page, country, genre, period, textQuery, isLoading]);
+  }, [page, country, genre, period, totalPages, isLoading]);
 
   const sortArgs = [setSort, list, setList];
   const sortData = (sort) => sortList(sort, ...sortArgs);

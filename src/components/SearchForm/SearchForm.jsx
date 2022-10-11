@@ -23,8 +23,16 @@ function SearchForm({
     getData(setCountriesList, setGenresList, setIsLoading);
   }, []);
 
-  const countries = isLoading ? [] : countriesList.map((country) => country);
-  const genres = isLoading ? [] : genresList.map((genre) => genre);
+  const countries = isLoading
+    ? []
+    : countriesList.map((obj) => {
+        return { id: obj.id, prop: obj.country };
+      });
+  const genres = isLoading
+    ? []
+    : genresList.map((obj) => {
+        return { id: obj.id, prop: obj.genre };
+      });
 
   return (
     <form className={styles.searchCont}>

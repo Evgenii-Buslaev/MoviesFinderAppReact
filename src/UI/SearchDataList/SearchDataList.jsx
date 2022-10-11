@@ -1,9 +1,15 @@
 import styles from "./SearchDataList.module.css";
 
-function SearchDataList({ id, data, text }) {
+function SearchDataList({ value, change, id, data, text }) {
   return (
     <>
-      <input list={id} placeholder={text} className={styles.dataInput} />
+      <input
+        list={id}
+        placeholder={text}
+        className={styles.dataInput}
+        value={value}
+        onChange={(e) => change(e.target.value)}
+      />
       <datalist id={id}>
         {data.map((item) => (
           <option value={item} key={item} />

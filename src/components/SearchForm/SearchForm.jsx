@@ -5,7 +5,16 @@ import { getData } from "../../handlers/getItems";
 import { years } from "../../utils/store";
 import styles from "./SearchForm.module.css";
 
-function SearchForm() {
+function SearchForm({
+  country,
+  genre,
+  period,
+  query,
+  chooseCountry,
+  chooseGenre,
+  choosePeriod,
+  changeText,
+}) {
   const [countriesList, setCountriesList] = useState([]);
   const [genresList, setGenresList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,12 +32,32 @@ function SearchForm() {
         className={styles.search}
         type="text"
         placeholder="Введите ключевые слова..."
+        value={query}
+        onChange={(e) => changeText(e.target.value)}
       />
       <div className={styles.filters}>
         <div className={styles.lists}>
-          <SearchDataList id="countries" data={countries} text="Страна" />
-          <SearchDataList id="years" data={years} text="Годы" />
-          <SearchDataList id="genre" data={genres} text="Жанр" />
+          <SearchDataList
+            id="countries"
+            data={countries}
+            text="Страна"
+            value={country}
+            change={chooseCountry}
+          />
+          <SearchDataList
+            id="years"
+            data={years}
+            text="Годы"
+            value={genre}
+            change={chooseGenre}
+          />
+          <SearchDataList
+            id="genre"
+            data={genres}
+            text="Жанр"
+            value={period}
+            change={choosePeriod}
+          />
         </div>
         <button type="submit" className={styles.submit}>
           Найти

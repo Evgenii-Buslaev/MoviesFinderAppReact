@@ -12,7 +12,9 @@ function SearchDataList({ value, change, id, data, text }) {
       />
       <datalist id={id}>
         {data.map((item) => (
-          <option key={item.id} value={item.id} />
+          <option value={item.id || item.years} key={Math.random()}>
+            {item.prop}
+          </option>
         ))}
       </datalist>
     </>

@@ -79,7 +79,7 @@ export default class FilmsService {
     return response;
   }
 
-  static async search(page, countryID, genre_ID, years) {
+  static async search(page, keyword, countryID, genre_ID, years) {
     let yearsStart;
     let yearsEnd;
     if (years) {
@@ -89,7 +89,7 @@ export default class FilmsService {
       yearsStart = 1000;
       yearsEnd = 3000;
     }
-    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?countries=${countryID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
+    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}&countries=${countryID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
     const response = await fetch(search_URL, headers);
     return response;
   }

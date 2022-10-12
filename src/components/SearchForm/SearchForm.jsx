@@ -35,7 +35,7 @@ function SearchForm({
       });
 
   return (
-    <form className={styles.searchCont}>
+    <form className={styles.searchCont} onSubmit={(e) => e.preventDefault()}>
       <input
         className={styles.search}
         type="text"

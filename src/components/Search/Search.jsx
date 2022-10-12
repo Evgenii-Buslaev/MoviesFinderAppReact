@@ -21,25 +21,35 @@ function Search() {
   const [isLoading, setIsLoading] = useState(true);
   const [sort, setSort] = useState("ratingKinopoisk");
 
+  const fetching = (page, textQuery, country, genre, period) => {
+    FilmsService.search(page, textQuery, country, genre, period)
+      .then((res) => res.json())
+      .then((result) => {
+        setTotalPages(result.totalPages);
+        setList([...list, ...result.items]);
+        if (page < 3) {
+          setPage((prevPage) => prevPage + 1);
+        }
+        console.log(page);
+        console.log(result);
+      });
+  };
+
+  const clearData = () => {
+    setList([]);
+    setPage(1);
+  };
+
   useEffect(() => {
-    const fetching = (page, country, genre, period) => {
-      FilmsService.search(page, country, genre, period)
-        .then((res) => res.json())
-        .then((result) => {
-          setTotalPages(result.totalPages);
-          if (page < 3) {
-            setPage((prevPage) => prevPage + 1);
-          }
-          setList([...list, ...result.items]);
-          console.log(page);
-          console.log(result);
-        });
-    };
     if (isLoading) {
-      fetching(page, country, genre, period);
+      fetching(page, textQuery, country, genre, period);
       console.log(genre);
     }
-  }, [page, country, genre, period, totalPages, isLoading]);
+  }, [page, totalPages, isLoading]);
+
+  useEffect(() => {
+    clearData();
+  }, [country, genre, period, textQuery]);
 
   const sortArgs = [setSort, list, setList];
   const sortData = (sort) => sortList(sort, ...sortArgs);
@@ -48,6 +58,9 @@ function Search() {
     <div className={styles.cont}>
       <SearchForm
         country={country}
+        genre={genre}
+        period={period}
+        query={textQuery}
         changeText={setTextQuery}
         chooseCountry={setCountry}
         chooseGenre={setGenre}

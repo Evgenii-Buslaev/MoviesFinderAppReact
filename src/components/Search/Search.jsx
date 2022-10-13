@@ -52,6 +52,7 @@ function Search() {
     setGenre("");
     setPeriod("");
     setTextQuery("");
+    setPage(1);
     setList([]);
     setIsLoading(true);
   };
@@ -64,10 +65,6 @@ function Search() {
     }
     // eslint-disable-next-line
   }, [isLoading]);
-
-  useEffect(() => {
-    query();
-  }, [country, genre, period]);
 
   useEffect(() => {
     if (!textQuery) {

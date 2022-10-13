@@ -56,12 +56,11 @@ function SearchForm({
             change={choosePeriod}
           />
         </div>
-        <button
-          type="submit"
-          className={styles.submit}
-          onClick={() => search()}
-        >
+        <button type="submit" className={styles.btn} onClick={() => search()}>
           Найти
+        </button>
+        <button className={styles.btn} onClick={() => search()}>
+          Сбросить
         </button>
       </div>
     </form>

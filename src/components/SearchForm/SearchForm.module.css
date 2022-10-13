@@ -33,18 +33,20 @@
   border: solid thin white;
 }
 
-.submit {
-  width: 300px;
+.btn {
+  width: 200px;
   height: auto;
+  box-sizing: border-box;
   font-size: 1rem;
   color: white;
   padding: 1rem 1.5rem;
   background-color: rgb(25, 102, 112);
+  border: solid thin rgb(25, 102, 112);
 }
 
-@media (max-width: 1200px) {
-  .submit {
-    width: 200px;
+@media (max-width: 1400px) {
+  .btn {
+    width: 140px;
     height: auto;
     font-size: 1rem;
     color: white;
@@ -56,12 +58,13 @@
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1250px) {
   .filters {
     flex-direction: column;
   }
-  .submit {
-    margin: 1rem auto;
+  .btn {
+    margin: 0.5rem auto;
+    padding: 0.6rem 1.5rem;
   }
   .lists {
     width: auto;

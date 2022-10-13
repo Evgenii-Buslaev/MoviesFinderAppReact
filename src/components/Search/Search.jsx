@@ -35,18 +35,24 @@ function Search() {
       .then((result) => {
         setTotalPages(result.totalPages);
         setList([...list, ...result.items]);
-        if (page < totalPages) {
-          setPage((prevPage) => prevPage + 1);
-        }
+        if (page < totalPages) setPage((prevPage) => prevPage + 1);
         setIsLoading(false);
-        console.log(result);
-        console.log(genre);
+        console.log(page);
       });
   };
 
   const query = () => {
     setList([]);
     setPage(1);
+    setIsLoading(true);
+  };
+
+  const reset = () => {
+    setCountry("");
+    setGenre("");
+    setPeriod("");
+    setTextQuery("");
+    setList([]);
     setIsLoading(true);
   };
 
@@ -84,6 +90,7 @@ function Search() {
         chooseGenre={setGenre}
         choosePeriod={setPeriod}
         search={() => query()}
+        reset={() => reset()}
       />
       <InlineList
         list={list}

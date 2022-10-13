@@ -13,6 +13,7 @@ function SearchForm({
   choosePeriod,
   changeText,
   search,
+  reset,
 }) {
   const countries = ids.countries.map((item) => item.country);
   const genres = ids.genres.map((item) => item.genre);
@@ -59,7 +60,7 @@ function SearchForm({
         <button type="submit" className={styles.btn} onClick={() => search()}>
           Найти
         </button>
-        <button className={styles.btn} onClick={() => search()}>
+        <button className={styles.btn} onClick={() => reset()}>
           Сбросить
         </button>
       </div>

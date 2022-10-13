@@ -76,25 +76,32 @@ export default class FilmsService {
     return response;
   }
 
+  static async getCountriesIds() {
+    const response = await fetch(ID_URL, headers);
+    return response;
+  }
+
   static async search(page, keyword, country, genre, years) {
     let yearsStart;
     let yearsEnd;
-    if (years) {
-      yearsStart = years.split("-")[0];
-      yearsEnd = years.split("-")[1];
-    } else {
+    yearsStart = +years.split("-")[0];
+    yearsEnd = +years.split("-")[1];
+    if (isNaN(yearsStart) || isNaN(yearsEnd)) {
       yearsStart = 1000;
       yearsEnd = 3000;
     }
 
-    const country_ID = country
-      ? ids.countries.filter((elem) => elem.country === country)[0].id
-      : "";
-    const genre_ID = genre
-      ? ids.genres.filter((elem) => elem.genre === genre)[0].id
-      : "";
+    const country_ID = ids.countries.filter((elem) =>
+      elem.country.toLowerCase().includes(country.toLowerCase())
+    )[0]?.id;
+    const genre_ID = ids.genres.filter((elem) =>
+      elem.genre.toLowerCase().includes(genre.toLowerCase())
+    )[0]?.id;
 
-    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}&countries=${country_ID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
+    let country_data = country_ID || "";
+    let genre_data = genre_ID || "";
+
+    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}&countries=${country_data}&genres=${genre_data}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
     const response = await fetch(search_URL, headers);
     return response;
   }

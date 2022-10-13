@@ -16,6 +16,7 @@ function Search() {
   const [genre, setGenre] = useState("");
   const [period, setPeriod] = useState("");
   const [textQuery, setTextQuery] = useState("");
+  const [textFocus, setTextFocus] = useState(false);
 
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
@@ -44,18 +45,18 @@ function Search() {
   };
 
   useEffect(() => {
-    if (isLoading) {
+    if (isLoading && !textFocus) {
       fetching(page, textQuery, country, genre, period);
     } else {
       sortData(sort);
     }
-  }, [isLoading]);
+  }, [isLoading, textFocus]);
 
   useEffect(() => {
     setList([]);
     setPage(1);
     setIsLoading(true);
-  }, [country, genre, period]);
+  }, [country, genre, period, textQuery]);
 
   useEffect(() => {
     const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
@@ -75,6 +76,8 @@ function Search() {
         chooseCountry={setCountry}
         chooseGenre={setGenre}
         choosePeriod={setPeriod}
+        focus={() => setTextFocus(true)}
+        blur={() => setTextFocus(false)}
       />
       <InlineList
         list={list}

@@ -12,6 +12,8 @@ function SearchForm({
   chooseGenre,
   choosePeriod,
   changeText,
+  blur,
+  focus,
 }) {
   const countries = ids.countries.map((item) => item.country);
   const genres = ids.genres.map((item) => item.genre);
@@ -24,6 +26,8 @@ function SearchForm({
         placeholder="Введите ключевые слова..."
         value={query}
         onChange={(e) => changeText(e.target.value)}
+        onBlur={blur}
+        onFocus={focus}
       />
       <div className={styles.filters}>
         <div className={styles.lists}>
@@ -35,18 +39,18 @@ function SearchForm({
             change={chooseCountry}
           />
           <SearchDataList
-            id="years"
-            data={years}
-            text="Годы"
-            value={period}
-            change={choosePeriod}
-          />
-          <SearchDataList
             id="genre"
             data={genres}
             text="Жанр"
             value={genre}
             change={chooseGenre}
+          />
+          <SearchDataList
+            id="years"
+            data={years}
+            text="Годы"
+            value={period}
+            change={choosePeriod}
           />
         </div>
         <button type="submit" className={styles.submit}>

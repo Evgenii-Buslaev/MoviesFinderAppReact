@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import SearchForm from "../SearchForm/SearchForm";
 import InlineList from "../InlineList/InlineList";
 import FilmsService from "../../API/FilmsService";
+
+import { AppContext } from "../../utils/context";
 import { sortList } from "../../handlers/sortList";
 import { selectOptions } from "../../utils/store";
+import { scrollListFetching } from "../../handlers/scrollLists";
 
 import styles from "./Search.module.css";
 
@@ -21,38 +24,45 @@ function Search() {
   const [isLoading, setIsLoading] = useState(true);
   const [sort, setSort] = useState("ratingKinopoisk");
 
+  const { appElem } = useContext(AppContext);
+
+  const sortArgs = [setSort, list, setList];
+  const sortData = (sort) => sortList(sort, ...sortArgs);
+
   const fetching = (page, textQuery, country, genre, period) => {
     FilmsService.search(page, textQuery, country, genre, period)
       .then((res) => res.json())
       .then((result) => {
         setTotalPages(result.totalPages);
         setList([...list, ...result.items]);
-        if (page < 3) {
+        if (page < totalPages) {
           setPage((prevPage) => prevPage + 1);
         }
-        console.log(page);
+        setIsLoading(false);
         console.log(result);
       });
-  };
-
-  const clearData = () => {
-    setList([]);
-    setPage(1);
   };
 
   useEffect(() => {
     if (isLoading) {
       fetching(page, textQuery, country, genre, period);
-      console.log(genre);
+    } else {
+      sortData(sort);
     }
-  }, [page, totalPages, isLoading]);
+  }, [isLoading]);
 
   useEffect(() => {
-    clearData();
-  }, [country, genre, period, textQuery]);
+    setList([]);
+    setPage(1);
+    setIsLoading(true);
+  }, [country, genre, period]);
 
-  const sortArgs = [setSort, list, setList];
-  const sortData = (sort) => sortList(sort, ...sortArgs);
+  useEffect(() => {
+    const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
+    const ref = appElem.current;
+    ref.addEventListener("scroll", scrollHandler);
+    return () => ref.removeEventListener("scroll", scrollHandler);
+  }, [appElem]);
 
   return (
     <div className={styles.cont}>

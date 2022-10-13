@@ -93,6 +93,7 @@ function Search() {
         options={selectOptions}
         sort={sort}
         change={sortData}
+        loading={isLoading}
       />
     </div>
   );

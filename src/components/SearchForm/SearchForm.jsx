@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-
 import SearchDataList from "../../UI/SearchDataList/SearchDataList";
-import { getData } from "../../handlers/getItems";
+import { ids } from "../../utils/countries_genres_ids";
 import { years } from "../../utils/store";
 import styles from "./SearchForm.module.css";
 
@@ -15,24 +13,8 @@ function SearchForm({
   choosePeriod,
   changeText,
 }) {
-  const [countriesList, setCountriesList] = useState([]);
-  const [genresList, setGenresList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getData(setCountriesList, setGenresList, setIsLoading);
-  }, []);
-
-  const countries = isLoading
-    ? []
-    : countriesList.map((obj) => {
-        return { id: obj.id, prop: obj.country };
-      });
-  const genres = isLoading
-    ? []
-    : genresList.map((obj) => {
-        return { id: obj.id, prop: obj.genre };
-      });
+  const countries = ids.countries.map((item) => item.country);
+  const genres = ids.genres.map((item) => item.genre);
 
   return (
     <form className={styles.searchCont} onSubmit={(e) => e.preventDefault()}>

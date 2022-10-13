@@ -1,3 +1,5 @@
+import { ids } from "../utils/countries_genres_ids";
+
 const URL = {
   premiers:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=OCTOBER",
@@ -74,12 +76,7 @@ export default class FilmsService {
     return response;
   }
 
-  static async getCountriesIds() {
-    const response = await fetch(ID_URL, headers);
-    return response;
-  }
-
-  static async search(page, keyword, countryID, genre_ID, years) {
+  static async search(page, keyword, country, genre, years) {
     let yearsStart;
     let yearsEnd;
     if (years) {
@@ -89,7 +86,15 @@ export default class FilmsService {
       yearsStart = 1000;
       yearsEnd = 3000;
     }
-    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}&countries=${countryID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
+
+    const country_ID = country
+      ? ids.countries.filter((elem) => elem.country === country)[0].id
+      : "";
+    const genre_ID = genre
+      ? ids.genres.filter((elem) => elem.genre === genre)[0].id
+      : "";
+
+    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}&countries=${country_ID}&genres=${genre_ID}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
     const response = await fetch(search_URL, headers);
     return response;
   }

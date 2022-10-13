@@ -16,7 +16,6 @@ function Search() {
   const [genre, setGenre] = useState("");
   const [period, setPeriod] = useState("");
   const [textQuery, setTextQuery] = useState("");
-  const [textFocus, setTextFocus] = useState(false);
 
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
@@ -41,29 +40,37 @@ function Search() {
         }
         setIsLoading(false);
         console.log(result);
+        console.log(genre);
       });
   };
 
+  const query = () => {
+    setList([]);
+    setPage(1);
+    setIsLoading(true);
+  };
+
   useEffect(() => {
-    if (isLoading && !textFocus) {
+    if (isLoading) {
       fetching(page, textQuery, country, genre, period);
     } else {
       sortData(sort);
     }
-  }, [isLoading, textFocus]);
+    // eslint-disable-next-line
+  }, [isLoading]);
 
   useEffect(() => {
-    setList([]);
-    setPage(1);
-    setIsLoading(true);
-  }, [country, genre, period, textQuery]);
+    query();
+  }, [country, genre, period]);
 
   useEffect(() => {
-    const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
-    const ref = appElem.current;
-    ref.addEventListener("scroll", scrollHandler);
-    return () => ref.removeEventListener("scroll", scrollHandler);
-  }, [appElem]);
+    if (!textQuery) {
+      const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
+      const ref = appElem.current;
+      ref.addEventListener("scroll", scrollHandler);
+      return () => ref.removeEventListener("scroll", scrollHandler);
+    }
+  }, [appElem, textQuery]);
 
   return (
     <div className={styles.cont}>
@@ -76,8 +83,7 @@ function Search() {
         chooseCountry={setCountry}
         chooseGenre={setGenre}
         choosePeriod={setPeriod}
-        focus={() => setTextFocus(true)}
-        blur={() => setTextFocus(false)}
+        search={() => query()}
       />
       <InlineList
         list={list}

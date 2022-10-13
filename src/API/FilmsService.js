@@ -24,13 +24,13 @@ const PacketURL = {
 
 const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
 
-/* const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c"; */
-const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7";
+const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c";
+/* const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7"; */
 /* const KEY_RESERVE2 = "b0f850d3-735d-4517-84a1-f12798847e34" */
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEY_RESERVE,
+    "X-API-KEY": KEY,
     "Content-Type": "application/json",
   },
 };
@@ -98,10 +98,10 @@ export default class FilmsService {
       elem.genre.toLowerCase().includes(genre.toLowerCase())
     )[0]?.id;
 
-    let country_data = country_ID || "";
-    let genre_data = genre_ID || "";
+    let country_data = `&countries=${country_ID}` || null;
+    let genre_data = `&genres=${genre_ID}` || null;
 
-    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}&countries=${country_data}&genres=${genre_data}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
+    const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}${country_data}${genre_data}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
     const response = await fetch(search_URL, headers);
     return response;
   }

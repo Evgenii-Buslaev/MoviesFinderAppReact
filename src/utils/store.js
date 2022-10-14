@@ -28,4 +28,11 @@ const years = [
   "1940-1950",
 ];
 
-export { selectOptions, years };
+const homeInitialData = {
+  comedies: { items: [] },
+  series: { items: [] },
+  cartoons: { items: [] },
+  detectives: { items: [] },
+};
+
+export { selectOptions, years, homeInitialData };

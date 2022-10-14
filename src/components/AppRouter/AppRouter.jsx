@@ -9,9 +9,9 @@ import Movie from "../Movie/Movie";
 
 import { DataContext } from "../../utils/context";
 
-function AppRouter({ category, width }) {
+function AppRouter({ category, width, loading }) {
   const AppRoutes = [
-    { path: "/", element: <Home width={width} /> },
+    { path: "/", element: <Home width={width} loading={loading} /> },
     {
       path: "/categories",
       element: <CategoryList category={category} width={width} />,

@@ -2,59 +2,47 @@ import { useState, useEffect, useContext } from "react";
 
 import TopList from "../TopList/TopList";
 import PacketList from "../PacketList/PacketList";
-import { getItems } from "../../handlers/getItems";
-import { DataContext } from "../../utils/context";
+import { AppContext } from "../../utils/context";
+import { homeInitialData } from "../../utils/store";
 
 import styles from "./Home.module.css";
 
-function Home({ width }) {
-  const { lists } = useContext(DataContext);
-
-  const [comediesList, setComediesList] = useState([]);
-  const [seriesList, setSeriesList] = useState([]);
-  const [cartoonsList, setCartoonsList] = useState([]);
-  const [detectiveList, setDetectiveList] = useState([]);
-
-  const [isLoadingComedies, setIsLoadingComedies] = useState(true);
-  const [isLoadingSeries, setIsLoadingSeries] = useState(true);
-  const [isLoadingCartoons, setIsLoadingCartoons] = useState(true);
-  const [isLoadingDetectives, setIsLoadingDetectives] = useState(true);
+function Home({ width, loading }) {
+  const { APIdata } = useContext(AppContext);
+  const [data, setData] = useState(homeInitialData);
 
   useEffect(() => {
-    if (isLoadingComedies) {
-      getItems(1, "comedies", setComediesList, setIsLoadingComedies);
-      getItems(1, "russian series", setSeriesList, setIsLoadingSeries);
-      getItems(1, "childrens cartoons", setCartoonsList, setIsLoadingCartoons);
-      getItems(1, "soviet detective", setDetectiveList, setIsLoadingDetectives);
+    if (!loading) {
+      setData(APIdata);
     }
-  }, [isLoadingComedies]);
+  }, [loading]);
 
   return (
     <div className={styles.home}>
       <TopList />
       <PacketList
-        isLoading={isLoadingComedies}
+        isLoading={loading}
         title="Топ-20 комедий"
         screen={width}
-        list={comediesList.items}
+        list={data.comedies.items}
       />
       <PacketList
-        isLoading={isLoadingSeries}
+        isLoading={loading}
         title="Топ-20 российских сериалов"
         screen={width}
-        list={seriesList.items}
+        list={data.series.items}
       />
       <PacketList
-        isLoading={isLoadingCartoons}
+        isLoading={loading}
         title="Топ-20 мультфильмов"
         screen={width}
-        list={cartoonsList.items}
+        list={data.cartoons.items}
       />
       <PacketList
-        isLoading={isLoadingDetectives}
+        isLoading={loading}
         title="Топ-20 советских детективов"
         screen={width}
-        list={detectiveList.items}
+        list={data.detectives.items}
       />
     </div>
   );

@@ -22,10 +22,11 @@ function App() {
     const get = async () => {
       const res = await getAllData();
       setAPIdata({
-        comedies: res[0],
-        series: res[1],
-        cartoons: res[2],
-        detectives: res[3],
+        top: res[0],
+        comedies: res[1],
+        series: res[2],
+        cartoons: res[3],
+        detectives: res[4],
       });
       setIsLoading(false);
       console.log(res);

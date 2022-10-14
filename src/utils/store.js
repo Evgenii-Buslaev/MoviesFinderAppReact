@@ -29,6 +29,7 @@ const years = [
 ];
 
 const homeInitialData = {
+  top: { items: [] },
   comedies: { items: [] },
   series: { items: [] },
   cartoons: { items: [] },

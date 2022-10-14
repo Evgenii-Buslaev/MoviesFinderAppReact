@@ -19,7 +19,7 @@ function Home({ width, loading }) {
 
   return (
     <div className={styles.home}>
-      <TopList />
+      <TopList list={data.top.items} loading={loading} />
       <PacketList
         isLoading={loading}
         title="Топ-20 комедий"

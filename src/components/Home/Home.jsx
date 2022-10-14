@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import TopList from "../TopList/TopList";
 import PacketList from "../PacketList/PacketList";
 import { getItems } from "../../handlers/getItems";
+import { DataContext } from "../../utils/context";
 
 import styles from "./Home.module.css";
 
 function Home({ width }) {
+  const { lists } = useContext(DataContext);
+
   const [comediesList, setComediesList] = useState([]);
   const [seriesList, setSeriesList] = useState([]);
   const [cartoonsList, setCartoonsList] = useState([]);

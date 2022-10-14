@@ -23,7 +23,7 @@ function AppRouter({ category, width }) {
   ];
 
   return (
-    <DataContext.Provider value={{ lists: "" }}>
+    <DataContext.Provider value={{ lists: {} }}>
       <Routes>
         {AppRoutes.map((route) => (
           <Route path={route.path} element={route.element} key={route.path} />

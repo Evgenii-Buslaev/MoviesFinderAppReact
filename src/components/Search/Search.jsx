@@ -37,6 +37,7 @@ function Search() {
         setList([...list, ...result.items]);
         if (page < totalPages) setPage((prevPage) => prevPage + 1);
         setIsLoading(false);
+        console.log(result);
         console.log(page);
       });
   };

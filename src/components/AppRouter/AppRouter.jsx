@@ -7,6 +7,8 @@ import Collection from "../Collection/Collection";
 import Search from "../Search/Search";
 import Movie from "../Movie/Movie";
 
+import { DataContext } from "../../utils/context";
+
 function AppRouter({ category, width }) {
   const AppRoutes = [
     { path: "/", element: <Home width={width} /> },
@@ -21,11 +23,13 @@ function AppRouter({ category, width }) {
   ];
 
   return (
-    <Routes>
-      {AppRoutes.map((route) => (
-        <Route path={route.path} element={route.element} key={route.path} />
-      ))}
-    </Routes>
+    <DataContext.Provider value={{ lists: "" }}>
+      <Routes>
+        {AppRoutes.map((route) => (
+          <Route path={route.path} element={route.element} key={route.path} />
+        ))}
+      </Routes>
+    </DataContext.Provider>
   );
 }
 

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import InlineListItem from "../InlineListItem/InlineListItem";
 import RouterLink from "../../UI/RouterLink/RouterLink";
 import Loader from "../../UI/Loader/Loader";
@@ -7,8 +8,9 @@ import { filterList } from "../../handlers/filterList";
 import styles from "./InlineList.module.css";
 
 function InlineList({ list, options, sort, change, loading }) {
-  const filteredList = filterList(list, "kinopoiskId");
-  console.log(filteredList);
+  const filteredList = useMemo(() => {
+    return filterList(list, "kinopoiskId");
+  }, [list]);
 
   let content;
   if (!loading && !filteredList.length) {

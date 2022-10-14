@@ -8,13 +8,14 @@ import { homeInitialData } from "../../utils/store";
 import styles from "./Home.module.css";
 
 function Home({ width, loading }) {
-  const { APIdata } = useContext(AppContext);
+  const { homeData } = useContext(AppContext);
   const [data, setData] = useState(homeInitialData);
 
   useEffect(() => {
     if (!loading) {
-      setData(APIdata);
+      setData(homeData);
     }
+    // eslint-disable-next-line
   }, [loading]);
 
   return (

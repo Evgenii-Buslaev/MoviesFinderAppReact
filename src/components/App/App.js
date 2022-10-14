@@ -7,31 +7,45 @@ import "../../css/reset.css";
 import Navigation from "../Navigation/Navigation";
 import AppRouter from "../AppRouter/AppRouter";
 import { AppContext } from "../../utils/context";
-import { getAllData } from "../../API/memo_data";
+import { getHomeData, getCategoriesData } from "../../API/memo_data";
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [category, setCategory] = useState("films");
 
-  const [APIdata, setAPIdata] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [homeData, setHomeData] = useState(null);
+  const [homeLoading, setHomeLoading] = useState(true);
+  const [categoriesData, setCategoriesData] = useState(null);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
 
   const appRef = useRef(null);
 
   useEffect(() => {
-    const get = async () => {
-      const res = await getAllData();
-      setAPIdata({
+    const loadHome = async () => {
+      const res = await getHomeData();
+      setHomeData({
         top: res[0],
         comedies: res[1],
         series: res[2],
         cartoons: res[3],
         detectives: res[4],
       });
-      setIsLoading(false);
-      console.log(res);
+      setHomeLoading(false);
     };
-    get();
+    loadHome();
+  }, []);
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      const res = await getCategoriesData();
+      setCategoriesData({
+        films: res[0],
+        series: res[1],
+        shows: res[2],
+      });
+      setCategoriesLoading(false);
+    };
+    loadCategories();
   }, []);
 
   useEffect(() => {
@@ -42,10 +56,15 @@ function App() {
   }, []);
 
   return (
-    <AppContext.Provider value={{ appElem: appRef, APIdata }}>
+    <AppContext.Provider value={{ appElem: appRef, homeData, categoriesData }}>
       <div className="App" ref={appRef}>
         <Navigation screen={width} changeCategory={setCategory} />
-        <AppRouter width={width} category={category} loading={isLoading} />
+        <AppRouter
+          width={width}
+          category={category}
+          homeLoading={homeLoading}
+          categoriesLoading={categoriesLoading}
+        />
       </div>
     </AppContext.Provider>
   );

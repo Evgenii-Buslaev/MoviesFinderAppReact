@@ -37,6 +37,7 @@ function Search() {
         setList([...list, ...result.items]);
         if (page < totalPages) setPage((prevPage) => prevPage + 1);
         setIsLoading(false);
+        console.log(page);
       });
   };
 
@@ -51,9 +52,9 @@ function Search() {
     setGenre("");
     setPeriod("");
     setTextQuery("");
-    setPage(1);
-    setList([]);
-    setIsLoading(true);
+    setTotalPages(2);
+    setSort("ratingKinopoisk");
+    query();
   };
 
   useEffect(() => {

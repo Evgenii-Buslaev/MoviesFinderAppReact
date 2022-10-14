@@ -14,7 +14,8 @@ function InlineList({ list, options, sort, change, loading }) {
       </h2>
     );
   }
-  if (!loading && list.length) {
+
+  if ((!loading && list.length) || (loading && list.length)) {
     content = list.map((film) => (
       <RouterLink path="/id" key={film.kinopoiskId}>
         <InlineListItem
@@ -27,10 +28,14 @@ function InlineList({ list, options, sort, change, loading }) {
       </RouterLink>
     ));
   }
+
   return (
     <>
       <Select value={sort} options={options} change={change} />
-      <div className={styles.list}>{content}</div>
+      <div className={styles.list}>
+        {content}
+        {loading ? <Loader /> : null}
+      </div>
     </>
   );
 }

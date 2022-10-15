@@ -37,9 +37,7 @@ const homeInitialData = {
 };
 
 const categoriesInitialData = {
-  films: { items: [] },
-  series: { items: [] },
-  shows: { items: [] },
+  items: [],
 };
 
 export { selectOptions, years, homeInitialData, categoriesInitialData };

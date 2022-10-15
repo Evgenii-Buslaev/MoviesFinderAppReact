@@ -43,6 +43,7 @@ function CategoryList({ category, width, loading }) {
       getData();
     }
     sortData(sort);
+    // eslint-disable-next-line
   }, [isLoading]);
 
   useEffect(() => {
@@ -60,16 +61,18 @@ function CategoryList({ category, width, loading }) {
 
   useEffect(() => {
     if (!loading) {
-      setPacketData(categoriesData);
+      if (category === "films") setPacketData(categoriesData.films);
+      if (category === "series") setPacketData(categoriesData.series);
+      if (category === "tv-shows") setPacketData(categoriesData.shows);
     }
     // eslint-disable-next-line
-  }, [loading]);
+  }, [loading, category]);
 
   return (
     <div className={styles.list}>
       <PacketList
         isLoading={loading}
-        list={packetData.films.items}
+        list={packetData.items}
         title={`Топ-20 в категории ${getHeader(category)}`}
         screen={width}
       />

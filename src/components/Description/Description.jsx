@@ -6,14 +6,16 @@ function Description({ name, year, restrictions, genres, text, rating }) {
   return (
     <div className={styles.cont}>
       <h1>{name}</h1>
-      <div className={styles.line}>
-        <h2>{year}</h2>
-        <h2>{`${restriction.match(/\d+/gi)}+`}</h2>
-      </div>
-      <div className={styles.line}>
-        {genres.map((genre, index) => {
-          if (index < 4) return <h3>{genre.genre}</h3>;
-        })}
+      <div className={styles.linesCont}>
+        <div className={styles.line}>
+          <h2>{year}</h2>
+          <h2 className={styles.age}>{`${restriction.match(/\d+/gi)}+`}</h2>
+        </div>
+        <div className={styles.line}>
+          {genres.map((genre, index) => {
+            if (index < 4) return <h3>{genre.genre}</h3>;
+          })}
+        </div>
       </div>
       <p>{text}</p>
       <Rating rating={rating} />

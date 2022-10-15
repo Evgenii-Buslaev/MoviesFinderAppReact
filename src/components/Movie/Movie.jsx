@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import FilmsService from "../../API/FilmsService";
 import Loader from "../../UI/Loader/Loader";
 import PacketList from "../PacketList/PacketList";
-import TopMovieCard from "../TopMovieCard/TopMovieCard";
 import Description from "../Description/Description";
 
 import styles from "./Movie.module.css";

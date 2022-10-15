@@ -13,9 +13,9 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [category, setCategory] = useState("films");
 
-  const [homeData, setHomeData] = useState(null);
+  const [homeData, setHomeData] = useState([]);
   const [homeLoading, setHomeLoading] = useState(true);
-  const [categoriesData, setCategoriesData] = useState(null);
+  const [categoriesData, setCategoriesData] = useState([]);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
 
   const appRef = useRef(null);

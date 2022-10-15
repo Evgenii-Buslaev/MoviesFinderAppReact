@@ -36,8 +36,4 @@ const homeInitialData = {
   detectives: { items: [] },
 };
 
-const categoriesInitialData = {
-  items: [],
-};
-
-export { selectOptions, years, homeInitialData, categoriesInitialData };
+export { selectOptions, years, homeInitialData };

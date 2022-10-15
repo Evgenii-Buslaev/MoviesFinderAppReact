@@ -9,7 +9,7 @@ import Movie from "../Movie/Movie";
 
 import { DataContext } from "../../utils/context";
 
-function AppRouter({ category, width, homeLoading, categoiesLoading }) {
+function AppRouter({ category, width, homeLoading, categoriesLoading }) {
   const AppRoutes = [
     { path: "/", element: <Home width={width} loading={homeLoading} /> },
     {
@@ -18,14 +18,14 @@ function AppRouter({ category, width, homeLoading, categoiesLoading }) {
         <CategoryList
           category={category}
           width={width}
-          loading={categoiesLoading}
+          loading={categoriesLoading}
         />
       ),
     },
     { path: "/search", element: <Search /> },
     { path: "/collection", element: <Collection /> },
     { path: "/profile", element: <Profile name="Евгений" width={width} /> },
-    { path: "/:id", element: <Movie /> },
+    { path: "/:id", element: <Movie width={width} /> },
   ];
 
   return (

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import FilmsService from "../../API/FilmsService";
+import Loader from "../../UI/Loader/Loader";
 import PacketList from "../PacketList/PacketList";
 import TopMovieCard from "../TopMovieCard/TopMovieCard";
 import Description from "../Description/Description";
@@ -50,26 +51,36 @@ function Movie({ width }) {
 
   return (
     <div styles={styles.cont}>
-      {dataLoading ? null : (
+      {dataLoading ? (
+        <Loader />
+      ) : (
         <>
           <div className={styles.main}>
-            <TopMovieCard />
+            <img
+              className={styles.card}
+              src={data.posterUrl}
+              alt="movie-card"
+            />
             <Description
               name={data.nameRu}
-              year={data.startYear}
+              year={data.year || data.startYear}
               restrictions={data.ratingAgeLimits}
               genres={data.genres}
               text={data.description}
             />
           </div>
-          <PacketList
-            isLoading={similarsLoading}
-            list={similars.items}
-            title="С этим фильмом также смотрят:"
-            screen={width}
-          />
         </>
       )}
+      {similarsLoading ? (
+        <Loader />
+      ) : similars.items.length > 0 ? (
+        <PacketList
+          isLoading={similarsLoading}
+          list={similars.items}
+          title="С этим фильмом также смотрят:"
+          screen={width}
+        />
+      ) : null}
     </div>
   );
 }

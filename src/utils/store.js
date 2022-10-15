@@ -36,4 +36,26 @@ const homeInitialData = {
   detectives: { items: [] },
 };
 
-export { selectOptions, years, homeInitialData };
+const swiperParams = {
+  slidesPerView: 3,
+  spaceBetween: 50,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    1600: {
+      slidesPerView: 3,
+    },
+    1100: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    0: {
+      slidesPerView: 1,
+    },
+  },
+};
+
+export { selectOptions, years, homeInitialData, swiperParams };

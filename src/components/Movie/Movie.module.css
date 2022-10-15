@@ -1,0 +1,12 @@
+.cont {
+  width: 100vw;
+  height: auto;
+}
+
+.main {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 80%;
+}

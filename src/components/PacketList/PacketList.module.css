@@ -18,6 +18,7 @@
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
+  height: 215px;
 }
 
 .items {
@@ -42,5 +43,11 @@
   }
   .listCont {
     margin: 0.5rem 0 4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .list {
+    height: 180px;
   }
 }

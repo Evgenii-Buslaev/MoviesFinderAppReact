@@ -78,6 +78,7 @@ function CategoryList({ category, width, loading }) {
       />
       <h1>{getHeader(category)}</h1>
       <InlineList
+        loading={isLoading}
         list={list}
         options={selectOptions}
         sort={sort}

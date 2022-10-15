@@ -17,6 +17,10 @@
   width: 50%;
 }
 
+.rating h4 {
+  color: white;
+}
+
 .count {
   display: flex;
   justify-content: center;
@@ -39,4 +43,46 @@
   border-radius: 1rem;
   color: white;
   background-color: rgb(141, 133, 141);
+}
+
+@media (max-width: 1300px) {
+  .cont {
+    width: 400px;
+  }
+  .rating {
+    width: 65%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .cont {
+    width: 700px;
+  }
+  .rating {
+    width: 45%;
+  }
+}
+
+@media (max-width: 850px) {
+  .cont {
+    width: 80vw;
+  }
+  .rating {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 660px) {
+  .cont {
+    height: 160px;
+  }
+  .cont h4 {
+    margin: 0.5rem;
+  }
+  .rating {
+    flex-direction: column;
+  }
+  .adding {
+    width: 50%;
+  }
 }

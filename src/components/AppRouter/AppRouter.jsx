@@ -25,7 +25,7 @@ function AppRouter({ category, width, homeLoading, categoiesLoading }) {
     { path: "/search", element: <Search /> },
     { path: "/collection", element: <Collection /> },
     { path: "/profile", element: <Profile name="Евгений" width={width} /> },
-    { path: "/id", element: <Movie /> },
+    { path: "/:id", element: <Movie /> },
   ];
 
   return (

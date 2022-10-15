@@ -1,9 +1,9 @@
 import styles from "./InlineListItem.module.css";
 import star from "../../icons/inline/star.png";
 
-function InlineListItem({ image, name, countryList, year, rating }) {
+function InlineListItem({ image, name, countryList, year, rating, click }) {
   return (
-    <div className={styles.item}>
+    <div className={styles.item} onClick={click}>
       <div style={{ width: "auto" }}>
         <img className={styles.preview} src={image} alt="preview"></img>
       </div>

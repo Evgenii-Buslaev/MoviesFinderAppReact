@@ -1,6 +1,7 @@
+import Rating from "../Rating/Rating";
 import styles from "./Description.module.css";
 
-function Description({ name, year, restrictions, genres, text }) {
+function Description({ name, year, restrictions, genres, text, rating }) {
   const restriction = restrictions ? restrictions : "0";
   return (
     <div className={styles.cont}>
@@ -15,6 +16,7 @@ function Description({ name, year, restrictions, genres, text }) {
         })}
       </div>
       <p>{text}</p>
+      <Rating rating={rating} />
     </div>
   );
 }

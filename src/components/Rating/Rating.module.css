@@ -1,0 +1,42 @@
+.cont {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  width: 500px;
+  height: 100px;
+  border-radius: 1rem;
+  background-color: rgba(117, 84, 116, 0.616);
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(141, 133, 141);
+  border-radius: 0.5rem;
+}
+
+.count {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.adding {
+  width: 30%;
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: rgb(141, 133, 141);
+}

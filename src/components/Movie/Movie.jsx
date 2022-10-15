@@ -67,6 +67,7 @@ function Movie({ width }) {
               restrictions={data.ratingAgeLimits}
               genres={data.genres}
               text={data.description}
+              rating={data.ratingKinopoisk}
             />
           </div>
         </>

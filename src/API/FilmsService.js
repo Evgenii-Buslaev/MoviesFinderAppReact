@@ -9,6 +9,7 @@ const URL = {
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SERIES&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
   shows:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
+  id: "https://kinopoiskapiunofficial.tech/api/v2.2/films/",
 };
 
 const PacketURL = {
@@ -106,6 +107,11 @@ export default class FilmsService {
 
     const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}${country_data}${genre_data}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
     const response = await fetch(search_URL, headers);
+    return response;
+  }
+
+  static async getById(id) {
+    const response = await fetch(`${URL.id}${id}`, headers);
     return response;
   }
 }

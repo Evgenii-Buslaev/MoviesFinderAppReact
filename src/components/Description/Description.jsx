@@ -11,12 +11,12 @@ function Description({ name, year, restrictions, genres, text, rating }) {
           <h2 className={styles.age}>{`${restriction.match(/\d+/gi)}+`}</h2>
         </div>
         <div className={styles.genres}>
-          {genres.map((genre, index) => {
-            if (index < 4) return <h3>{genre.genre}</h3>;
-          })}
+          {genres
+            .map((genre) => <h3 key={genre.genre}>{genre.genre}</h3>)
+            .slice(0, 4)}
         </div>
       </div>
-      <p>{text}</p>
+      <p>{text ? text : "Описание данного фильма отсутствует"}</p>
       <Rating rating={rating} />
     </div>
   );

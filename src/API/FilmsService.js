@@ -25,13 +25,20 @@ const PacketURL = {
 
 const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
 
-/* const KEY = "8793b375-41ed-45e8-99f2-dddaf5296a1c"; */
-const KEY_RESERVE = "986eeea7-968e-4022-9877-e84daf01fcc7";
-/* const KEY_RESERVE2 = "b0f850d3-735d-4517-84a1-f12798847e34"; */
+const KEYS = [
+  "8793b375-41ed-45e8-99f2-dddaf5296a1c",
+  "986eeea7-968e-4022-9877-e84daf01fcc7",
+  "b0f850d3-735d-4517-84a1-f12798847e34",
+  "d813835e-60a8-4642-b8f8-a6e3e19b9eef",
+  "bb3124ba-285b-4637-8090-0132ebb487b0",
+  "a595254b-5a7e-4a76-b72a-0bb61d682232",
+  "ec134678-1ffb-48ac-9656-3991bb2e1ffd",
+];
+
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEY_RESERVE,
+    "X-API-KEY": KEYS[0],
     "Content-Type": "application/json",
   },
 };

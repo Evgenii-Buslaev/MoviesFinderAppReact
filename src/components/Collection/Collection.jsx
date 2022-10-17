@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 import InlineList from "../InlineList/InlineList";
 import { sortList } from "../../handlers/sortList";
@@ -11,11 +11,6 @@ function Collection({ list, setList }) {
 
   const sortArgs = [setSort, list, setList];
   const sortData = (sort) => sortList(sort, ...sortArgs);
-
-  useEffect(() => {
-    sortData();
-    // eslint-disable-next-line
-  }, [sort]);
 
   return (
     <div className={styles.collection}>

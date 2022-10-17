@@ -38,7 +38,7 @@ const KEYS = [
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEYS[2],
+    "X-API-KEY": KEYS[3],
     "Content-Type": "application/json",
   },
 };

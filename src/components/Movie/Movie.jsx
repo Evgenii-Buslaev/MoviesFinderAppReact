@@ -62,6 +62,7 @@ function Movie({ width }) {
               text={data.description}
               rating={data.ratingKinopoisk}
               url={data.webUrl}
+              data={data}
             />
           </>
         )}

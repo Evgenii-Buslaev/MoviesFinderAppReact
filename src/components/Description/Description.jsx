@@ -9,6 +9,7 @@ function Description({
   text,
   rating,
   url,
+  data,
 }) {
   const restriction = restrictions ? restrictions : "0";
   return (
@@ -32,7 +33,7 @@ function Description({
         </div>
       </div>
       <p>{text ? text : "Описание данного фильма отсутствует"}</p>
-      <Rating rating={rating} />
+      <Rating rating={rating} data={data} />
       <a
         href={url}
         target="_blank"

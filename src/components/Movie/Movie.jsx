@@ -14,9 +14,6 @@ function Movie({ width }) {
   const [data, setData] = useState(null);
   const [dataLoading, setDataLoading] = useState(true);
 
-  const [images, setImages] = useState(null);
-  const [imagesLoading, setImagesLoading] = useState(true);
-
   const [similars, setSimilars] = useState({ items: [] });
   const [similarsLoading, setSimilarsLoading] = useState(true);
 
@@ -31,16 +28,6 @@ function Movie({ width }) {
   }, [dataLoading]);
 
   useEffect(() => {
-    if (imagesLoading) {
-      FilmsService.getImagesById(params.id).then((res) => {
-        setImages(res);
-        setImagesLoading(false);
-      });
-    }
-    // eslint-disable-next-line
-  }, [imagesLoading]);
-
-  useEffect(() => {
     if (similarsLoading) {
       FilmsService.getSimilarById(params.id).then((res) => {
         setSimilars(res);
@@ -52,7 +39,6 @@ function Movie({ width }) {
 
   useEffect(() => {
     setDataLoading(true);
-    setImagesLoading(true);
     setSimilarsLoading(true);
   }, [params]);
 

@@ -7,6 +7,7 @@
   width: 80vw;
   height: auto;
   cursor: pointer;
+  border-radius: 40px;
 }
 
 .element {
@@ -14,8 +15,7 @@
 }
 
 .item:hover {
-  background-color: rgb(112, 82, 82);
-  opacity: 0.3;
+  background-color: rgb(119, 117, 117);
 }
 
 .preview {
@@ -31,8 +31,13 @@
   width: 70px;
 }
 
-.rating {
+.rating,
+.add {
   width: 30px;
+}
+
+.add:hover {
+  transform: scale(1.2);
 }
 
 @media (max-width: 1600px) {
@@ -61,7 +66,8 @@
   .ratingCont {
     width: 40px;
   }
-  .rating {
+  .rating,
+  .add {
     width: 20px;
   }
   .item {
@@ -69,7 +75,7 @@
     padding: 0.2rem 0.3rem;
   }
   .item h2 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .preview {
     width: 40px;

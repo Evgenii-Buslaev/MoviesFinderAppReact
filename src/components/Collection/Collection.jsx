@@ -1,11 +1,40 @@
+import { useEffect, useState } from "react";
+
 import InlineList from "../InlineList/InlineList";
+import { sortList } from "../../handlers/sortList";
+import { selectOptions } from "../../utils/store";
+
 import styles from "./Collection.module.css";
 
 function Collection() {
+  const [list, setList] = useState([]);
+  const [sort, setSort] = useState("ratingKinopoisk");
+
+  const sortArgs = [setSort, list, setList];
+  const sortData = (sort) => sortList(sort, ...sortArgs);
+
+  useEffect(() => {
+    sortData();
+    // eslint-disable-next-line
+  }, [sort]);
+
   return (
     <div className={styles.collection}>
-      <h2>Вы сохранили:</h2>
-      <InlineList />
+      {list.length < 1 ? (
+        <h2>У Вас нет сохраненных фильмов.</h2>
+      ) : (
+        <>
+          <h2>Вы сохранили:</h2>
+          <InlineList
+            list={list}
+            loading={false}
+            sort={sort}
+            change={sortData}
+            options={selectOptions}
+            action="remove"
+          />
+        </>
+      )}
     </div>
   );
 }

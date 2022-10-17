@@ -94,6 +94,7 @@ function Search() {
         sort={sort}
         change={sortData}
         loading={isLoading}
+        action="save"
       />
     </div>
   );

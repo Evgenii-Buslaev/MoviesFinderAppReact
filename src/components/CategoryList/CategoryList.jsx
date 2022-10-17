@@ -82,6 +82,7 @@ function CategoryList({ category, width, loading }) {
         options={selectOptions}
         sort={sort}
         change={sortData}
+        action="save"
       />
     </div>
   );

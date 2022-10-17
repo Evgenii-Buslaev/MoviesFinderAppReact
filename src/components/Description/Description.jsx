@@ -33,7 +33,12 @@ function Description({
       </div>
       <p>{text ? text : "Описание данного фильма отсутствует"}</p>
       <Rating rating={rating} />
-      <a href={url} target="_blank" className={styles.watchLink}>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.watchLink}
+      >
         <button className={styles.watchBtn}>Смотреть на кинопоиске</button>
       </a>
     </div>

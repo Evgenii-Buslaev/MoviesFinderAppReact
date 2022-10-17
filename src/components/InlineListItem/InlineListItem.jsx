@@ -1,7 +1,17 @@
 import styles from "./InlineListItem.module.css";
 import star from "../../icons/inline/star.png";
+import save from "../../icons/inline/save.png";
+import remove from "../../icons/inline/delete.png";
 
-function InlineListItem({ image, name, countryList, year, rating, click }) {
+function InlineListItem({
+  image,
+  name,
+  countryList,
+  year,
+  rating,
+  click,
+  action,
+}) {
   return (
     <div className={styles.item} onClick={click}>
       <div style={{ width: "auto" }}>
@@ -22,6 +32,11 @@ function InlineListItem({ image, name, countryList, year, rating, click }) {
       <div style={{ width: "auto" }}>
         <h2>{year}</h2>
       </div>
+      <img
+        className={styles.add}
+        src={action === "save" ? save : remove}
+        alt="save or remove"
+      ></img>
     </div>
   );
 }

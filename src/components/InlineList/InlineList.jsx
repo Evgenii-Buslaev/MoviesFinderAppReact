@@ -8,7 +8,7 @@ import Select from "../../UI/Select/Select";
 import { filterList } from "../../handlers/filterList";
 import styles from "./InlineList.module.css";
 
-function InlineList({ list, options, sort, change, loading }) {
+function InlineList({ list, options, sort, change, loading, action }) {
   const router = useNavigate();
 
   const filteredList = useMemo(() => {
@@ -35,6 +35,7 @@ function InlineList({ list, options, sort, change, loading }) {
         year={film.year}
         rating={film.ratingKinopoisk || "0"}
         click={() => router(`/${film.kinopoiskId}`)}
+        action={action}
       />
     ));
   }

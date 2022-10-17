@@ -23,7 +23,6 @@ function Movie({ width }) {
   useEffect(() => {
     if (dataLoading) {
       FilmsService.getById(params.id).then((res) => {
-        console.log(res);
         setData(res);
         setDataLoading(false);
       });

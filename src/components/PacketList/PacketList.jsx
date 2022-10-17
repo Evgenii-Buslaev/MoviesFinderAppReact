@@ -28,7 +28,7 @@ function PacketList({ isLoading, list, title, screen }) {
           <PacketMovieImage
             id={elem.kinopoiskId}
             path={elem.posterUrl}
-            key={elem.kinopoiskId}
+            key={elem.kinopoiskId || elem.filmId}
           />
         ));
 

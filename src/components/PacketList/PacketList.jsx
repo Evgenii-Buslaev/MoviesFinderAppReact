@@ -26,7 +26,7 @@ function PacketList({ isLoading, list, title, screen }) {
         .slice(part, amount + part)
         .map((elem) => (
           <PacketMovieImage
-            id={elem.kinopoiskId}
+            id={elem.kinopoiskId || elem.filmId}
             path={elem.posterUrl}
             key={elem.kinopoiskId || elem.filmId}
           />

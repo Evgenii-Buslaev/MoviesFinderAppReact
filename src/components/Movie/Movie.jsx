@@ -33,8 +33,6 @@ function Movie({ width }) {
   useEffect(() => {
     if (imagesLoading) {
       FilmsService.getImagesById(params.id).then((res) => {
-        console.log("images");
-        console.log(res);
         setImages(res);
         setImagesLoading(false);
       });
@@ -54,11 +52,11 @@ function Movie({ width }) {
 
   return (
     <div styles={styles.cont}>
-      {dataLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className={styles.main}>
+      <div className={styles.main}>
+        {dataLoading ? (
+          <Loader />
+        ) : (
+          <>
             <img
               className={styles.card}
               src={data.posterUrl}
@@ -73,12 +71,10 @@ function Movie({ width }) {
               rating={data.ratingKinopoisk}
               url={data.webUrl}
             />
-          </div>
-        </>
-      )}
-      {similarsLoading ? (
-        <Loader />
-      ) : similars.items.length > 0 ? (
+          </>
+        )}
+      </div>
+      {similarsLoading ? null : similars.items.length > 0 ? (
         <PacketList
           isLoading={similarsLoading}
           list={similars.items}

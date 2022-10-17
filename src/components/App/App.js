@@ -36,7 +36,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const loadCategories = async () => {
+    setTimeout(async () => {
       const res = await getCategoriesData();
       setCategoriesData({
         films: res[0],
@@ -44,8 +44,7 @@ function App() {
         shows: res[2],
       });
       setCategoriesLoading(false);
-    };
-    loadCategories();
+    }, 1000);
   }, []);
 
   useEffect(() => {

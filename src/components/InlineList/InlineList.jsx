@@ -8,16 +8,7 @@ import Select from "../../UI/Select/Select";
 import { filterList } from "../../handlers/filterList";
 import styles from "./InlineList.module.css";
 
-function InlineList({
-  list,
-  options,
-  sort,
-  change,
-  loading,
-  action,
-  save,
-  savedList,
-}) {
+function InlineList({ list, options, sort, change, loading, action }) {
   const router = useNavigate();
 
   const filteredList = useMemo(() => {
@@ -49,8 +40,6 @@ function InlineList({
           }
         }}
         action={action}
-        savedList={savedList}
-        save={save}
         data={film}
       />
     ));

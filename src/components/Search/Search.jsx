@@ -11,7 +11,7 @@ import { scrollListFetching } from "../../handlers/scrollLists";
 
 import styles from "./Search.module.css";
 
-function Search({ savedList, save }) {
+function Search() {
   const [country, setCountry] = useState("");
   const [genre, setGenre] = useState("");
   const [period, setPeriod] = useState("");
@@ -95,8 +95,6 @@ function Search({ savedList, save }) {
         change={sortData}
         loading={isLoading}
         action="save"
-        save={save}
-        savedList={savedList}
       />
     </div>
   );

@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { RouterContext } from "../../utils/context";
+
 import styles from "./InlineListItem.module.css";
 import star from "../../icons/inline/star.png";
 import saved from "../../icons/inline/save.png";
@@ -11,10 +14,10 @@ function InlineListItem({
   rating,
   click,
   action,
-  save,
   data,
-  savedList,
 }) {
+  const context = useContext(RouterContext);
+  const { savedList, setList } = context;
   return (
     <div className={styles.item} onClick={click}>
       <div style={{ width: "auto" }}>
@@ -39,7 +42,7 @@ function InlineListItem({
         className={styles.add}
         src={action === "save" ? saved : remove}
         alt="save or remove"
-        onClick={() => save([...savedList, data])}
+        onClick={() => setList([...savedList, data])}
       ></img>
     </div>
   );

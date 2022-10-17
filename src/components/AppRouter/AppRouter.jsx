@@ -8,6 +8,8 @@ import Collection from "../Collection/Collection";
 import Search from "../Search/Search";
 import Movie from "../Movie/Movie";
 
+import { RouterContext } from "../../utils/context";
+
 function AppRouter({ category, width, homeLoading, categoriesLoading }) {
   const [savedList, setSavedList] = useState([]);
 
@@ -20,14 +22,12 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
           category={category}
           width={width}
           loading={categoriesLoading}
-          savedList={savedList}
-          save={setSavedList}
         />
       ),
     },
     {
       path: "/search",
-      element: <Search savedList={savedList} save={setSavedList} />,
+      element: <Search />,
     },
     {
       path: "/collection",
@@ -38,11 +38,13 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
   ];
 
   return (
-    <Routes>
-      {AppRoutes.map((route) => (
-        <Route path={route.path} element={route.element} key={route.path} />
-      ))}
-    </Routes>
+    <RouterContext.Provider value={{ savedList, setList: setSavedList }}>
+      <Routes>
+        {AppRoutes.map((route) => (
+          <Route path={route.path} element={route.element} key={route.path} />
+        ))}
+      </Routes>
+    </RouterContext.Provider>
   );
 }
 

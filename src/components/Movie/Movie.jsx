@@ -23,12 +23,14 @@ function Movie({ width }) {
   useEffect(() => {
     if (dataLoading) {
       FilmsService.getById(params.id).then((res) => {
-        console.log("data");
-        console.log(res);
         setData(res);
         setDataLoading(false);
       });
     }
+    // eslint-disable-next-line
+  }, [dataLoading]);
+
+  useEffect(() => {
     if (imagesLoading) {
       FilmsService.getImagesById(params.id).then((res) => {
         console.log("images");
@@ -37,16 +39,18 @@ function Movie({ width }) {
         setImagesLoading(false);
       });
     }
+    // eslint-disable-next-line
+  }, [imagesLoading]);
+
+  useEffect(() => {
     if (similarsLoading) {
       FilmsService.getSimilarById(params.id).then((res) => {
-        console.log("similar");
-        console.log(res);
         setSimilars(res);
         setSimilarsLoading(false);
       });
     }
     // eslint-disable-next-line
-  }, [dataLoading, imagesLoading, similarsLoading]);
+  }, [similarsLoading]);
 
   return (
     <div styles={styles.cont}>

@@ -50,6 +50,12 @@ function Movie({ width }) {
     // eslint-disable-next-line
   }, [similarsLoading]);
 
+  useEffect(() => {
+    setDataLoading(true);
+    setImagesLoading(true);
+    setSimilarsLoading(true);
+  }, [params]);
+
   return (
     <div styles={styles.cont}>
       <div className={styles.main}>

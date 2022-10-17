@@ -42,7 +42,15 @@ function InlineListItem({
         className={styles.add}
         src={action === "save" ? saved : remove}
         alt="save or remove"
-        onClick={() => setList([...savedList, data])}
+        onClick={() => {
+          if (action === "save") {
+            setList([...savedList, data]);
+          } else {
+            setList(
+              savedList.filter((elem) => elem.kinopoiskId !== data.kinopoiskId)
+            );
+          }
+        }}
       ></img>
     </div>
   );

@@ -23,6 +23,7 @@ function Movie({ width }) {
   useEffect(() => {
     if (dataLoading) {
       FilmsService.getById(params.id).then((res) => {
+        console.log(res);
         setData(res);
         setDataLoading(false);
       });
@@ -65,12 +66,13 @@ function Movie({ width }) {
               alt="movie-card"
             />
             <Description
-              name={data.nameRu}
               year={data.year || data.startYear}
               restrictions={data.ratingAgeLimits}
+              countries={data.countries}
               genres={data.genres}
               text={data.description}
               rating={data.ratingKinopoisk}
+              url={data.webUrl}
             />
           </div>
         </>

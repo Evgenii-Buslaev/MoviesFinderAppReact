@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "../Home/Home";
@@ -8,6 +9,8 @@ import Search from "../Search/Search";
 import Movie from "../Movie/Movie";
 
 function AppRouter({ category, width, homeLoading, categoriesLoading }) {
+  const [savedList, setSavedList] = useState([]);
+
   const AppRoutes = [
     { path: "/", element: <Home width={width} loading={homeLoading} /> },
     {
@@ -17,11 +20,19 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
           category={category}
           width={width}
           loading={categoriesLoading}
+          savedList={savedList}
+          save={setSavedList}
         />
       ),
     },
-    { path: "/search", element: <Search /> },
-    { path: "/collection", element: <Collection /> },
+    {
+      path: "/search",
+      element: <Search savedList={savedList} save={setSavedList} />,
+    },
+    {
+      path: "/collection",
+      element: <Collection list={savedList} setList={setSavedList} />,
+    },
     { path: "/profile", element: <Profile name="Евгений" width={width} /> },
     { path: "/:id", element: <Movie width={width} /> },
   ];

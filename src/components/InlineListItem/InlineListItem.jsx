@@ -1,6 +1,6 @@
 import styles from "./InlineListItem.module.css";
 import star from "../../icons/inline/star.png";
-import save from "../../icons/inline/save.png";
+import saved from "../../icons/inline/save.png";
 import remove from "../../icons/inline/delete.png";
 
 function InlineListItem({
@@ -11,6 +11,9 @@ function InlineListItem({
   rating,
   click,
   action,
+  save,
+  data,
+  savedList,
 }) {
   return (
     <div className={styles.item} onClick={click}>
@@ -34,8 +37,9 @@ function InlineListItem({
       </div>
       <img
         className={styles.add}
-        src={action === "save" ? save : remove}
+        src={action === "save" ? saved : remove}
         alt="save or remove"
+        onClick={() => save([...savedList, data])}
       ></img>
     </div>
   );

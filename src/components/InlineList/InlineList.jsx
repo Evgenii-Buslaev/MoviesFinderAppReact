@@ -8,7 +8,16 @@ import Select from "../../UI/Select/Select";
 import { filterList } from "../../handlers/filterList";
 import styles from "./InlineList.module.css";
 
-function InlineList({ list, options, sort, change, loading, action }) {
+function InlineList({
+  list,
+  options,
+  sort,
+  change,
+  loading,
+  action,
+  save,
+  savedList,
+}) {
   const router = useNavigate();
 
   const filteredList = useMemo(() => {
@@ -34,8 +43,15 @@ function InlineList({ list, options, sort, change, loading, action }) {
         countryList={film.countries}
         year={film.year}
         rating={film.ratingKinopoisk || "0"}
-        click={() => router(`/${film.kinopoiskId}`)}
+        click={(e) => {
+          if (e.target.tagName !== "IMG") {
+            router(`/${film.kinopoiskId}`);
+          }
+        }}
         action={action}
+        savedList={savedList}
+        save={save}
+        data={film}
       />
     ));
   }

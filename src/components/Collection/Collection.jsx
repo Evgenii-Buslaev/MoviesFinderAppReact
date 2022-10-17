@@ -6,8 +6,7 @@ import { selectOptions } from "../../utils/store";
 
 import styles from "./Collection.module.css";
 
-function Collection() {
-  const [list, setList] = useState([]);
+function Collection({ list, setList }) {
   const [sort, setSort] = useState("ratingKinopoisk");
 
   const sortArgs = [setSort, list, setList];

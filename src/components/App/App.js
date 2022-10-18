@@ -11,6 +11,8 @@ import { AppContext } from "../../utils/context";
 import { getHomeData, getCategoriesData } from "../../API/memo_data";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const [width, setWidth] = useState(window.innerWidth);
   const [category, setCategory] = useState("films");
 
@@ -55,21 +57,33 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <Login />;
+  const login = () => {
+    setLoggedIn(true);
+  };
 
-  {
-    /* <AppContext.Provider value={{ appElem: appRef, homeData, categoriesData }}>
-      <div className="App" ref={appRef}>
-        <Navigation screen={width} changeCategory={setCategory} />
-        <AppRouter
-          width={width}
-          category={category}
-          homeLoading={homeLoading}
-          categoriesLoading={categoriesLoading}
-        />
-      </div>
-    </AppContext.Provider> */
-  }
+  const logout = () => {
+    setLoggedIn(false);
+  };
+
+  return (
+    <AppContext.Provider
+      value={{ appElem: appRef, homeData, categoriesData, logout }}
+    >
+      {loggedIn ? (
+        <div className="App" ref={appRef}>
+          <Navigation screen={width} changeCategory={setCategory} />
+          <AppRouter
+            width={width}
+            category={category}
+            homeLoading={homeLoading}
+            categoriesLoading={categoriesLoading}
+          />
+        </div>
+      ) : (
+        <Login login={login} />
+      )}
+    </AppContext.Provider>
+  );
 }
 
 export default App;

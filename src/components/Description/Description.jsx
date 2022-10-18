@@ -1,16 +1,9 @@
 import Rating from "../Rating/Rating";
 import styles from "./Description.module.css";
 
-function Description({
-  countries,
-  year,
-  restrictions,
-  genres,
-  text,
-  rating,
-  url,
-  data,
-}) {
+function Description({ year, data }) {
+  const { restrictions, countries, genres, text, rating, url } = data;
+
   const restriction = restrictions ? restrictions : "0";
   return (
     <div className={styles.cont}>

@@ -54,16 +54,7 @@ function Movie({ width }) {
               src={data.posterUrl}
               alt="movie-card"
             />
-            <Description
-              year={data.year || data.startYear}
-              restrictions={data.ratingAgeLimits}
-              countries={data.countries}
-              genres={data.genres}
-              text={data.description}
-              rating={data.ratingKinopoisk}
-              url={data.webUrl}
-              data={data}
-            />
+            <Description year={data.year || data.startYear} data={data} />
           </>
         )}
       </div>

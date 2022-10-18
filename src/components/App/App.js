@@ -6,6 +6,7 @@ import "../../css/reset.css";
 
 import Navigation from "../Navigation/Navigation";
 import AppRouter from "../AppRouter/AppRouter";
+import Login from "../Login/Login";
 import { AppContext } from "../../utils/context";
 import { getHomeData, getCategoriesData } from "../../API/memo_data";
 
@@ -54,8 +55,10 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return (
-    <AppContext.Provider value={{ appElem: appRef, homeData, categoriesData }}>
+  return <Login />;
+
+  {
+    /* <AppContext.Provider value={{ appElem: appRef, homeData, categoriesData }}>
       <div className="App" ref={appRef}>
         <Navigation screen={width} changeCategory={setCategory} />
         <AppRouter
@@ -65,8 +68,8 @@ function App() {
           categoriesLoading={categoriesLoading}
         />
       </div>
-    </AppContext.Provider>
-  );
+    </AppContext.Provider> */
+  }
 }
 
 export default App;

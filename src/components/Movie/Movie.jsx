@@ -40,7 +40,7 @@ function Movie({ width }) {
   useEffect(() => {
     setDataLoading(true);
     setSimilarsLoading(true);
-  }, [params]);
+  }, [params.id]);
 
   return (
     <div styles={styles.cont}>
@@ -54,7 +54,7 @@ function Movie({ width }) {
               src={data.posterUrl}
               alt="movie-card"
             />
-            <Description year={data.year || data.startYear} data={data} />
+            <Description data={data} />
           </>
         )}
       </div>

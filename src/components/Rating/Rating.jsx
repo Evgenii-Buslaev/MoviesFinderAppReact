@@ -5,6 +5,7 @@ import styles from "./Rating.module.css";
 function Rating({ rating, data }) {
   const [saved, setSaved] = useState(false);
   const [textBtn, setTextBtn] = useState("");
+
   const context = useContext(RouterContext);
   const { savedList, setList } = context;
 
@@ -17,7 +18,7 @@ function Rating({ rating, data }) {
       setTextBtn("Удалить из коллекции");
     } else {
       setSaved(false);
-      setTextBtn("Сохранить в коллекцию");
+      setTextBtn("Буду смотреть");
     }
   };
 
@@ -35,7 +36,8 @@ function Rating({ rating, data }) {
 
   useEffect(() => {
     checkSaved();
-  });
+    // eslint-disable-next-line
+  }, [saved]);
 
   return (
     <div className={styles.cont}>

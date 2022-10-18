@@ -1,7 +1,7 @@
 import Rating from "../Rating/Rating";
 import styles from "./Description.module.css";
 
-function Description({ year, data }) {
+function Description({ data }) {
   const { restrictions, countries, genres, description, rating, webUrl } = data;
 
   const restriction = restrictions ? restrictions : "0";
@@ -10,7 +10,7 @@ function Description({ year, data }) {
     <div className={styles.cont}>
       <div className={styles.linesCont}>
         <div className={styles.line}>
-          <h2>{year}</h2>
+          <h2>{data.year || data.startYear}</h2>
           <h2 className={styles.age}>{`${restriction.match(/\d+/gi)}+`}</h2>
         </div>
         <div className={styles.genresCountries}>

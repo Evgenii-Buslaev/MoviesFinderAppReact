@@ -12,26 +12,31 @@ function Collection({ list, setList }) {
   const sortArgs = [setSort, list, setList];
   const sortData = (sort) => sortList(sort, ...sortArgs);
 
-  const header =
-    list.length > 0 ? (
-      <div className={styles.header}>
-        <h2>Вы сохранили:</h2>
-        <button className={styles.clear}>Очистить коллекцию</button>
-      </div>
-    ) : (
-      <h2>У Вас нет добавленных фильмов.</h2>
-    );
+  const clearCollection = () => {
+    setList([]);
+  };
 
   return (
     <>
-      {header}
-      <InlineList
-        list={list}
-        loading={false}
-        sort={sort}
-        change={sortData}
-        options={selectOptions}
-      />
+      {list.length > 0 ? (
+        <div className={styles.header}>
+          <h2>Вы сохранили:</h2>
+          <button className={styles.clear} onClick={clearCollection}>
+            Очистить коллекцию
+          </button>
+        </div>
+      ) : (
+        <h2 className={styles.notification}>У Вас нет добавленных фильмов.</h2>
+      )}
+      {list.length > 0 ? (
+        <InlineList
+          list={list}
+          loading={false}
+          sort={sort}
+          change={sortData}
+          options={selectOptions}
+        />
+      ) : null}
     </>
   );
 }

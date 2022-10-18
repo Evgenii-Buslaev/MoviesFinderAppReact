@@ -8,6 +8,10 @@
   height: 80px;
 }
 
+.notification {
+  margin: 2rem auto 0;
+}
+
 .clear {
   padding: 1rem;
   border-radius: 40px;
@@ -34,6 +38,10 @@
   .clear {
     padding: 0.7rem 1rem;
     font-size: 0.7rem;
+  }
+  .notification {
+    margin: 1.5rem auto 0;
+    font-size: 1rem;
   }
 }
 

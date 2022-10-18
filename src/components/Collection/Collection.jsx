@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import InlineList from "../InlineList/InlineList";
 import { sortList } from "../../handlers/sortList";
@@ -12,24 +12,27 @@ function Collection({ list, setList }) {
   const sortArgs = [setSort, list, setList];
   const sortData = (sort) => sortList(sort, ...sortArgs);
 
+  const header =
+    list.length > 0 ? (
+      <div className={styles.header}>
+        <h2>Вы сохранили:</h2>
+        <button className={styles.clear}>Очистить коллекцию</button>
+      </div>
+    ) : (
+      <h2>У Вас нет добавленных фильмов.</h2>
+    );
+
   return (
-    <div className={styles.collection}>
-      {list.length < 1 ? (
-        <h2>У Вас нет сохраненных фильмов.</h2>
-      ) : (
-        <>
-          <h2>Вы сохранили:</h2>
-          <InlineList
-            list={list}
-            loading={false}
-            sort={sort}
-            change={sortData}
-            options={selectOptions}
-            action="remove"
-          />
-        </>
-      )}
-    </div>
+    <>
+      {header}
+      <InlineList
+        list={list}
+        loading={false}
+        sort={sort}
+        change={sortData}
+        options={selectOptions}
+      />
+    </>
   );
 }
 

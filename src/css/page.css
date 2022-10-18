@@ -15,9 +15,13 @@ textarea {
   background: none;
 }
 
+button {
+  opacity: 0.6;
+}
+
 button:hover {
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 1;
 }
 
 main {

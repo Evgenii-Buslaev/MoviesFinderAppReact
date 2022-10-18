@@ -29,3 +29,17 @@
     margin-left: 0.5rem;
   }
 }
+
+@media (max-width: 600px) {
+  .cont {
+    margin: 0.6rem auto 0;
+  }
+  .cont h3 {
+    font-size: 0.7rem;
+  }
+  .select {
+    font-size: 0.6rem;
+    margin: 0.5rem 0;
+    margin-left: 0.5rem;
+  }
+}

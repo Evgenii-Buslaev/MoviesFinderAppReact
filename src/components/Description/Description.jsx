@@ -2,9 +2,10 @@ import Rating from "../Rating/Rating";
 import styles from "./Description.module.css";
 
 function Description({ year, data }) {
-  const { restrictions, countries, genres, text, rating, url } = data;
+  const { restrictions, countries, genres, description, rating, webUrl } = data;
 
   const restriction = restrictions ? restrictions : "0";
+
   return (
     <div className={styles.cont}>
       <div className={styles.linesCont}>
@@ -25,10 +26,10 @@ function Description({ year, data }) {
           </div>
         </div>
       </div>
-      <p>{text ? text : "Описание данного фильма отсутствует"}</p>
+      <p>{description ? description : "Описание данного фильма отсутствует"}</p>
       <Rating rating={rating} data={data} />
       <a
-        href={url}
+        href={webUrl}
         target="_blank"
         rel="noreferrer"
         className={styles.watchLink}

@@ -1,0 +1,27 @@
+.widget {
+  width: 500px;
+  height: 300px;
+  box-shadow: 0.1rem 0.1rem 1rem rgb(121, 121, 121);
+}
+
+@media (max-width: 1200px) {
+  .widget {
+    width: 70vw;
+    height: 400px;
+  }
+}
+
+@media (max-width: 800px) {
+  .widget {
+    height: 300px;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .widget {
+    width: 80vw;
+    height: 200px;
+    border-radius: 1rem;
+  }
+}

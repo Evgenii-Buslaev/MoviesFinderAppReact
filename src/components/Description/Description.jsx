@@ -28,7 +28,7 @@ function Description({ data, video }) {
         </div>
       </div>
       <p>{description ? description : "Описание данного фильма отсутствует"}</p>
-      <VideoWidget src={video} />
+      <VideoWidget src={video?.url.replace(/v\//, "embed/")} />
       <Rating rating={rating} data={data} />
       <a
         href={webUrl}

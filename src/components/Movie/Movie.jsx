@@ -42,15 +42,10 @@ function Movie({ width }) {
   useEffect(() => {
     if (videoLoading) {
       FilmsService.getVideoById(params.id).then((res) => {
-        setVideo(
-          res.items
-            .filter((video) => video.site === "YOUTUBE")[0]
-            .url.replace(/v\//, "embed/")
-        );
+        setVideo(res.items.filter((video) => video.site === "YOUTUBE")[0]);
         setVideoLoading(false);
       });
     }
-    console.log(video);
     // eslint-disable-next-line
   }, [videoLoading]);
 

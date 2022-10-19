@@ -31,7 +31,7 @@ function Description({ data, video }) {
       <p>{description ? description : "Описание данного фильма отсутствует"}</p>
       {video ? (
         <VideoWidget
-          src={video?.url.replace(/v\//, "embed/")}
+          src={video.url.replace(/v\/|watch\?v=\/?/, "embed/")}
           name={video.name}
         />
       ) : null}

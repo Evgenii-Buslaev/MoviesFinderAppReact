@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./App.css";
 import "../../css/page.css";
@@ -20,6 +21,8 @@ function App() {
   const [homeLoading, setHomeLoading] = useState(true);
   const [categoriesData, setCategoriesData] = useState([]);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
+
+  const navigator = useNavigate();
 
   const appRef = useRef(null);
 
@@ -63,6 +66,7 @@ function App() {
 
   const logout = () => {
     setLoggedIn(false);
+    navigator("/");
   };
 
   return (

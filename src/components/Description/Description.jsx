@@ -6,6 +6,7 @@ function Description({ data, video }) {
   const { restrictions, countries, genres, description, rating, webUrl } = data;
 
   const restriction = restrictions ? restrictions : "0";
+  console.log(video);
 
   return (
     <div className={styles.cont}>
@@ -28,7 +29,12 @@ function Description({ data, video }) {
         </div>
       </div>
       <p>{description ? description : "Описание данного фильма отсутствует"}</p>
-      <VideoWidget src={video?.url.replace(/v\//, "embed/")} />
+      {video ? (
+        <VideoWidget
+          src={video?.url.replace(/v\//, "embed/")}
+          name={video.name}
+        />
+      ) : null}
       <Rating rating={rating} data={data} />
       <a
         href={webUrl}

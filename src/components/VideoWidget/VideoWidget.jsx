@@ -1,15 +1,18 @@
 import styles from "./VideoWidget.module.css";
 
-function VideoWidget({ src }) {
+function VideoWidget({ src, name }) {
   console.log(src);
   return (
-    <iframe
-      className={styles.widget}
-      title={"Трейлер"}
-      src={src}
-      frameBorder="0"
-      allowFullScreen
-    ></iframe>
+    <>
+      <h3>{name}</h3>
+      <iframe
+        className={styles.widget}
+        title="Трейлер"
+        src={src}
+        frameBorder="0"
+        allowFullScreen
+      ></iframe>
+    </>
   );
 }
 

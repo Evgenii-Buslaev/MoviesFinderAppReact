@@ -1,7 +1,8 @@
 import Rating from "../Rating/Rating";
+import VideoWidget from "../VideoWidget/VideoWidget";
 import styles from "./Description.module.css";
 
-function Description({ data }) {
+function Description({ data, video }) {
   const { restrictions, countries, genres, description, rating, webUrl } = data;
 
   const restriction = restrictions ? restrictions : "0";
@@ -27,6 +28,7 @@ function Description({ data }) {
         </div>
       </div>
       <p>{description ? description : "Описание данного фильма отсутствует"}</p>
+      <VideoWidget src={video} />
       <Rating rating={rating} data={data} />
       <a
         href={webUrl}

@@ -5,7 +5,6 @@ import FilmsService from "../../API/FilmsService";
 import Loader from "../../UI/Loader/Loader";
 import PacketList from "../PacketList/PacketList";
 import Description from "../Description/Description";
-
 import styles from "./Movie.module.css";
 
 function Movie({ width }) {
@@ -16,6 +15,9 @@ function Movie({ width }) {
 
   const [similars, setSimilars] = useState({ items: [] });
   const [similarsLoading, setSimilarsLoading] = useState(true);
+
+  const [video, setVideo] = useState(null);
+  const [videoLoading, setVideoLoading] = useState(true);
 
   useEffect(() => {
     if (dataLoading) {
@@ -38,8 +40,24 @@ function Movie({ width }) {
   }, [similarsLoading]);
 
   useEffect(() => {
+    if (videoLoading) {
+      FilmsService.getVideoById(params.id).then((res) => {
+        setVideo(
+          res.items
+            .filter((video) => video.site === "YOUTUBE")[0]
+            .url.replace(/v\//, "embed/")
+        );
+        setVideoLoading(false);
+      });
+    }
+    console.log(video);
+    // eslint-disable-next-line
+  }, [videoLoading]);
+
+  useEffect(() => {
     setDataLoading(true);
     setSimilarsLoading(true);
+    setVideoLoading(true);
   }, [params.id]);
 
   return (
@@ -54,7 +72,7 @@ function Movie({ width }) {
               src={data.posterUrl}
               alt="movie-card"
             />
-            <Description data={data} />
+            <Description data={data} video={video} />
           </>
         )}
       </div>

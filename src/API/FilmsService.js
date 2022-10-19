@@ -38,7 +38,7 @@ const KEYS = [
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEYS[1],
+    "X-API-KEY": KEYS[0],
     "Content-Type": "application/json",
   },
 };
@@ -131,6 +131,12 @@ export default class FilmsService {
 
   static async getSimilarById(id) {
     const response = await fetch(`${URL.id}${id}/similars`, headers);
+    const data = response.json();
+    return data;
+  }
+
+  static async getVideoById(id) {
+    const response = await fetch(`${URL.id}${id}/videos`, headers);
     const data = response.json();
     return data;
   }

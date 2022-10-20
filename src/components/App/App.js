@@ -37,9 +37,10 @@ function App() {
           cartoons: res[3],
           detectives: res[4],
         });
-        setHomeLoading(false);
       } catch (err) {
         console.log(err);
+      } finally {
+        setHomeLoading(false);
       }
     };
     loadHome();
@@ -47,13 +48,18 @@ function App() {
 
   useEffect(() => {
     setTimeout(async () => {
-      const res = await getCategoriesData();
-      setCategoriesData({
-        films: res[0],
-        series: res[1],
-        shows: res[2],
-      });
-      setCategoriesLoading(false);
+      try {
+        const res = await getCategoriesData();
+        setCategoriesData({
+          films: res[0],
+          series: res[1],
+          shows: res[2],
+        });
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setCategoriesLoading(false);
+      }
     }, 1000);
   }, []);
 

@@ -7,6 +7,7 @@ import Profile from "../Profile/Profile";
 import Collection from "../Collection/Collection";
 import Search from "../Search/Search";
 import Movie from "../Movie/Movie";
+import DevNotification from "../DevNotification/DevNotification";
 import { RouterContext } from "../../utils/context";
 
 function AppRouter({ category, width, homeLoading, categoriesLoading }) {
@@ -34,6 +35,18 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
     },
     { path: "/profile", element: <Profile name="Евгений" /> },
     { path: "/:id", element: <Movie width={width} /> },
+    {
+      path: "/profile/person",
+      element: <DevNotification />,
+    },
+    {
+      path: "/profile/subscriptions",
+      element: <DevNotification />,
+    },
+    {
+      path: "/profile/views",
+      element: <DevNotification />,
+    },
   ];
 
   return (

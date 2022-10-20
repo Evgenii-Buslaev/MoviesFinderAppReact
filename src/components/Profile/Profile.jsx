@@ -11,9 +11,9 @@ function Profile({ name }) {
     <div className={styles.profileCont}>
       <h1>Здравствуйте, {name}!</h1>
       <div className={styles.data}>
-        <DataContainer header="Личные данные" />
-        <DataContainer header="Подписки" />
-        <DataContainer header="Просмотры" />
+        <DataContainer header="Личные данные" path="/profile/person/" />
+        <DataContainer header="Подписки" path="/profile/subscriptions/" />
+        <DataContainer header="Просмотры" path="/profile/views/" />
       </div>
 
       <button className={styles.logout} onClick={logout}>

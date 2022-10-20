@@ -1,10 +1,13 @@
+import RouterLink from "../../UI/RouterLink/RouterLink";
 import styles from "./DataContainer.module.css";
 
-function DataContainer({ header }) {
+function DataContainer({ header, path }) {
   return (
-    <div className={styles.item}>
-      <h3>{header}</h3>
-    </div>
+    <RouterLink path={path}>
+      <div className={styles.item}>
+        <h3>{header}</h3>
+      </div>
+    </RouterLink>
   );
 }
 

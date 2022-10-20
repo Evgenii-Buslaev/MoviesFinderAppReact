@@ -45,52 +45,102 @@ const headers = {
 
 export default class FilmsService {
   static async getPremiers() {
-    const response = await fetch(URL.premiers, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(URL.premiers, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getFilms(page) {
+    let response;
     try {
-      const response = await fetch(`${URL.films}${page}`, headers);
-      return response;
+      response = await fetch(`${URL.films}${page}`, headers);
     } catch (err) {
       console.log(err);
+    } finally {
+      return response;
     }
   }
 
   static async getSeries(page) {
-    const response = await fetch(`${URL.series}${page}`, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(`${URL.series}${page}`, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getShows(page) {
-    const response = await fetch(`${URL.shows}${page}`, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(`${URL.shows}${page}`, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getPacketComedies() {
-    const response = await fetch(PacketURL.comedies, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(PacketURL.comedies, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getPacketRussianSeries() {
-    const response = await fetch(PacketURL.russian_series, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(PacketURL.russian_series, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getPacketSovietDetective() {
-    const response = await fetch(PacketURL.soviet_detective, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(PacketURL.soviet_detective, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getPacketChildrensCartoons() {
-    const response = await fetch(PacketURL.children_cartoons, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(PacketURL.children_cartoons, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getCountriesIds() {
-    const response = await fetch(ID_URL, headers);
-    return response;
+    let response;
+    try {
+      response = await fetch(ID_URL, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async search(page, keyword, country, genre, years) {
@@ -117,31 +167,65 @@ export default class FilmsService {
     let genre_data = genre_ID.length ? `&genres=${genre_ID[0]?.id}` : "";
 
     const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}${country_data}${genre_data}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
-    const response = await fetch(search_URL, headers);
-    return response;
+
+    let response;
+    try {
+      response = await fetch(search_URL, headers);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return response;
+    }
   }
 
   static async getById(id) {
-    const response = await fetch(`${URL.id}${id}`, headers);
-    const data = response.json();
-    return data;
-  }
-
-  static async getImagesById(id) {
-    const response = await fetch(`${URL.id}${id}/images`, headers);
-    const data = response.json();
-    return data;
+    let response;
+    let data;
+    try {
+      response = await fetch(`${URL.id}${id}`, headers);
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      data = response.json();
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return data;
+    }
   }
 
   static async getSimilarById(id) {
-    const response = await fetch(`${URL.id}${id}/similars`, headers);
-    const data = response.json();
-    return data;
+    let response;
+    let data;
+    try {
+      response = await fetch(`${URL.id}${id}/similars`, headers);
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      data = response.json();
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return data;
+    }
   }
 
   static async getVideoById(id) {
-    const response = await fetch(`${URL.id}${id}/videos`, headers);
-    const data = response.json();
-    return data;
+    let response;
+    let data;
+    try {
+      response = await fetch(`${URL.id}${id}/videos`, headers);
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      data = response.json();
+    } catch (err) {
+      console.log(err);
+    } finally {
+      return data;
+    }
   }
 }

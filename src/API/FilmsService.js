@@ -1,8 +1,10 @@
 import { ids } from "../utils/countries_genres_ids";
+import { defineMonth } from "../handlers/defineMonth";
+import { months } from "../utils/store";
 
 const URL = {
   premiers:
-    "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=OCTOBER",
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=",
   films:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
   series:
@@ -38,7 +40,7 @@ const KEYS = [
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEYS[3],
+    "X-API-KEY": KEYS[4],
     "Content-Type": "application/json",
   },
 };
@@ -47,7 +49,10 @@ export default class FilmsService {
   static async getPremiers() {
     let response;
     try {
-      response = await fetch(URL.premiers, headers);
+      response = await fetch(
+        `${URL.premiers}${months[defineMonth()]}`,
+        headers
+      );
     } catch (err) {
       console.log(err);
     } finally {

@@ -1,0 +1,15 @@
+.item {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 2rem;
+  box-shadow: 0.1rem 0.1rem 1rem rgb(121, 121, 121);
+}
+
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0.1rem 0.1rem 2rem rgb(211, 211, 211);
+}

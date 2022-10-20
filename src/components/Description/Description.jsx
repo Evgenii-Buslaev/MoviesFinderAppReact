@@ -6,7 +6,6 @@ function Description({ data, video }) {
   const { restrictions, countries, genres, description, rating, webUrl } = data;
 
   const restriction = restrictions ? restrictions : "0";
-  console.log(video);
 
   return (
     <div className={styles.cont}>

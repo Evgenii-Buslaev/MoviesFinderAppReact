@@ -7,7 +7,6 @@ import Profile from "../Profile/Profile";
 import Collection from "../Collection/Collection";
 import Search from "../Search/Search";
 import Movie from "../Movie/Movie";
-
 import { RouterContext } from "../../utils/context";
 
 function AppRouter({ category, width, homeLoading, categoriesLoading }) {
@@ -33,7 +32,7 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
       path: "/collection",
       element: <Collection list={savedList} setList={setSavedList} />,
     },
-    { path: "/profile", element: <Profile name="Евгений" width={width} /> },
+    { path: "/profile", element: <Profile name="Евгений" /> },
     { path: "/:id", element: <Movie width={width} /> },
   ];
 

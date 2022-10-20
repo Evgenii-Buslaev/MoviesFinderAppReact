@@ -8,6 +8,7 @@ import "../../css/reset.css";
 import Navigation from "../Navigation/Navigation";
 import AppRouter from "../AppRouter/AppRouter";
 import Login from "../Login/Login";
+import ModalWindow from "../ModalWindow/ModalWindow";
 import { AppContext } from "../../utils/context";
 import { getHomeData, getCategoriesData } from "../../API/memo_data";
 
@@ -95,6 +96,7 @@ function App() {
     <AppContext.Provider
       value={{ appElem: appRef, homeData, categoriesData, logout }}
     >
+      <ModalWindow />
       {loggedIn ? (
         <div className="App" ref={appRef}>
           <Navigation screen={width} changeCategory={setCategory} />

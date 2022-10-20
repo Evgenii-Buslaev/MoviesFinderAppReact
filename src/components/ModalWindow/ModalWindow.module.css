@@ -1,0 +1,16 @@
+.window {
+  position: absolute;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(117, 82, 128, 0.333);
+  backdrop-filter: blur(25px);
+  z-index: 4;
+}
+
+.widnow h2 {
+  color: white;
+}

@@ -9,6 +9,7 @@
   padding: 0.5rem 0;
   background: rgba(117, 82, 128, 0.333);
   backdrop-filter: blur(25px);
+  z-index: 2;
 }
 
 .navBarMob::before {

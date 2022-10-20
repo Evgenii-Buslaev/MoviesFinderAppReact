@@ -96,9 +96,9 @@ function App() {
     <AppContext.Provider
       value={{ appElem: appRef, homeData, categoriesData, logout }}
     >
-      <ModalWindow />
       {loggedIn ? (
         <div className="App" ref={appRef}>
+          <ModalWindow />
           <Navigation screen={width} changeCategory={setCategory} />
           <AppRouter
             width={width}

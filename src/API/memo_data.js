@@ -8,8 +8,8 @@ export function getHomeData() {
     FilmsService.getPacketChildrensCartoons(),
     FilmsService.getPacketSovietDetective(),
   ];
-  return Promise.all(data).then((responses) =>
-    Promise.all(responses.map((r) => r.json()))
+  return Promise.allSettled(data).then((responses) =>
+    Promise.allSettled(responses.map((r) => r.json()))
   );
 }
 

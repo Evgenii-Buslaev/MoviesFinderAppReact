@@ -28,15 +28,19 @@ function App() {
 
   useEffect(() => {
     const loadHome = async () => {
-      const res = await getHomeData();
-      setHomeData({
-        top: res[0],
-        comedies: res[1],
-        series: res[2],
-        cartoons: res[3],
-        detectives: res[4],
-      });
-      setHomeLoading(false);
+      try {
+        const res = await getHomeData();
+        setHomeData({
+          top: res[0],
+          comedies: res[1],
+          series: res[2],
+          cartoons: res[3],
+          detectives: res[4],
+        });
+        setHomeLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
     };
     loadHome();
   }, []);

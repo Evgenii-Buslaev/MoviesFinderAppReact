@@ -2,7 +2,7 @@ import { ids } from "../utils/countries_genres_ids";
 
 const URL = {
   premiers:
-    "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=OCTOBER",
+    "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=OCTOER",
   films:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=",
   series:
@@ -38,7 +38,7 @@ const KEYS = [
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEYS[1],
+    "X-API-KEY": KEYS[3],
     "Content-Type": "application/json",
   },
 };

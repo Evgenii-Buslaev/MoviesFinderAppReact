@@ -39,6 +39,13 @@ function App() {
         });
       } catch (err) {
         console.log(err);
+        setHomeData({
+          top: [],
+          comedies: [],
+          series: [],
+          cartoons: [],
+          detectives: [],
+        });
       } finally {
         setHomeLoading(false);
       }
@@ -57,6 +64,11 @@ function App() {
         });
       } catch (err) {
         console.log(err);
+        setCategoriesData({
+          films: [],
+          series: [],
+          shows: [],
+        });
       } finally {
         setCategoriesLoading(false);
       }

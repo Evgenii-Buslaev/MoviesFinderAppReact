@@ -2,6 +2,8 @@ import { ids } from "../utils/countries_genres_ids";
 import { defineMonth } from "../handlers/defineMonth";
 import { months } from "../utils/store";
 
+let API_KEY_NUMBER = 0;
+
 const URL = {
   premiers:
     "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2022&month=",
@@ -40,7 +42,7 @@ const KEYS = [
 const headers = {
   method: "GET",
   headers: {
-    "X-API-KEY": KEYS[4],
+    "X-API-KEY": KEYS[API_KEY_NUMBER],
     "Content-Type": "application/json",
   },
 };
@@ -54,7 +56,7 @@ export default class FilmsService {
         headers
       );
     } catch (err) {
-      console.log(err);
+      console.log(err.status);
     } finally {
       return response;
     }

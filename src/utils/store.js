@@ -37,7 +37,10 @@ const homeInitialData = {
 };
 
 const swiperParams = {
-  slidesPerView: 3,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
   spaceBetween: 50,
   loop: true,
   pagination: {

@@ -13,6 +13,7 @@ function Login({ login }) {
 
   return (
     <div className={styles.cont}>
+      <div className={styles.blur}></div>
       <form className={styles.form} onSubmit={(e) => loginApp(e)}>
         <input
           className={styles.input}

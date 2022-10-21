@@ -36,7 +36,7 @@ function InlineListItem({ click, data }) {
       setTimeout(() => {
         setInProcess(false);
         setImage(remove);
-      }, 1000);
+      }, 1500);
       setSaved(true);
     } else {
       setList(
@@ -56,7 +56,7 @@ function InlineListItem({ click, data }) {
   useEffect(() => {
     checkSaved();
     // eslint-disable-next-line
-  }, []);
+  }, [saved]);
 
   const { posterUrlPreview, countries, year } = data;
   const rating = data.ratingKinopoisk || "0";

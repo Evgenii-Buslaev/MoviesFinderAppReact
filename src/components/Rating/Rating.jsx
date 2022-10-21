@@ -1,10 +1,13 @@
 import { useState, useContext, useEffect } from "react";
 import { RouterContext } from "../../utils/context";
+
+import loading from "../../icons/loading/loading.png";
 import styles from "./Rating.module.css";
 
 function Rating({ rating, data }) {
   const [saved, setSaved] = useState(false);
   const [textBtn, setTextBtn] = useState("");
+  const [inProcess, setInProcess] = useState(false);
 
   const context = useContext(RouterContext);
   const { savedList, setList } = context;
@@ -24,13 +27,21 @@ function Rating({ rating, data }) {
 
   const changeCollection = () => {
     if (saved) {
+      setInProcess(true);
       setList(
         savedList.filter((elem) => elem.kinopoiskId !== data.kinopoiskId)
       );
       setSaved(false);
+      setTimeout(() => {
+        setInProcess(false);
+      }, 1500);
     } else {
+      setInProcess(true);
       setList([...savedList, data]);
       setSaved(true);
+      setTimeout(() => {
+        setInProcess(false);
+      }, 1500);
     }
   };
 
@@ -45,9 +56,15 @@ function Rating({ rating, data }) {
         <div className={styles.count}>{rating ? rating : 0}</div>
         <h4>Рейтинг кинопоиска</h4>
       </div>
-      <button className={styles.adding} onClick={changeCollection}>
-        {textBtn}
-      </button>
+      {inProcess ? (
+        <div className={styles.rotate}>
+          <img src={loading} alt="loading"></img>
+        </div>
+      ) : (
+        <button className={styles.adding} onClick={changeCollection}>
+          {textBtn}
+        </button>
+      )}
     </div>
   );
 }

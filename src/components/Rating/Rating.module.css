@@ -45,6 +45,32 @@
   background-color: rgb(141, 133, 141);
 }
 
+.rotate {
+  width: 30%;
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.rotate img {
+  width: 30px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 1300px) {
   .cont {
     width: 400px;

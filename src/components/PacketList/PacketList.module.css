@@ -19,6 +19,7 @@
   align-items: center;
   margin: 1rem 0;
   height: 215px;
+  filter: drop-shadow(0 0 1rem rgba(153, 153, 153, 0.486));
 }
 
 .items {

@@ -40,8 +40,12 @@
   font-size: 1rem;
   color: white;
   padding: 1rem 1.5rem;
-  background-color: rgb(25, 102, 112);
+  background-color: rgba(25, 102, 112, 0.438);
   border: solid thin rgb(25, 102, 112);
+}
+
+.btn:hover {
+  background-color: rgba(25, 102, 112, 0.644);
 }
 
 @media (max-width: 1400px) {

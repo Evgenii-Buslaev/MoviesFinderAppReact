@@ -12,11 +12,13 @@
 .select {
   font-size: 1rem;
   margin: 0.5rem 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.2rem;
   border: none;
   cursor: pointer;
   color: white;
-  background-color: rgb(25, 102, 112);
+  background-color: rgba(25, 102, 112, 0.438);
+  border: solid thin rgb(25, 102, 112);
+  font-size: 0.8rem;
 }
 
 @media (max-width: 900px) {

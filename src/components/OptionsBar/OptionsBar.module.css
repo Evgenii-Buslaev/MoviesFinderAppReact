@@ -19,6 +19,11 @@
   cursor: pointer;
 }
 
+.optItem img {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+
 .optItem:active {
   transform: scale(1.2);
 }
@@ -29,6 +34,7 @@
 
 .optItem h3 {
   font-size: 1rem;
+  color: white;
 }
 
 .optItem h3:hover {

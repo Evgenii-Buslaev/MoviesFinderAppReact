@@ -5,10 +5,12 @@ import styles from "./InlineListItem.module.css";
 import star from "../../icons/inline/star.png";
 import save from "../../icons/inline/save.png";
 import remove from "../../icons/inline/delete.png";
+import loading from "../../icons/loading/loading.png";
 
 function InlineListItem({ click, data }) {
   const [saved, setSaved] = useState(false);
   const [image, setImage] = useState(save);
+  const [inProcess, setInProcess] = useState(false);
 
   const context = useContext(RouterContext);
   const { savedList, setList } = context;
@@ -28,13 +30,25 @@ function InlineListItem({ click, data }) {
   const changeCollection = () => {
     if (!saved) {
       setList([...savedList, data]);
-      setImage(remove);
+      setInProcess(true);
+      setImage(loading);
+
+      setTimeout(() => {
+        setInProcess(false);
+        setImage(remove);
+      }, 1000);
       setSaved(true);
     } else {
       setList(
         savedList.filter((elem) => elem.kinopoiskId !== data.kinopoiskId)
       );
-      setImage(save);
+      setInProcess(true);
+      setImage(loading);
+
+      setTimeout(() => {
+        setInProcess(false);
+        setImage(save);
+      }, 1000);
       setSaved(false);
     }
   };
@@ -42,7 +56,7 @@ function InlineListItem({ click, data }) {
   useEffect(() => {
     checkSaved();
     // eslint-disable-next-line
-  }, [saved]);
+  }, []);
 
   const { posterUrlPreview, countries, year } = data;
   const rating = data.ratingKinopoisk || "0";
@@ -72,7 +86,7 @@ function InlineListItem({ click, data }) {
         <h2>{year}</h2>
       </div>
       <img
-        className={styles.add}
+        className={inProcess ? `${styles.rotating}` : styles.add}
         src={image}
         alt="save or remove"
         onClick={changeCollection}

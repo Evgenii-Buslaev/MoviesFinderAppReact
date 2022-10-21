@@ -1,5 +1,4 @@
-import ImageButton from "../../UI/ImageButton/ImageButton";
-import RouterLink from "../../UI/RouterLink/RouterLink";
+import NavBarMobItem from "../NavBarMobItem/NavBarMobItem";
 import styles from "./NavBarMob.module.css";
 
 import home from "../../icons/nav-mobile/home.png";
@@ -30,12 +29,14 @@ function NavBarMob() {
   return (
     <div className={styles.navBarMob}>
       {navBtns.map((btn) => (
-        <div className={styles.navItem} key={btn.text}>
-          <RouterLink path={btn.path}>
-            <ImageButton path={btn.img} alt={btn.alt} title={btn.text} />
-            <h3 className={btn.active ? styles.active : null}>{btn.text}</h3>
-          </RouterLink>
-        </div>
+        <NavBarMobItem
+          key={btn.text}
+          text={btn.text}
+          routerPath={btn.path}
+          imgPath={btn.img}
+          alt={btn.alt}
+          active={btn.active}
+        />
       ))}
     </div>
   );

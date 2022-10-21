@@ -3,10 +3,9 @@
   bottom: 0;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   width: 100vw;
-  height: auto;
-  padding: 0.5rem 0;
+  height: 60px;
   background: rgba(12, 11, 12, 0.333);
   backdrop-filter: blur(25px);
   z-index: 2;
@@ -15,40 +14,4 @@
 .navBarMob::before {
   -webkit-filter: blur(20px);
   filter: blur(20px);
-}
-
-.navItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.navItem img {
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
-}
-
-.navItem:active {
-  transform: scale(1.2);
-}
-
-.active {
-  filter: drop-shadow(0 0 0.4rem rgb(9, 217, 224));
-}
-
-.navItem h3 {
-  font-size: 1rem;
-  color: white;
-}
-
-.navItem h3:hover {
-  opacity: 0.6;
-}
-
-@media (max-width: 400px) {
-  .navItem h3 {
-    font-size: 0.8rem;
-  }
 }

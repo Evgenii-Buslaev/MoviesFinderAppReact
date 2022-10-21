@@ -51,11 +51,6 @@
 @media (max-width: 1400px) {
   .btn {
     width: 140px;
-    height: auto;
-    font-size: 1rem;
-    color: white;
-    padding: 1rem 1.5rem;
-    background-color: rgb(25, 102, 112);
   }
   .lists {
     width: 55vw;

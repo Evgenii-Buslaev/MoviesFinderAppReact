@@ -12,7 +12,9 @@
 
 .logoCont h1 {
   padding: 0.5rem;
-  color: rgb(202, 74, 74);
+  background: -webkit-linear-gradient(rgb(7, 223, 223), rgb(0, 160, 253));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 800px) {

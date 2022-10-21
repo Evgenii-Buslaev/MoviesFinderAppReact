@@ -1,16 +1,17 @@
 import ImageButton from "../../UI/ImageButton/ImageButton";
-import RouterLink from "../../UI/RouterLink/RouterLink";
 import styles from "./NavBarMobItem.module.css";
 
-function NavBarMobItem({ text, routerPath, imgPath, alt, active }) {
+function NavBarMobItem({ data, click }) {
+  const { id, img, alt, text, active } = data;
+
   return (
     <div
       className={active ? `${styles.navItem} ${styles.active}` : styles.navItem}
       key={text}
+      id={id}
+      onClick={click}
     >
-      <RouterLink path={routerPath}>
-        <ImageButton path={imgPath} alt={alt} title={text} />
-      </RouterLink>
+      <ImageButton path={img} alt={alt} title={text} id={id} click={click} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { ids } from "../utils/countries_genres_ids";
 import { defineMonth } from "../handlers/defineMonth";
 import { months } from "../utils/store";
 
-let API_KEY_NUMBER = 0;
+let API_KEY_NUMBER = 1;
 
 const URL = {
   premiers:

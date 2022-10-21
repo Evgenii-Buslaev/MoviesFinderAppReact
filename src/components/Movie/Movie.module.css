@@ -15,7 +15,8 @@
   width: 450px;
   height: 640px;
   border-radius: 1rem;
-  box-shadow: 0.1rem 0.1rem 2rem rgb(180, 180, 180);
+  filter: drop-shadow(0 0 15rem rgba(3, 120, 189, 0.486));
+  /* box-shadow: 0.1rem 0.1rem 2rem rgb(180, 180, 180); */
 }
 
 @media (max-width: 1400px) {

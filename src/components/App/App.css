@@ -14,5 +14,12 @@
 }
 
 .App::-webkit-scrollbar {
-  display: none;
+  width: 4px;
+  background-color: #143861;
+}
+
+.App::-webkit-scrollbar-thumb {
+  background-color: #843465;
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
 }

@@ -15,7 +15,8 @@
 }
 
 .item:hover {
-  background-color: rgb(119, 117, 117);
+  filter: drop-shadow(0 0 3rem rgba(3, 120, 189, 0.486));
+  background-color: rgba(92, 92, 92, 0.356);
 }
 
 .preview {

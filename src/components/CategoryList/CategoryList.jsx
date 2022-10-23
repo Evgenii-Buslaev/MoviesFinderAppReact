@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react";
+import { useCategoryFetching } from "../../hooks/useCategoryFetching";
 
 import InlineList from "../InlineList/InlineList";
 import PacketList from "../PacketList/PacketList";
 
 import { AppContext } from "../../utils/context";
 import { listFetching } from "../../handlers/getItems";
-import { scrollListFetching } from "../../handlers/scrollLists";
 import { sortList } from "../../handlers/sortList";
 import { getHeader, selectOptions } from "../../utils/store";
 
@@ -13,50 +13,7 @@ import styles from "./CategoryList.module.css";
 
 function CategoryList({ category, width, loading }) {
   const [packetData, setPacketData] = useState({ items: [] });
-
-  const [list, setList] = useState([]);
-  const [page, setPage] = useState(1);
-  const [sort, setSort] = useState("ratingKinopoisk");
-  const [totalPages, setTotalPages] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const { appElem, categoriesData } = useContext(AppContext);
-
-  const fetchArgs = [
-    category,
-    list,
-    setList,
-    page,
-    setPage,
-    setIsLoading,
-    setTotalPages,
-  ];
-  const sortArgs = [setSort, list, setList];
-
-  const getData = () =>
-    page <= totalPages ? listFetching(...fetchArgs) : setIsLoading(false);
-  const sortData = (sort) => sortList(sort, ...sortArgs);
-
-  useEffect(() => {
-    if (isLoading) {
-      getData();
-    }
-    sortData(sort);
-    // eslint-disable-next-line
-  }, [isLoading]);
-
-  useEffect(() => {
-    setList([]);
-    setPage(1);
-    setIsLoading(true);
-  }, [category]);
-
-  useEffect(() => {
-    const scrollHandler = (e) => scrollListFetching(e, setIsLoading);
-    const ref = appElem.current;
-    ref.addEventListener("scroll", scrollHandler);
-    return () => ref.removeEventListener("scroll", scrollHandler);
-  }, [appElem]);
+  const { categoriesData } = useContext(AppContext);
 
   useEffect(() => {
     if (!loading) {
@@ -66,6 +23,12 @@ function CategoryList({ category, width, loading }) {
     }
     // eslint-disable-next-line
   }, [loading, category]);
+
+  const [list, sort, isLoading, sortData] = useCategoryFetching(
+    category,
+    listFetching,
+    sortList
+  );
 
   return (
     <div className={styles.list}>

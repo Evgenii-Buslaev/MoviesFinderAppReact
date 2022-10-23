@@ -34,10 +34,11 @@ export const useMemoData = (fetchFuncs) => {
     load();
     // eslint-disable-next-line
   }, []);
+
   useEffect(() => {
     setTimeout(async () => {
       try {
-        const res = await fetchFuncs[1];
+        const res = await fetchFuncs[1]();
         setCategoriesData({
           films: res[0],
           series: res[1],

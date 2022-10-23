@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useMovieFetching } from "../../hooks/useMovieFetching";
 
-import FilmsService from "../../API/FilmsService";
 import Loader from "../../UI/Loader/Loader";
 import PacketList from "../PacketList/PacketList";
 import Description from "../Description/Description";
@@ -10,50 +9,8 @@ import styles from "./Movie.module.css";
 function Movie({ width }) {
   const params = useParams();
 
-  const [data, setData] = useState(null);
-  const [dataLoading, setDataLoading] = useState(true);
-
-  const [similars, setSimilars] = useState({ items: [] });
-  const [similarsLoading, setSimilarsLoading] = useState(true);
-
-  const [video, setVideo] = useState(null);
-  const [videoLoading, setVideoLoading] = useState(true);
-
-  useEffect(() => {
-    if (dataLoading) {
-      FilmsService.getById(params.id).then((res) => {
-        setData(res);
-        setDataLoading(false);
-      });
-    }
-    // eslint-disable-next-line
-  }, [dataLoading]);
-
-  useEffect(() => {
-    if (similarsLoading) {
-      FilmsService.getSimilarById(params.id).then((res) => {
-        setSimilars(res);
-        setSimilarsLoading(false);
-      });
-    }
-    // eslint-disable-next-line
-  }, [similarsLoading]);
-
-  useEffect(() => {
-    if (videoLoading) {
-      FilmsService.getVideoById(params.id).then((res) => {
-        setVideo(res.items.filter((video) => video.site === "YOUTUBE")[0]);
-        setVideoLoading(false);
-      });
-    }
-    // eslint-disable-next-line
-  }, [videoLoading]);
-
-  useEffect(() => {
-    setDataLoading(true);
-    setSimilarsLoading(true);
-    setVideoLoading(true);
-  }, [params.id]);
+  const [data, dataLoading, similars, similarsLoading, video] =
+    useMovieFetching(params);
 
   return (
     <div styles={styles.cont}>

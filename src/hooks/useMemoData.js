@@ -34,7 +34,6 @@ export const useMemoData = (fetchFuncs) => {
     load();
     // eslint-disable-next-line
   }, []);
-
   useEffect(() => {
     setTimeout(async () => {
       try {

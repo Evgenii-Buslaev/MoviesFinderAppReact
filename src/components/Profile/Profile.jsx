@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useContext } from "react";
 import { AppContext } from "../../utils/context";
 
@@ -5,7 +7,13 @@ import DataContainer from "../DataContainer/DataContainer";
 import styles from "./Profile.module.css";
 
 function Profile({ name }) {
-  const { logout } = useContext(AppContext);
+  const { setLoggedIn } = useContext(AppContext);
+  const navigator = useNavigate();
+
+  const logout = () => {
+    setLoggedIn(false);
+    navigator("/");
+  };
 
   return (
     <div className={styles.profileCont}>

@@ -10,31 +10,12 @@ import styles from "./Search.module.css";
 function Search() {
   const { data, setData } = useSearching();
 
-  const [country, genre, period, textQuery, list, sort, isLoading] = data;
-  const [
-    setCountry,
-    setGenre,
-    setPeriod,
-    setTextQuery,
-    sortData,
-    query,
-    reset,
-  ] = setData;
+  const [, , , , list, sort, isLoading] = data;
+  const [sortData] = setData;
 
   return (
     <div className={styles.cont}>
-      <SearchForm
-        country={country}
-        genre={genre}
-        period={period}
-        query={textQuery}
-        changeText={setTextQuery}
-        chooseCountry={setCountry}
-        chooseGenre={setGenre}
-        choosePeriod={setPeriod}
-        search={query}
-        reset={reset}
-      />
+      <SearchForm data={data} setData={setData} />
       <InlineList
         list={list}
         options={selectOptions}

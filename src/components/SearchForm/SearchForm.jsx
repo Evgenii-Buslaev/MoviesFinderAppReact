@@ -3,18 +3,10 @@ import { ids } from "../../utils/countries_genres_ids";
 import { years } from "../../utils/store";
 import styles from "./SearchForm.module.css";
 
-function SearchForm({
-  country,
-  genre,
-  period,
-  query,
-  chooseCountry,
-  chooseGenre,
-  choosePeriod,
-  changeText,
-  search,
-  reset,
-}) {
+function SearchForm({ data, setData }) {
+  const [country, genre, period, textQuery] = data;
+  const [setCountry, setGenre, setPeriod, setTextQuery, query, reset] = setData;
+
   const countries = ids.countries.map((item) => item.country);
   const genres = ids.genres.map((item) => item.genre);
 
@@ -23,15 +15,15 @@ function SearchForm({
       className={styles.searchCont}
       onSubmit={(e) => {
         e.preventDefault();
-        search();
+        query();
       }}
     >
       <input
         className={styles.search}
         type="text"
         placeholder="Введите ключевые слова..."
-        value={query}
-        onChange={(e) => changeText(e.target.value)}
+        value={textQuery}
+        onChange={(e) => setTextQuery(e.target.value)}
       />
       <div className={styles.filters}>
         <div className={styles.lists}>
@@ -40,24 +32,24 @@ function SearchForm({
             data={countries}
             text="Страна"
             value={country}
-            change={chooseCountry}
+            change={setCountry}
           />
           <SearchDataList
             id="genre"
             data={genres}
             text="Жанр"
             value={genre}
-            change={chooseGenre}
+            change={setGenre}
           />
           <SearchDataList
             id="years"
             data={years}
             text="Годы"
             value={period}
-            change={choosePeriod}
+            change={setPeriod}
           />
         </div>
-        <button type="submit" className={styles.btn} onClick={() => search()}>
+        <button type="submit" className={styles.btn} onClick={() => query()}>
           Найти
         </button>
         <button className={styles.btn} onClick={() => reset()}>

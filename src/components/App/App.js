@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMemoData } from "../../hooks/useMemoData";
 
 import "./App.css";
 import "../../css/page.css";
@@ -18,63 +19,12 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [category, setCategory] = useState("films");
 
-  const [homeData, setHomeData] = useState([]);
-  const [homeLoading, setHomeLoading] = useState(true);
-  const [categoriesData, setCategoriesData] = useState([]);
-  const [categoriesLoading, setCategoriesLoading] = useState(true);
+  const [homeData, homeLoading, categoriesData, categoriesLoading] =
+    useMemoData([getHomeData, getCategoriesData]);
 
   const navigator = useNavigate();
 
   const appRef = useRef(null);
-
-  useEffect(() => {
-    const loadHome = async () => {
-      try {
-        const res = await getHomeData();
-        setHomeData({
-          top: res[0],
-          comedies: res[1],
-          series: res[2],
-          cartoons: res[3],
-          detectives: res[4],
-        });
-      } catch (err) {
-        console.log(err);
-        setHomeData({
-          top: [],
-          comedies: [],
-          series: [],
-          cartoons: [],
-          detectives: [],
-        });
-      } finally {
-        setHomeLoading(false);
-      }
-    };
-    loadHome();
-  }, []);
-
-  useEffect(() => {
-    setTimeout(async () => {
-      try {
-        const res = await getCategoriesData();
-        setCategoriesData({
-          films: res[0],
-          series: res[1],
-          shows: res[2],
-        });
-      } catch (err) {
-        console.log(err);
-        setCategoriesData({
-          films: [],
-          series: [],
-          shows: [],
-        });
-      } finally {
-        setCategoriesLoading(false);
-      }
-    }, 1000);
-  }, []);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);

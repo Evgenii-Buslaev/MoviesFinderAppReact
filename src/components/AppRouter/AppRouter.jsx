@@ -15,11 +15,11 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
 
   const AppRoutes = [
     {
-      path: "MoviesFinderAppReact/",
+      path: "/",
       element: <Home width={width} loading={homeLoading} />,
     },
     {
-      path: "MoviesFinderAppReact/categories",
+      path: "/categories",
       element: (
         <CategoryList
           category={category}
@@ -29,28 +29,28 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
       ),
     },
     {
-      path: "MoviesFinderAppReact/search",
+      path: "/search",
       element: <Search />,
     },
     {
-      path: "MoviesFinderAppReact/collection",
+      path: "/collection",
       element: <Collection list={savedList} setList={setSavedList} />,
     },
     {
-      path: "MoviesFinderAppReact/profile",
+      path: "/profile",
       element: <Profile name="Евгений" />,
     },
-    { path: "MoviesFinderAppReact/:id", element: <Movie width={width} /> },
+    { path: "/:id", element: <Movie width={width} /> },
     {
-      path: "MoviesFinderAppReact/profile/person",
+      path: "/profile/person",
       element: <DevNotification />,
     },
     {
-      path: "MoviesFinderAppReact/profile/subscriptions",
+      path: "/profile/subscriptions",
       element: <DevNotification />,
     },
     {
-      path: "MoviesFinderAppReact/profile/views",
+      path: "/profile/views",
       element: <DevNotification />,
     },
   ];

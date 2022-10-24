@@ -4,11 +4,39 @@ import { years } from "../../utils/store";
 import styles from "./SearchForm.module.css";
 
 function SearchForm({ data, setData }) {
-  const [country, genre, period, textQuery] = data;
-  const [setCountry, setGenre, setPeriod, setTextQuery, query, reset] = setData;
+  const { country, genre, period, textQuery } = data;
+  const {
+    setCountry,
+    setGenre,
+    setPeriod,
+    setTextQuery,
+    setList,
+    setPage,
+    setIsLoading,
+    setTotalPages,
+    setSort,
+  } = setData;
 
   const countries = ids.countries.map((item) => item.country);
   const genres = ids.genres.map((item) => item.genre);
+
+  const query = () => {
+    setList([]);
+    setPage(1);
+    setIsLoading(true);
+    console.log("query");
+  };
+
+  const reset = () => {
+    setCountry("");
+    setGenre("");
+    setPeriod("");
+    setTextQuery("");
+    setTotalPages(2);
+    setSort("ratingKinopoisk");
+    query();
+    console.log("reset");
+  };
 
   return (
     <form
@@ -49,7 +77,7 @@ function SearchForm({ data, setData }) {
             change={setPeriod}
           />
         </div>
-        <button type="submit" className={styles.btn} onClick={() => query()}>
+        <button type="submit" className={styles.btn}>
           Найти
         </button>
         <button className={styles.btn} onClick={() => reset()}>

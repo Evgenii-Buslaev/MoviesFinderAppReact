@@ -34,22 +34,6 @@ export function useSearching() {
       });
   };
 
-  const query = () => {
-    setList([]);
-    setPage(1);
-    setIsLoading(true);
-  };
-
-  const reset = () => {
-    setCountry("");
-    setGenre("");
-    setPeriod("");
-    setTextQuery("");
-    setTotalPages(2);
-    setSort("ratingKinopoisk");
-    query();
-  };
-
   useEffect(() => {
     if (isLoading) {
       fetching(page, textQuery, country, genre, period);
@@ -69,15 +53,18 @@ export function useSearching() {
   }, [appElem, textQuery]);
 
   return {
-    data: [country, genre, period, textQuery, list, sort, isLoading],
-    setData: [
+    data: { country, genre, period, textQuery, list, sort, isLoading },
+    setData: {
       setCountry,
       setGenre,
       setPeriod,
       setTextQuery,
       sortData,
-      query,
-      reset,
-    ],
+      setList,
+      setPage,
+      setIsLoading,
+      setTotalPages,
+      setSort,
+    },
   };
 }

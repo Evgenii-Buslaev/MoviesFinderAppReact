@@ -10,8 +10,8 @@ import styles from "./Search.module.css";
 function Search() {
   const { data, setData } = useSearching();
 
-  const [, , , , list, sort, isLoading] = data;
-  const [sortData] = setData;
+  const { list, sort, isLoading } = data;
+  const { sortData } = setData;
 
   return (
     <div className={styles.cont}>

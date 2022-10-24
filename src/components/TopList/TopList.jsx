@@ -26,7 +26,9 @@ function TopList({ list, loading }) {
                   className="swipeMovieCard"
                   src={film.posterUrl}
                   alt="movie-card"
-                  onClick={() => router(`/${film.kinopoiskId}`)}
+                  onClick={() =>
+                    router(`MoviesFinderAppReact/${film.kinopoiskId}`)
+                  }
                 />
               </div>
             ))}

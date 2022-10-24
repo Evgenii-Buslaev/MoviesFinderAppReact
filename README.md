@@ -37,7 +37,7 @@ This is Frontend-part of my new application for searching for movies that had be
   Developed the skill of using React-hooks such as useState, useEffect, useContext, useRef, useMemo. Also developed skills of using React-router features and npm packets.
 
 * #### Deployment
-  You can try using my app by the following link: \*\*\*.
+  You can try using my app by the following link: https://evgenii-buslaev.github.io/MoviesFinderAppReact/.
 
 Thank you for checking the app out!
 

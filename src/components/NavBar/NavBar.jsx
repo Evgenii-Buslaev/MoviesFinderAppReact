@@ -20,7 +20,7 @@ function NavBar({ change }) {
       </RouterLink>
       <div className={styles.categories}>
         {categoryBtns.map((elem) => (
-          <RouterLink path="/categories" key={elem.title}>
+          <RouterLink path="/MoviesFinderAppReact/categories" key={elem.title}>
             <button
               className={styles.navBtn}
               category={elem.category}

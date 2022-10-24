@@ -24,7 +24,6 @@ function SearchForm({ data, setData }) {
     setList([]);
     setPage(1);
     setIsLoading(true);
-    console.log("query");
   };
 
   const reset = () => {
@@ -35,7 +34,6 @@ function SearchForm({ data, setData }) {
     setTotalPages(2);
     setSort("ratingKinopoisk");
     query();
-    console.log("reset");
   };
 
   return (

@@ -36,6 +36,8 @@ const KEYS = [
   "bb3124ba-285b-4637-8090-0132ebb487b0",
   "a595254b-5a7e-4a76-b72a-0bb61d682232",
   "ec134678-1ffb-48ac-9656-3991bb2e1ffd",
+  "b190295b-55aa-4660-8764-7ad7b487d480",
+  "d914743b-6526-443d-9f6f-82560fa3ea3b",
 ];
 
 let API_KEY_NUMBER = 0;
@@ -62,6 +64,7 @@ export default class FilmsService {
         `${URL.premiers}${months[defineMonth()]}`,
         headers
       );
+      console.log(response);
     } catch (err) {
       console.log(err.status);
     } finally {

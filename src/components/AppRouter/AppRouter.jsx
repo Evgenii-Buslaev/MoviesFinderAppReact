@@ -14,9 +14,12 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
   const [savedList, setSavedList] = useState([]);
 
   const AppRoutes = [
-    { path: "/", element: <Home width={width} loading={homeLoading} /> },
     {
-      path: "/categories",
+      path: "MoviesFinderAppReact/",
+      element: <Home width={width} loading={homeLoading} />,
+    },
+    {
+      path: "MoviesFinderAppReact/categories",
       element: (
         <CategoryList
           category={category}
@@ -26,25 +29,28 @@ function AppRouter({ category, width, homeLoading, categoriesLoading }) {
       ),
     },
     {
-      path: "/search",
+      path: "MoviesFinderAppReact/search",
       element: <Search />,
     },
     {
-      path: "/collection",
+      path: "MoviesFinderAppReact/collection",
       element: <Collection list={savedList} setList={setSavedList} />,
     },
-    { path: "/profile", element: <Profile name="Евгений" /> },
-    { path: "/:id", element: <Movie width={width} /> },
     {
-      path: "/profile/person",
+      path: "MoviesFinderAppReact/profile",
+      element: <Profile name="Евгений" />,
+    },
+    { path: "MoviesFinderAppReact/:id", element: <Movie width={width} /> },
+    {
+      path: "MoviesFinderAppReact/profile/person",
       element: <DevNotification />,
     },
     {
-      path: "/profile/subscriptions",
+      path: "MoviesFinderAppReact/profile/subscriptions",
       element: <DevNotification />,
     },
     {
-      path: "/profile/views",
+      path: "MoviesFinderAppReact/profile/views",
       element: <DevNotification />,
     },
   ];

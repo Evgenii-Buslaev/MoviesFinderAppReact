@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MoviesFinderAppReact/static/css/main.910f8aae.css",
-    "main.js": "/MoviesFinderAppReact/static/js/main.ff5ee926.js",
+    "main.js": "/MoviesFinderAppReact/static/js/main.014abe38.js",
     "static/media/star.png": "/MoviesFinderAppReact/static/media/star.6794533c5cc567c90f2d.png",
     "static/media/background.jpg": "/MoviesFinderAppReact/static/media/background.ed64b3c2b833ef007a7f.jpg",
     "static/media/films.png": "/MoviesFinderAppReact/static/media/films.52535072f84ae498ac6f.png",
@@ -14,10 +14,10 @@
     "static/media/delete.png": "/MoviesFinderAppReact/static/media/delete.7c8668f74059d6b938c7.png",
     "index.html": "/MoviesFinderAppReact/index.html",
     "main.910f8aae.css.map": "/MoviesFinderAppReact/static/css/main.910f8aae.css.map",
-    "main.ff5ee926.js.map": "/MoviesFinderAppReact/static/js/main.ff5ee926.js.map"
+    "main.014abe38.js.map": "/MoviesFinderAppReact/static/js/main.014abe38.js.map"
   },
   "entrypoints": [
     "static/css/main.910f8aae.css",
-    "static/js/main.ff5ee926.js"
+    "static/js/main.014abe38.js"
   ]
 }

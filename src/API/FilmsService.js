@@ -1,8 +1,7 @@
 import { ids } from "../utils/countries_genres_ids";
 import { defineMonth } from "../handlers/defineMonth";
 import { months } from "../utils/store";
-
-let API_KEY_NUMBER = 1;
+import { changeKeyHandler } from "./changeKeyHandler";
 
 const URL = {
   premiers:
@@ -39,6 +38,14 @@ const KEYS = [
   "ec134678-1ffb-48ac-9656-3991bb2e1ffd",
 ];
 
+let API_KEY_NUMBER = 0;
+
+const nextKey = () => {
+  const nextIndex = changeKeyHandler(KEYS, API_KEY_NUMBER);
+  API_KEY_NUMBER = nextIndex;
+  console.log(API_KEY_NUMBER);
+};
+
 const headers = {
   method: "GET",
   headers: {
@@ -58,6 +65,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err.status);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -69,6 +77,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -80,6 +89,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -91,6 +101,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -102,6 +113,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -113,6 +125,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -124,6 +137,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -135,6 +149,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -146,6 +161,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -181,6 +197,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return response;
     }
   }
@@ -198,6 +215,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return data;
     }
   }
@@ -215,6 +233,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return data;
     }
   }
@@ -232,6 +251,7 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
+      nextKey();
       return data;
     }
   }

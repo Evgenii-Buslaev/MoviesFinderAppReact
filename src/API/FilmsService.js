@@ -1,7 +1,6 @@
 import { ids } from "../utils/countries_genres_ids";
 import { defineMonth } from "../handlers/defineMonth";
 import { months } from "../utils/store";
-import { changeKeyHandler } from "./changeKeyHandler";
 
 const URL = {
   premiers:
@@ -29,7 +28,7 @@ const PacketURL = {
 const ID_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/filters";
 
 const KEYS = [
-  "8793b375-41ed-45e8-99f2-dddaf5296a1c",
+  /*   "8793b375-41ed-45e8-99f2-dddaf5296a1c", */
   "986eeea7-968e-4022-9877-e84daf01fcc7",
   "b0f850d3-735d-4517-84a1-f12798847e34",
   "d813835e-60a8-4642-b8f8-a6e3e19b9eef",
@@ -40,25 +39,16 @@ const KEYS = [
   "d914743b-6526-443d-9f6f-82560fa3ea3b",
 ];
 
-let API_KEY_NUMBER = 0;
-
-const headers = {
-  method: "GET",
-  headers: {
-    "X-API-KEY": KEYS[API_KEY_NUMBER],
-    "Content-Type": "application/json",
-  },
-};
-
-const nextKey = () => {
-  const nextIndex = changeKeyHandler(KEYS, API_KEY_NUMBER);
-  API_KEY_NUMBER = nextIndex;
-  console.log(API_KEY_NUMBER);
-};
-
 export default class FilmsService {
   static async getPremiers() {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[1],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(
         `${URL.premiers}${months[defineMonth()]}`,
@@ -68,103 +58,150 @@ export default class FilmsService {
     } catch (err) {
       console.log(err.status);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getFilms(page) {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[2],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(`${URL.films}${page}`, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getSeries(page) {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[3],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(`${URL.series}${page}`, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getShows(page) {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[4],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(`${URL.shows}${page}`, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getPacketComedies() {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[5],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(PacketURL.comedies, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getPacketRussianSeries() {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[6],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(PacketURL.russian_series, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getPacketSovietDetective() {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[7],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(PacketURL.soviet_detective, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getPacketChildrensCartoons() {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[0],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(PacketURL.children_cartoons, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
 
   static async getCountriesIds() {
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[1],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(ID_URL, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
@@ -195,12 +232,18 @@ export default class FilmsService {
     const search_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${keyword}${country_data}${genre_data}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=${yearsStart}&yearTo=${yearsEnd}&page=${page}`;
 
     let response;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[2],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(search_URL, headers);
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return response;
     }
   }
@@ -208,6 +251,13 @@ export default class FilmsService {
   static async getById(id) {
     let response;
     let data;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[3],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(`${URL.id}${id}`, headers);
     } catch (err) {
@@ -218,7 +268,6 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return data;
     }
   }
@@ -226,6 +275,13 @@ export default class FilmsService {
   static async getSimilarById(id) {
     let response;
     let data;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[4],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(`${URL.id}${id}/similars`, headers);
     } catch (err) {
@@ -236,7 +292,6 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return data;
     }
   }
@@ -244,6 +299,13 @@ export default class FilmsService {
   static async getVideoById(id) {
     let response;
     let data;
+    const headers = {
+      method: "GET",
+      headers: {
+        "X-API-KEY": KEYS[5],
+        "Content-Type": "application/json",
+      },
+    };
     try {
       response = await fetch(`${URL.id}${id}/videos`, headers);
     } catch (err) {
@@ -254,7 +316,6 @@ export default class FilmsService {
     } catch (err) {
       console.log(err);
     } finally {
-      nextKey();
       return data;
     }
   }

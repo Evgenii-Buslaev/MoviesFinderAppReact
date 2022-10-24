@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ddea2f0.css",
-    "main.js": "/static/js/main.1ab23b77.js",
-    "static/media/star.png": "/static/media/star.6794533c5cc567c90f2d.png",
-    "static/media/background.jpg": "/static/media/background.ed64b3c2b833ef007a7f.jpg",
-    "static/media/films.png": "/static/media/films.52535072f84ae498ac6f.png",
-    "static/media/logo.png": "/static/media/logo.8488831b2cfffe071fc1.png",
-    "static/media/user.png": "/static/media/user.c920752422c11377083e.png",
-    "static/media/close.png": "/static/media/close.0c28551bcc0acb1a65ff.png",
-    "static/media/search-dir.png": "/static/media/search-dir.83104698d4ab22aa03bc.png",
-    "static/media/loading.png": "/static/media/loading.8aab8067f9e2ee8a18dd.png",
-    "static/media/series.png": "/static/media/series.ab197cb7db86cac7b4d8.png",
-    "static/media/delete.png": "/static/media/delete.7c8668f74059d6b938c7.png",
-    "index.html": "/index.html",
-    "main.0ddea2f0.css.map": "/static/css/main.0ddea2f0.css.map",
-    "main.1ab23b77.js.map": "/static/js/main.1ab23b77.js.map"
+    "main.css": "/MoviesFinderAppReact/static/css/main.910f8aae.css",
+    "main.js": "/MoviesFinderAppReact/static/js/main.ff5ee926.js",
+    "static/media/star.png": "/MoviesFinderAppReact/static/media/star.6794533c5cc567c90f2d.png",
+    "static/media/background.jpg": "/MoviesFinderAppReact/static/media/background.ed64b3c2b833ef007a7f.jpg",
+    "static/media/films.png": "/MoviesFinderAppReact/static/media/films.52535072f84ae498ac6f.png",
+    "static/media/logo.png": "/MoviesFinderAppReact/static/media/logo.8488831b2cfffe071fc1.png",
+    "static/media/user.png": "/MoviesFinderAppReact/static/media/user.c920752422c11377083e.png",
+    "static/media/close.png": "/MoviesFinderAppReact/static/media/close.0c28551bcc0acb1a65ff.png",
+    "static/media/search-dir.png": "/MoviesFinderAppReact/static/media/search-dir.83104698d4ab22aa03bc.png",
+    "static/media/loading.png": "/MoviesFinderAppReact/static/media/loading.8aab8067f9e2ee8a18dd.png",
+    "static/media/series.png": "/MoviesFinderAppReact/static/media/series.ab197cb7db86cac7b4d8.png",
+    "static/media/delete.png": "/MoviesFinderAppReact/static/media/delete.7c8668f74059d6b938c7.png",
+    "index.html": "/MoviesFinderAppReact/index.html",
+    "main.910f8aae.css.map": "/MoviesFinderAppReact/static/css/main.910f8aae.css.map",
+    "main.ff5ee926.js.map": "/MoviesFinderAppReact/static/js/main.ff5ee926.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ddea2f0.css",
-    "static/js/main.1ab23b77.js"
+    "static/css/main.910f8aae.css",
+    "static/js/main.ff5ee926.js"
   ]
 }
